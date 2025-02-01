@@ -10,6 +10,8 @@ body {
     line-height: 1.6;
     margin: 20px;
     padding: 0;
+    background-color: #ECE0D1;
+    color: #634832;
 }
 
 header {
@@ -17,7 +19,9 @@ header {
     font-size: 1.5rem;
     font-weight: bold;
     padding: 15px 0;
-    border-bottom: 2px solid #ccc;
+    background-color: #DBC1AC;
+    color: #634832;
+    border-bottom: 2px solid #38220F;
 }
 
 nav {
@@ -47,39 +51,50 @@ nav ul li a {
     font-weight: bold;
     display: block;
     padding: 10px;
+    color: #38220F;
+    transition: color 0.3s ease-in-out;
+}
+
+nav ul li a:hover {
+    color: #634832;
 }
 
 main {
     max-width: 800px;
     margin: 0 auto;
     padding: 20px;
+    background-color: #DBC1AC;
+    border-radius: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+h1, h2, h3 {
+    font-weight: bold;
+    color: #38220F;
 }
 
 h1 {
     font-size: 1.8rem;
-    font-weight: bold;
     text-align: center;
     margin-bottom: 15px;
 }
 
 h2 {
     font-size: 1.5rem;
-    font-weight: bold;
     text-align: center;
     margin-bottom: 10px;
-    border-bottom: 1px solid #aaa;
+    border-bottom: 1px solid #38220F;
     padding-bottom: 5px;
 }
 
 h3 {
     font-size: 1.3rem;
-    font-weight: bold;
     margin-bottom: 8px;
 }
 
-p {
+p, ul li, figcaption {
+    color: #634832;
     text-align: justify;
-    margin-bottom: 15px;
 }
 
 ul {
@@ -106,13 +121,16 @@ figure img {
 figcaption {
     font-style: italic;
     margin-top: 8px;
+    color: #634832;
 }
 
 footer {
     text-align: center;
     padding: 15px 0;
-    border-top: 2px solid #ccc;
+    border-top: 2px solid #38220F;
     margin-top: 20px;
+    background-color: #DBC1AC;
+    color: #634832;
 }
 
 footer ul {
@@ -128,20 +146,30 @@ footer ul li {
 footer ul li a {
     text-decoration: none;
     font-size: 1rem;
+    font-weight: bold;
+    color: #38220F;
+    transition: color 0.3s ease-in-out;
+}
+
+footer ul li a:hover {
+    color: #634832;
 }
 
 footer p {
     margin-top: 10px;
 }
 
-footer a img {
-    margin: 10px 5px;
+footer .web-solutions {
+    font-weight: bold;
+    color: #38220F;
+    margin-top: 15px;
 }
 
 .signature {
     text-align: center;
     font-style: italic;
     margin-top: 20px;
+    color: #38220F;
 }
 
 @media (max-width: 768px) {

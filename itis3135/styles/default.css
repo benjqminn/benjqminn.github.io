@@ -160,6 +160,21 @@ footer .web-solutions {
     margin-top: 15px;
 }
 
+footer p a {
+    color: #38220F;
+    font-weight: bold;
+    text-decoration: none;
+    transition: color 0.3s ease-in-out;
+}
+
+footer p a:hover {
+    color: #634832;
+}
+
+footer p a:visited {
+    color: #38220F
+}
+
 .signature {
     text-align: center;
     font-style: italic;

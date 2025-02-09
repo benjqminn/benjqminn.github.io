@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Taylor Digital Solutions | Web Consulting &#38 Design</title>
+    <script src="https://lint.page/kit/4d0fe3.js" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    
+    <!-- Color Palette: https://coolors.co/palette/606c38-283618-fefae0-dda15e-bc6c25 -->
+    <style>
+        body {
+            font-family: 'Poppins', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #FEFAE0;
+            color: #283618;
+        }
+        header {
+            background-color: #283618;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 20px 40px;
+        }
+        header h1 {
+            display: flex;
+            align-items: center;
+            font-size: 1.5rem;
+            color: #FEFAE0;
+            gap: 10px;
+        }
+        header img {
+            height: 40px;
+        }
+        header nav {
+            display: flex;
+            gap: 15px;
+        }
+        header nav a {
+            text-decoration: none;
+            color: #FEFAE0;
+            font-weight: bold;
+            padding: 10px 15px;
+            border: 2px solid #FEFAE0;
+            border-radius: 5px;
+        }
+        header nav a:hover {
+            background-color: #FEFAE0;
+            color: #283618;
+        }
+        main {
+            text-align: center;
+            padding: 60px 20px;
+        }
+        .hero {
+            max-width: 800px;
+            margin: auto;
+            padding: 10px;
+            background-color: #FEFAE0;
+            color: #283618;
+            border-radius: 10px;
+        }
+        .hero h2 {
+            font-size: 2rem;
+            color: #BC6C25;
+            margin-bottom: 20px;
+        }
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+        }
+        .hero ul {
+            list-style: square;
+            padding-left: 20px;
+            text-align: left;
+            max-width: 600px;
+            margin: 25px auto;
+            list-style-type: "💡";
+        }
+        .hero ul li {
+            margin: 18px 0;
+        }
+        .contact {
+            background-color: #606C38;
+            color: #FEFAE0;
+            padding: 20px;
+            margin-top: 20px;
+            border-radius: 10px;
+            text-align: left;
+            max-width: 600px;
+            margin: auto;
+        }
+        footer {
+            background-color: #606C38;
+            padding: 20px;
+            text-align: center;
+            font-size: 0.9rem;
+            color: #FEFAE0;
+        }
+        .footer-validation {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            margin-top: 10px;
+        }
+        .footer-validation img {
+            height: 25px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>
+            <img src="images/favicon_io/favicon-32x32.png" alt="Taylor Digital Solutions Logo">
+            Taylor Digital Solutions
+        </h1>
+        <nav>
+            <a href="#">Home</a>
+            <a href="#">Services</a>
+            <a href="#">Contact</a>
+        </nav>
+    </header>
+    
+    <main>
+        <section class="hero">
+            <h2><strong>Taylor Digital Solutions' Services</strong></h2>
+            <p>Founded by <em>Benjamin Taylor</em>, here at Taylor Digital Solutions we deliver cutting-edge web design and consulting solutions tailored to your needs. Our focus is on driving innovation, optimizing user experiences, and achieving your goals.</p>
+            
+            <ul>
+                <li>We create beautiful, amazing websites.</li>
+                <li>Super clean code.</li>
+                <li>Optimized for any device.</li>
+                <li>Microsoft's top competitor.</li>
+                <li>Only the best fonts used.</li>
+            </ul>
+            
+            <p>Let's get started bringing your ideas to life and creating something to be proud of. Reach out today to get started!</p>
+            
+            <div class="contact">
+                <p><strong>Email:</strong> info@taylordigital.co</p>
+                <p><strong>Phone:</strong> (704) 069-4200</p>
+                <p><strong>Address:</strong> 9201 University City Blvd, Charlotte, NC 28223</p>
+            </div>
+        </section>
+    </main>
+    
+    <footer>
+        <p>&copy; 2025 Taylor Digital Solutions.</p>
+        <div class="footer-validation">
+            <a href="https://validator.w3.org/check?uri=referer" id="validation-link-html">
+                <img src="https://mytienhoang.github.io/itis3135/z_archives/html_validation.png" alt="Valid HTML!">
+            </a>
+            <a href="https://jigsaw.w3.org/css-validator/check/referer" id="validation-link-css">
+                <img src="https://jigsaw.w3.org/css-validator/images/vcss" alt="Valid CSS!">
+            </a>
+        </div>
+    </footer>
+    
+    <script>
+        document.getElementById("validation-link-html").setAttribute("href", "https://validator.w3.org/check?uri=" + location.href);
+        document.getElementById("validation-link-css").setAttribute("href", "https://jigsaw.w3.org/css-validator/validator?uri=" + location.href);
+    </script>
+</body>
+</html>

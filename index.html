@@ -4,208 +4,201 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Benjamin Taylor's Brawny Toucan ~ ITIS 3135</title>
-	<style>
-		body {
-			font-family: Calibri, sans-serif;
-			font-size: 18px;
-			line-height: 1.6;
-			margin: 20px;
-			padding: 0;
-			background-color: #ECE0D1;
-			color: #634832;
+    <style>
+        body {
+            font-family: Calibri, sans-serif;
+            font-size: 18px;
+            line-height: 1.6;
+            margin: 20px;
+            padding: 0;
+            background-color: #ECE0D1;
+            color: #634832;
+        }
+        
+        header {
+            text-align: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+            padding: 15px 0;
+            background-color: #DBC1AC;
+            color: #634832;
+            border-bottom: 2px solid #38220F;
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            max-width: 800px;
+            margin: 15px auto;
+            padding: 10px 0;
+        }
+        
+        nav ul {
+            display: flex;
+            width: 100%;
+            justify-content: space-between;
+            list-style: none;
+            padding: 0;
+        }
+        
+        nav ul li {
+            flex: 1;
+            text-align: center;
+        }
+        
+        nav ul li a {
+            text-decoration: none;
+            color: #38220F;
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            font-weight: bold;
+            padding: 10px;
+            transition: color 0.3s;
+        }
+        
+        nav ul li a:hover {
+            color: #634832;
+        }
+        
+        main {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #DBC1AC;
+            border-radius: 10px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+        }
+        
+        h1 {
+            font-weight: bold;
+            color: #38220F;
+            font-size: 1.8rem;
+            text-align: center;
+            margin-bottom: 15px;
+        }
+        
+        h2 {
+            font-weight: bold;
+            color: #38220F;
+            font-size: 1.5rem;
+            text-align: center;
+            margin-bottom: 10px;
+            padding-bottom: 5px;
+        }
+        
+        h3 {
+            font-weight: bold;
+            color: #38220F;
+            font-size: 1.3rem;
+            margin-bottom: 8px;
+        }
+        
+        p, ul li, figcaption {
+            color: #634832;
+            text-align: justify;
+        }
+        
+        ul {
+            margin-left: 20px;
+            padding-left: 15px;
+        }
+        
+        ul li {
+            margin-bottom: 8px;
+        }
+
+		.footer-logo img {
+        width: 30px; 
+        height: auto;
 		}
-		
-		header {
-			text-align: center;
-			font-size: 1.5rem;
-			font-weight: bold;
-			padding: 15px 0;
-			background-color: #DBC1AC;
-			color: #634832;
-			border-bottom: 2px solid #38220F;
-		}
-		
-		nav {
-			display: flex;
-			justify-content: space-between;
-			max-width: 800px;
-			margin: 15px auto;
-			padding: 10px 0;
-		}
-		
-		nav ul {
-			display: flex;
-			width: 100%;
-			justify-content: space-between;
-			list-style: none;
-			padding: 0;
-		}
-		
-		nav ul li {
-			flex: 1;
-			text-align: center;
-		}
-		
-		nav ul li a {
-			text-decoration: none;
+
+		.footer-logo p {
+			margin: 0;
+			padding-left: 10px; 
 			font-size: 1rem;
-			font-weight: bold;
-			display: block;
-			padding: 10px;
-			color: #38220F;
-			transition: color 0.3s ease-in-out;
+			align-items: center; 
+            padding-left: 10px;
 		}
-		
-		nav ul li a:hover {
-			color: #634832;
-		}
-		
-		main {
-			max-width: 800px;
-			margin: 0 auto;
-			padding: 20px;
-			background-color: #DBC1AC;
-			border-radius: 10px;
-			box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
-		}
-		
-		h1 {
-			font-weight: bold;
-			color: #38220F;
-			font-size: 1.8rem;
-			text-align: center;
-			margin-bottom: 15px;
-		}
-		
-		h2 {
-			font-weight: bold;
-			color: #38220F;
-			font-size: 1.5rem;
-			text-align: center;
-			margin-bottom: 10px;
-			border-bottom: 1px solid #38220F;
-			padding-bottom: 5px;
-		}
-		
-		h3 {
-			font-weight: bold;
-			color: #38220F;
-			font-size: 1.3rem;
-			margin-bottom: 8px;
-		}
-		
-		p, ul li, figcaption {
-			color: #634832;
-			text-align: justify;
-		}
-		
-		ul {
-			margin-left: 20px;
-			padding-left: 15px;
-		}
-		
-		ul li {
-			margin-bottom: 8px;
-		}
-		
-		figure {
-			display: flex;
-			flex-direction: column;
-			align-items: center;
-			margin: 20px 0;
-		}
-		
-		figure img {
-			width: 200px;
-			border-radius: 8px;
-		}
-		
-		figcaption {
-			font-style: italic;
-			margin-top: 8px;
-			color: #634832;
-		}
-		
-		footer {
-			text-align: center;
-			padding: 15px 0;
-			border-top: 2px solid #38220F;
-			margin-top: 20px;
-			background-color: #DBC1AC;
-			color: #634832;
-		}
-		
-		footer ul {
-			list-style: none;
-			padding: 0;
-		}
-		
-		footer ul li {
-			display: inline;
-			margin: 0 10px;
-		}
-		
-		footer ul li a {
-			text-decoration: none;
-			font-size: 1rem;
-			font-weight: bold;
-			color: #38220F;
-			transition: color 0.3s ease-in-out;
-		}
-		
-		footer ul li a:hover {
-			color: #634832;
-		}
-		
-		footer p {
-			margin-top: 10px;
-		}
-		
-		footer .web-solutions {
-			font-weight: bold;
-			color: #38220F;
-			margin-top: 15px;
-		}
-		
-		.signature {
-			text-align: center;
-			font-style: italic;
-			margin-top: 20px;
-			color: #38220F;
-		}
-		
-		@media (max-width: 768px) {
-			nav ul {
-				flex-direction: column;
-				text-align: center;
-			}
-		
-			nav ul li {
-				width: 100%;
-			}
-		
-			main {
-				width: 90%;
-			}
-		
-			figure img {
-				width: 100%;
-				max-width: 300px;
-			}
-		}
-		</style>
-    <script src="https://lint.page/kit/4d0fe3.js" crossorigin="anonymous"></script>
+        
+        footer {
+            text-align: center;
+            padding: 15px 0;
+            border-top: 2px solid #38220F;
+            margin-top: 20px;
+            background-color: #DBC1AC;
+            color: #634832;
+        }
+        
+        footer ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        footer ul li {
+            display: inline;
+            margin: 0 10px;
+        }
+        
+        footer ul li a {
+            text-decoration: none;
+            font-size: 1rem;
+            font-weight: bold;
+            color: #38220F;
+            transition: color 0.3s ease-in-out;
+        }
+        
+        footer ul li a:hover {
+            color: #634832;
+        }
+        
+        footer p {
+            margin-top: 10px;
+        }
+        
+        footer .web-solutions {
+            font-weight: bold;
+            color: #38220F;
+            margin-top: 15px;
+        }
+        
+        .signature {
+            text-align: center;
+            font-style: italic;
+            margin-top: 20px;
+            color: #38220F;
+        }
+        
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+                text-align: center;
+            }
+        
+            nav ul li {
+                width: 100%;
+            }
+        
+            main {
+                width: 90%;
+            }
+        
+            .logo img {
+                max-width: 100%;
+                max-height: 150px;
+            }
+        }
+    </style>
 </head>
 <body>
-    
     <header>
         <h1>Benjamin Taylor's Brawny Toucan ~ ITIS 3135</h1>
-        <p>UNC Charlotte | Computer Science Student</p>
+        <h2>UNC Charlotte | Computer Science Student</h2>
     </header>
 
     <nav>
         <ul>
-            <li><a href="itis3135/index.html">ITIS-3135 Course Page</a></li>
+            <li><a href="itis3135/index.html">ITIS-3135 COURSE PAGE</a></li>
+            <li><a href="brawnytoucan_supps/home.html">SUPPLEMENT BUSINESS</a></li>
         </ul>
     </nav>
 
@@ -224,22 +217,10 @@
             <li><a href="https://www.codecademy.com/profiles/benjqminn">Codecademy</a></li>
             <li><a href="https://www.linkedin.com/in/btayl106/">LinkedIn</a></li>
         </ul>
-        <p>Designed by <strong>Taylor Web Solutions</strong> ©2025</p>
-
-        <p>Validate: 
-            <a href="https://validator.w3.org/check?uri=referer" id="validation-link-html">
-                <img src="https://mytienhoang.github.io/itis3135/z_archives/html_validation.png" alt="Valid HTML!">
-            </a>
-            <a href="https://jigsaw.w3.org/css-validator/check/referer" id="validation-link-css">
-                <img src="https://jigsaw.w3.org/css-validator/images/vcss" alt="Valid CSS!">
-            </a>
-        </p>
+		
+        <p><div class="footer-logo">
+			<img src="itis3135/images/uncc__logo.png" alt="UNC Charlotte Logo">
+		Designed by <strong>Taylor Web Solutions</strong> ©2025 </div></p>
     </footer>
-
-    <script>
-        document.getElementById("validation_link_html").setAttribute("href", "https://validator.w3.org/check?uri=" + location.href);
-        document.getElementById("validation_link_css").setAttribute("href", "https://jigsaw.w3.org/css-validator/validator?uri=" + location.href);
-    </script>
-
 </body>
 </html>

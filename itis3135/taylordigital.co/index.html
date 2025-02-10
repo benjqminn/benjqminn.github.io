@@ -108,6 +108,35 @@
         .footer-validation img {
             height: 25px;
         }
+        .hero img {
+            max-width: fit-content; 
+            width: auto; 
+            max-height: 18rem; 
+            display: block;
+            margin: auto; 
+        }
+        .hero-header {
+            display: flex;
+            align-items: center;
+            justify-content: center; 
+            text-align: center;
+            width: 100%; 
+        }
+
+        .hero-header img {
+            height: 100px;
+            width: auto;
+            margin-right: -1px;
+        }
+
+        .hero-header h2 {
+            font-size: 2.5rem;
+            color: #BC6C25;
+            margin: 0;
+            padding-left: 5px; 
+            white-space: nowrap;
+            text-align: center;
+        }
     </style>
 </head>
 <body>
@@ -126,7 +155,10 @@
     
     <main>
         <section class="hero">
-            <h2><strong>Taylor Digital Solutions' Services</strong></h2>
+            <div class="hero-header">
+                <img src="images/TDS_toucan.png" alt="Taylor Digital Solutions Logo">
+                <h2><strong>Taylor Digital Solutions' Services</strong></h2>
+            </div>
             <p>Founded by <em>Benjamin Taylor</em>, here at Taylor Digital Solutions we deliver cutting-edge web design and consulting solutions tailored to your needs. Our focus is on driving innovation, optimizing user experiences, and achieving your goals.</p>
             
             <ul>
@@ -138,7 +170,8 @@
             </ul>
             
             <p>Let's get started bringing your ideas to life and creating something to be proud of. Reach out today to get started!</p>
-            
+            <img style="padding-bottom: 40px" src="images\brawny_toucan_web_solutions.webp" alt="Taylor Digital Solutions Banner">
+       
             <div class="contact">
                 <p><strong>Email:</strong> info@taylordigital.co</p>
                 <p><strong>Phone:</strong> (704) 069-4200</p>

@@ -210,3 +210,11 @@ footer p a:visited {
     color: black;
     text-transform: uppercase;
 }
+
+.footer-validation {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-top: 10px;
+}

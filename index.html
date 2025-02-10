@@ -107,6 +107,13 @@
             margin-bottom: 8px;
         }
 
+        .footer-logo {
+            display: flex;
+            align-items: center; 
+            justify-content: center; 
+            gap: 0px; 
+        }
+
 		.footer-logo img {
         width: 30px; 
         height: auto;
@@ -147,10 +154,20 @@
             transition: color 0.3s ease-in-out;
         }
         
-        footer ul li a:hover {
+        footer p a:hover {
             color: #634832;
         }
         
+        footer p a {
+            color: #38220F; 
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        footer p a:visited {
+            color: #634832 !important;
+        }
+
         footer p {
             margin-top: 10px;
         }
@@ -187,6 +204,13 @@
                 max-height: 150px;
             }
         }
+        .footer-validation {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            margin-top: 10px;
+        }
     </style>
 </head>
 <body>
@@ -218,9 +242,22 @@
             <li><a href="https://www.linkedin.com/in/btayl106/">LinkedIn</a></li>
         </ul>
 		
-        <p><div class="footer-logo">
-			<img src="itis3135/images/uncc__logo.png" alt="UNC Charlotte Logo">
-		Designed by <a href="itis3135/taylordigital.co/index.html"><strong>Taylor Digital Solutions</strong></a> ©2025 </div></p>
+        <div class="footer-logo">
+            <img src="itis3135/images/uncc__logo.png" alt="UNC Charlotte Logo">
+            <p>
+                Designed by <a href="itis3135/taylordigital.co/index.html"><strong>Taylor Digital Solutions</strong></a> ©2025
+            </p>
+        </div>
+        <div class="footer-validation">
+            <p>
+                <a href="https://validator.w3.org/check?uri=referer" id="validation-link-html">
+                    <img src="https://mytienhoang.github.io/itis3135/z_archives/html_validation.png" alt="Valid HTML!">
+                </a>
+                <a href="https://jigsaw.w3.org/css-validator/check/referer" id="validation-link-css">
+                    <img src="https://jigsaw.w3.org/css-validator/images/vcss" alt="Valid CSS!">
+                </a>
+            </p>
+        </div>
     </footer>
 </body>
 </html>

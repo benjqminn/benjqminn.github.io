@@ -43,6 +43,21 @@
     <footer>
         <p>Designed by <a href="../itis3135/taylordigital.co/index.html"><strong>Taylor Digital Solutions</strong></a> ©2025</p>
         <p><em>"Fuel the Beast. Dominate the Gym."</em></p>
+        <div class="footer-validation">
+            <p>
+                <a href="https://validator.w3.org/check?uri=referer" id="validation-link-html">
+                    <img src="https://mytienhoang.github.io/itis3135/z_archives/html_validation.png" alt="Valid HTML!">
+                </a>
+                <a href="https://jigsaw.w3.org/css-validator/check/referer" id="validation-link-css">
+                    <img src="https://jigsaw.w3.org/css-validator/images/vcss" alt="Valid CSS!">
+                </a>
+            </p>
+        </div>
     </footer>
+
+    <script>
+        document.getElementById("validation_link_html").setAttribute("href", "https://validator.w3.org/check?uri=" + location.href);
+        document.getElementById("validation_link_css").setAttribute("href", "https://jigsaw.w3.org/css-validator/validator?uri=" + location.href);
+    </script>
 </body>
 </html>

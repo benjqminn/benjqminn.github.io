@@ -119,6 +119,26 @@ figcaption {
     color: #634832;
 }
 
+.footer-logo {
+    display: flex;
+    align-items: center; 
+    justify-content: center; 
+    gap: 0px; 
+}
+
+.footer-logo img {
+width: 30px; 
+height: auto;
+}
+
+.footer-logo p {
+    margin: 0;
+    padding-left: 10px; 
+    font-size: 1rem;
+    align-items: center; 
+    padding-left: 10px;
+}
+
 footer {
     text-align: center;
     padding: 15px 0;
@@ -146,8 +166,18 @@ footer ul li a {
     transition: color 0.3s ease-in-out;
 }
 
-footer ul li a:hover {
+footer p a:hover {
     color: #634832;
+}
+
+footer p a {
+    color: #38220F; 
+    font-weight: bold;
+    text-decoration: none;
+}
+
+footer p a:visited {
+    color: #634832 !important;
 }
 
 footer p {
@@ -158,21 +188,6 @@ footer .web-solutions {
     font-weight: bold;
     color: #38220F;
     margin-top: 15px;
-}
-
-footer p a {
-    color: #38220F;
-    font-weight: bold;
-    text-decoration: none;
-    transition: color 0.3s ease-in-out;
-}
-
-footer p a:hover {
-    color: #634832;
-}
-
-footer p a:visited {
-    color: #38220F
 }
 
 .signature {
@@ -200,4 +215,12 @@ footer p a:visited {
         width: 100%;
         max-width: 300px;
     }
+}
+
+.footer-validation {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-top: 10px;
 }

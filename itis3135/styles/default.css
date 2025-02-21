@@ -16,7 +16,7 @@ header {
     padding: 15px 0;
     background-color: #DBC1AC;
     color: #634832;
-    border-bottom: 2px solid #38220F;
+    border-bottom: 2px solid #634832;
 }
 
 nav {
@@ -25,6 +25,8 @@ nav {
     max-width: 800px;
     margin: 15px auto;
     padding: 10px 0;
+    color: #634832;
+
 }
 
 nav ul {
@@ -42,7 +44,7 @@ nav ul li {
 
 nav ul li a {
     text-decoration: none;
-    color: #38220F;
+    color: #634832;
     font-size: 1.1rem;
     text-transform: uppercase;
     font-weight: bold;
@@ -65,7 +67,7 @@ main {
 
 h1 {
     font-weight: bold;
-    color: #38220F;
+    color: #634832;
     font-size: 1.8rem;
     text-align: center;
     margin-bottom: 15px;
@@ -73,7 +75,7 @@ h1 {
 
 h2 {
     font-weight: bold;
-    color: #38220F;
+    color: #634832;
     font-size: 1.5rem;
     text-align: center;
     margin-bottom: 10px;
@@ -151,6 +153,7 @@ footer {
 footer ul {
     list-style: none;
     padding: 0;
+    color: #634832;
 }
 
 footer ul li {
@@ -162,7 +165,7 @@ footer ul li a {
     text-decoration: none;
     font-size: 1rem;
     font-weight: bold;
-    color: #38220F;
+    color: #634832;
     transition: color 0.3s ease-in-out;
 }
 
@@ -171,13 +174,13 @@ footer p a:hover {
 }
 
 footer p a {
-    color: #38220F; 
+    color: #634832; 
     font-weight: bold;
     text-decoration: none;
 }
 
 footer p a:visited {
-    color: #634832 !important;
+    color: #634832;
 }
 
 footer p {
@@ -186,7 +189,7 @@ footer p {
 
 footer .web-solutions {
     font-weight: bold;
-    color: #38220F;
+    color: #634832;
     margin-top: 15px;
 }
 
@@ -194,7 +197,7 @@ footer .web-solutions {
     text-align: center;
     font-style: italic;
     margin-top: 20px;
-    color: #38220F;
+    color: #634832;
 }
 
 @media (max-width: 768px) {

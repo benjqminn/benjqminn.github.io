@@ -6,58 +6,18 @@
     <title>Benjamin Taylor's Brawny Toucan ~ ITIS 3135</title>
     <link rel="stylesheet" href="styles/default.css">
     <script src="https://lint.page/kit/4d0fe3.js" crossorigin="anonymous"></script>
+    <script src="scripts/IncludeHTML.js" defer></script>
 </head>
 <body>
     
-    <header>
-        <h1>Benjamin Taylor's Brawny Toucan ~ ITIS 3135</h1>
-        <h2>UNC Charlotte | Computer Science Student</h2>
-    </header>
-
-    <nav>
-        <ul>
-            <li><a href="./">Home</a></li>
-            <li><a href="introduction.html">Introduction</a></li>
-            <li><a href="contract.html">Contract</a></li>
-            <li><a href="../index.html">Back to UNCC</a></li>
-        </ul>
-    </nav>
+    <div data-include="components/header.html"></div>
 
     <main>
         <h2>ITIS-3135 Home</h2>
         <p>This is all the content for my ITIS 3135 class.</p>
     </main>
 
-    <footer>
-        <ul>
-            <li><a href="https://charlotte.edu/">Charlotte.edu</a></li>
-            <li><a href="https://github.com/benjqminn">GitHub</a></li>
-            <li><a href="https://benjqminn.github.io">GitHub.io</a></li>
-            <li><a href="https://benjqminn.github.io/itis3135">ITIS 3135 GitHub.io</a></li>
-            <li><a href="https://www.freecodecamp.org/benjqmin">Freecodecamp</a></li>
-            <li><a href="https://www.codecademy.com/profiles/benjqminn">Codecademy</a></li>
-            <li><a href="https://www.linkedin.com/in/btayl106/">LinkedIn</a></li>
-        </ul>
-		
-        <div class="footer-logo">
-            <img src="images/uncc__logo.png" alt="UNC Charlotte Logo">
-            <p>
-                Designed by <a href="itis3135/taylordigital.co/index.html"><strong>Taylor Digital Solutions</strong></a>, 
-                <em><a href="https://www.freecodecamp.org/certification/benjqmin/responsive-web-design">Certified in Responsive Web Design</a></em> ©2025
-            </p>
-        </div>
-        <div class="footer-validation">
-            <p>
-                <a href="https://validator.w3.org/check?uri=referer" id="validation-link-html">
-                    <img src="https://mytienhoang.github.io/itis3135/z_archives/html_validation.png" alt="Valid HTML!">
-                </a>
-                <a href="https://jigsaw.w3.org/css-validator/check/referer" id="validation-link-css">
-                    <img src="https://jigsaw.w3.org/css-validator/images/vcss" alt="Valid CSS!">
-                </a>
-            </p>
-        </div>
-
-    </footer>
+    <div data-include="components/footer.html"></div>
 
     <script>
         document.getElementById("validation_link_html").setAttribute("href", "https://validator.w3.org/check?uri=" + location.href);

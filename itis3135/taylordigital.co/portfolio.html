@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Taylor Digital Solutions | Web Consulting &#38 Design</title>
+    <title>Taylor Digital Solutions | Web Consulting &#38; Design</title>
     <script src="https://lint.page/kit/4d0fe3.js" crossorigin="anonymous"></script>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
     
@@ -23,7 +23,7 @@
             justify-content: space-between;
             padding: 20px 40px;
         }
-        header h1 {
+        header .head1 {
             display: flex;
             align-items: center;
             font-size: 1.5rem;
@@ -49,15 +49,12 @@
             background-color: #FEFAE0;
             color: #283618;
         }
+        header nav a:visited {
+            color: #FEFAE0;
+        }
         main {
             text-align: center;
             padding: 60px 20px;
-        }
-        ul a:hover {
-            color: #38220F;
-        }
-        ul a:visited {
-            color: #38220F;
         }
         .hero {
             max-width: 800px;
@@ -67,11 +64,7 @@
             color: #283618;
             border-radius: 10px;
         }
-        .hero h2 {
-            font-size: 2rem;
-            color: #BC6C25;
-            margin-bottom: 20px;
-        }
+        
         .hero p {
             font-size: 1.2rem;
             margin-bottom: 30px;
@@ -82,10 +75,14 @@
             text-align: left;
             max-width: 600px;
             margin: 25px auto;
-            list-style-type: "🚧";
+            list-style-type: "💡";
         }
         .hero ul li {
             margin: 18px 0;
+        }
+
+        .hero ul li a:visited {
+            color: #283618;
         }
         .contact {
             background-color: #606C38;
@@ -114,11 +111,48 @@
         .footer-validation img {
             height: 25px;
         }
+        .hero img {
+            max-width: fit-content; 
+            width: auto; 
+            max-height: 18rem; 
+            display: block;
+            margin: auto; 
+        }
+        .hero-header {
+            display: flex;
+            align-items: center;
+            justify-content: center; 
+            text-align: center;
+            width: 100%; 
+        }
+
+        .hero-header img {
+            height: 100px;
+            width: auto;
+            margin-right: -1px;
+        }
+
+        .hero-header .hero2 {
+            font-size: 2rem;
+            color: #BC6C25;
+            margin-bottom: 20px;
+            padding-left: 5px; 
+            padding-right: 100px;
+            white-space: nowrap;
+            text-align: center;
+        }
+
+        .hero .title1 {
+            font-size: 2rem;
+            color: #BC6C25;
+            margin-bottom: 20px;
+        }
+
     </style>
 </head>
 <body>
     <header>
-        <h1>
+        <h1 class="head1">
             <img src="images/favicon_io/favicon-32x32.png" alt="Taylor Digital Solutions Logo">
             Taylor Digital Solutions
         </h1>
@@ -132,13 +166,12 @@
     
     <main>
         <section class="hero">
-            <h2><strong>Active Development Projects</strong></h2>   
+            <h2 class="title1"><strong>Active Development Projects</strong></h2>   
             <ul>
                 <li>&nbsp;<a href="../../index.html">UNCC Homepage</a></li>
                 <li>&nbsp;<a href="../index.html">ITIS 3135 Course Page</a></li>
                 <li>&nbsp;<a href="../../brawnytoucan_supps/home.html">Brawny Toucan Supplements</a></li>
             </ul>
-            
         </section>
     </main>
     
@@ -153,10 +186,5 @@
             </a>
         </div>
     </footer>
-    
-    <script>
-        document.getElementById("validation-link-html").setAttribute("href", "https://validator.w3.org/check?uri=" + location.href);
-        document.getElementById("validation-link-css").setAttribute("href", "https://jigsaw.w3.org/css-validator/validator?uri=" + location.href);
-    </script>
 </body>
 </html>

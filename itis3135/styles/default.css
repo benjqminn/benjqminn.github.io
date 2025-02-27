@@ -62,9 +62,9 @@ nav ul li a:hover {
 }
 
 main {
-    max-width: 800px;
-    margin: 15px auto;
-    padding: 20px;
+    max-width: 1200px;
+    width: 90%;
+    margin: 0 auto;
     border-radius: 10px;
 }
 
@@ -120,7 +120,6 @@ h3 a:visited {
 .small-logo .logo-title {
     margin: 0;
 }
-
 
 p, ul li, figcaption {
     color: #634832;
@@ -234,9 +233,15 @@ footer .web-solutions {
     color: #634832;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
+    nav {
+        flex-direction: column;
+        align-items: center;
+    }
+
     nav ul {
         flex-direction: column;
+        width: 100%;
         text-align: center;
     }
 
@@ -245,7 +250,32 @@ footer .web-solutions {
     }
 
     main {
-        width: 90%;
+        max-width: 90%;
+        width: 95%;
+    }
+
+    figure img {
+        width: 100%;
+        max-width: 400px;
+    }
+}
+
+@media (max-width: 768px) {
+    nav {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    nav ul {
+        flex-direction: column;
+    }
+
+    nav ul li {
+        width: 100%;
+    }
+
+    main {
+        width: 100%;
     }
 
     figure img {

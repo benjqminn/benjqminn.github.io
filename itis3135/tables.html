@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Tables ~ ITIS 3135</title>
+    <link rel="stylesheet" href="styles/default.css">
+    <script src="https://lint.page/kit/4d0fe3.js" crossorigin="anonymous"></script>
+    <script src="scripts/IncludeHTML.js" defer></script>
+    <style>
+        table {
+            box-sizing: border-box;
+            border-collapse: collapse;
+            border: 1px solid #283618;
+            width: 100%;
+            font-size: 1em;
+        }
+
+        th {
+            background-color: #3a5a40;
+            color: #dad7cd;
+            padding: 10px 5px;
+        }
+
+        tr:nth-child(even) {
+            background-color: #ccd5ae;
+            color: #344e41;
+            text-align: center;
+            padding: 10px 5px;
+        }
+
+        tr:nth-child(odd) {
+            background-color: #e9edc9;
+            text-align: center;
+            padding: 10px 5px;
+        }
+
+        .headingElement {
+            background-color: #bfc4ac;
+            color: #3a5a40;
+            font-weight: bold;
+            text-align: center;
+            border-top: 1px solid #283618;
+            border-bottom: 1px solid #283618;
+            padding: 10px 5px;
+        }
+
+        tr:hover {
+            background-color: #a3b18a;
+            color: #283618;
+        }
+
+        .centered {
+            text-align: center;
+        }
+
+        ol {
+            display: table;
+            margin-left: auto;
+            margin-right: auto;
+            list-style-position: inside;
+        }
+
+        hr {
+            margin: 25px 25px;
+            height: 1px;
+            background-color: #283618;
+        }
+
+
+        </style>
+</head>
+<body>
+    
+    <div data-include="components/header.html"></div>
+
+    <main>
+        <h2>Tables</h2>
+
+        <h3 class="centered">Employee Data (Listed)</h3>
+        <ol>
+            <li >Michael McFerren, mmcferren@gmail.com, 3, $80,000</li>
+            <li>Jonathan Lutabingwa, jlutabingwa@gmail.com, 6, $97,000</li>
+            <li>Greyson Brummer, gbrummer@gmail.com, 4, $85,000</li>
+            <li>Thomas Dickinson, tdickinson@gmail.com, 2, $75,000</li>
+            <li>Benjamin Taylor, btaylor@gmail.com, 7, $180,000</li>
+            <li>Jaylee Vasquez, jvasquez@gmail.com, 1, $70,000</li>
+            <li>Ty Wilkie, twilkie@gmail.com, 3, $55,000</li>
+        </ol>
+        <hr>
+        <h3 class="centered">Employee Data in Simple Table</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th scope="col">Name</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Years of Service</th>
+                    <th scope="col">Salary (Annual)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Michael McFerren</td>
+                    <td>mmcferren@gmail.com</td>
+                    <td>3</td>
+                    <td>$80,000</td>
+                </tr>
+                <tr>
+                    <td>Jonathan Lutabingwa</td>
+                    <td>jlutabingwa@gmail.com</td>
+                    <td>6</td>
+                    <td>$97,000</td>
+                </tr>
+                <tr>
+                    <td>Greyson Brummer</td>
+                    <td>gbrummer@gmail.com</td>
+                    <td>4</td>
+                    <td>$85,000</td>
+                </tr>
+                <tr>
+                    <td>Thomas Dickinson</td>
+                    <td>tdickinson@gmail.com</td>
+                    <td>2</td>
+                    <td>$75,000</td>
+                </tr>
+                <tr>
+                    <td>Benjamin Taylor</td>
+                    <td>btaylor@gmail.com</td>
+                    <td>7</td>
+                    <td>$180,000</td>
+                </tr>
+                <tr>
+                    <td>Jaylee Vasquez</td>
+                    <td>jvasquez@gmail.com</td>
+                    <td>1</td>
+                    <td>$70,000</td>
+                </tr>
+                <tr>
+                    <td>Ty Wilkie</td>
+                    <td>twilkie@gmail.com</td>
+                    <td>3</td>
+                    <td>$55,000</td>
+                </tr>
+            </tbody>
+        </table>
+        <hr>
+        <h3 class="centered">Employee Data in Complex Table</h3>
+        <figure>
+            <figcaption><strong>Employee Information</strong></figcaption>
+            <table>
+                <thead>
+                    <tr>
+                        <th scope="col">Category</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Years of Service</th>
+                        <th scope="col">Salary (Annual)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td rowspan="1" class="headingElement">Management</td>
+                        <td>Benjamin Taylor</td>
+                        <td>btaylor@gmail.com</td>
+                        <td>7</td>
+                        <td>$180,000</td>
+                    </tr>
+                    <tr>
+                        <td rowspan="2" class="headingElement">Accounting</td>
+                        <td>Thomas Dickinson</td>
+                        <td>tdickinson@gmail.com</td>
+                        <td>2</td>
+                        <td>$75,000</td>
+                    </tr>
+                    <tr>
+                        <td>Michael McFerren</td>
+                        <td>mmcferren@gmail.com</td>
+                        <td>3</td>
+                        <td>$80,000</td>
+                    </tr>
+                    <tr>
+                        <td rowspan="2" class="headingElement">Engineering</td>
+                        <td>Jonathan Lutabingwa</td>
+                        <td>jlutabingwa@gmail.com</td>
+                        <td>6</td>
+                        <td>$97,000</td>
+                    </tr>
+                    <tr>
+                        <td>Greyson Brummer</td>
+                        <td>gbrummer@gmail.com</td>
+                        <td>4</td>
+                        <td>$85,000</td>
+                    </tr>
+                    <tr>
+                        <td rowspan="1" class="headingElement">Marketing</td>
+                        <td>Ty Wilkie</td>
+                        <td>twilkie@gmail.com</td>
+                        <td>3</td>
+                        <td>$55,000</td>
+                    </tr>
+                    <tr>
+                        <td rowspan="1" class="headingElement">Social Media</td>
+                        <td>Jaylee Vasquez</td>
+                        <td>jvasquez@gmail.com</td>
+                        <td>1</td>
+                        <td>$70,000</td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <th colspan="3">Total Years of Service</th>
+                        <td>26</td>
+                        <td>$637,000</td>
+                    </tr>
+                </tfoot>                
+            </table>
+        </figure>
+    </main>
+
+    <div data-include="components/footer.html"></div>
+
+    <script>
+        document.getElementById("validation_link_html").setAttribute("href", "https://validator.w3.org/check?uri=" + location.href);
+        document.getElementById("validation_link_css").setAttribute("href", "https://jigsaw.w3.org/css-validator/validator?uri=" + location.href);
+    </script>
+
+</body>
+</html>

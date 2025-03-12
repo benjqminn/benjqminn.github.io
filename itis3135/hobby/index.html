@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bodybuilding - Hobby Website</title>
+    <link rel="icon" href="images/favicon.png">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap" rel="stylesheet">
+    <!DOCTYPE html>
+    <html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Bodybuilding - Hobby Website</title>
+        <link rel="icon" href="images/favicon.png">
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap" rel="stylesheet">
+        <style>
+            :root {
+                --tea-green: #ccd5ae;
+                --beige: #e9edc9;
+                --cornsilk: #fefae0;
+                --papaya-whip: #faedcd;
+                --buff: #d4a373;
+            }
+
+            body {
+                font-family: 'Poppins', sans-serif;
+                background-color: #faedcd;
+                color: black;
+                text-align: center;
+                margin: 0;
+                padding: 0;
+            }
+
+            header {
+                background: var(--tea-green);
+                padding: 15px;
+            }
+
+            nav a {
+                color: black;
+                padding: 10px;
+                text-decoration: none;
+                font-weight: bold;
+                transition: color 0.3s;
+            }
+
+            nav a:hover {
+                color: var(--buff);
+            }
+
+            main section {
+                display: none;
+                padding: 20px;
+                background: var(--cornsilk);
+                border-radius: 10px;
+                margin: 20px auto;
+                max-width: 80%;
+                box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+                color: black;
+            }
+
+            main section:first-of-type {
+                display: block;
+            }
+
+            figure img {
+                max-width: 500px;
+                height: auto;
+                margin-top: 22px;
+                border-radius: 10px;
+            }
+
+            figcaption {
+                font-size: 14px;
+                margin-top: 8px;
+                font-style: italic;
+            }
+
+            footer {
+                margin-top: 20px;
+                background: var(--tea-green);
+                padding: 10px;
+                color: black;
+            }
+
+            footer a {
+                color: black;
+                text-decoration: none;
+                font-weight: bold;
+            }
+
+            footer a:hover {
+                color: var(--buff);
+            }
+
+            .validation-buttons a {
+                display: inline-block;
+                margin: 5px;
+                padding: 10px;
+                background: var(--cornsilk);
+                color: black;
+                border-radius: 5px;
+                text-decoration: none;
+                font-weight: bold;
+                transition: background 0.3s;
+            }
+
+            .validation-buttons a:hover {
+                background: var(--cornsilk);
+                color: var(--buff);
+            }
+
+            .dropdown ol {
+                display: none;
+                padding-left: 20px;
+                text-align: center;
+            }
+
+            .no-bullets {
+                list-style-type: none;
+            }
+
+            .dropdown button {
+                background: var(--buff);
+                color: white;
+                border: none;
+                padding: 8px 12px;
+                cursor: pointer;
+                font-size: 16px;
+                border-radius: 5px;
+            }
+
+            .aligned-text p {
+                max-width: 70%;
+                text-align: center;
+            }
+
+            .aligned-list li {
+                text-align: left;
+                margin: 0 auto;
+                max-width: 70%;
+                margin-bottom: 8px;
+            }
+
+            .dropdown button:hover {
+                background: var(--tea-green);
+            }
+        </style>
+        <script>
+            function showSection(sectionId) {
+                document.querySelectorAll('main section').forEach(section => {
+                    section.style.display = 'none';
+                });
+                document.getElementById(sectionId).style.display = 'block';
+            }
+            function toggleDropdown(id) {
+                var element = document.getElementById(id);
+                if (element.style.display === "none" || element.style.display === "") {
+                    element.style.display = "block";
+                } else {
+                    element.style.display = "none";
+                }
+            }
+        </script>
+    </head>
+
+<body>
+    <header>
+        <h1>Bodybuilding</h1>
+        <nav>
+            <a href="#" onclick="showSection('home')">Home</a> |
+            <a href="#" onclick="showSection('who')">Who</a> |
+            <a href="#" onclick="showSection('when')">When</a> |
+            <a href="#" onclick="showSection('where')">Where</a> |
+            <a href="#" onclick="showSection('how')">How</a> |
+            <a href="#" onclick="showSection('why')">Why</a> |
+            <a href="#" onclick="showSection('ai-prompts')">AI Prompts</a>
+        </nav>
+    </header>
+
+    <main>
+        <section id="home">
+            <h2>What is Bodybuilding?</h2>
+            <p>Bodybuilding is the sport of developing one's muscles through strength training, nutrition, and
+                dedication.</p>
+            <figure>
+                <img src="images/bodybuilder.jpg" alt="Bodybuilder posing">
+                <figcaption>Strength, discipline, and aesthetics define bodybuilding.</figcaption>
+            </figure>
+        </section>
+
+        <section id="who">
+            <h2>About Me</h2>
+            <p>
+            <ul class="aligned-list">
+                <li>
+                    I have been weightlifting for a little over 2 years now, but I've really only focused on
+                    bodybuilding for a year and a half.
+                </li>
+                <li>
+                    Once I started looking into it, I went all out. I ordered a ton of books (written by the likes
+                    of Arnold Schwarzenegger or Jay Cutler) and did a ton of research on the best way to build
+                    muscle and train like a bodybuilder. It became an obsession.
+                </li>
+                <li>
+                    Looking up to fitness influencers on social media, bodybuilding quickly became a major interest for
+                    me and now it is one of my biggest hobbies and passions.
+                </li>
+                <li>
+                    Eventually, I would like to become professional and get my Natural IFBB Pro Card then I'll consider
+                    whether or not I'd like to take the enhanced route and get my IFBB Pro Card in an enhanced setting.
+                </li>
+            </ul>
+            </p>
+            <figure>
+                <img src="images/Southside_Gym.jpg" alt="Southside Power & Fitness">
+                <figcaption>Southside Power & Fitness, the gym where I started bodybuilding.</figcaption>
+            </figure>
+        </section>
+
+        <section id="when" class="aligned-text">
+            <h2>My 7-Day Training Split</h2>
+            <p> I took a lot of inspiration from Arnold Schwarzenegger for my training routine, following the idea
+                that training alternating muscle groups allows a better stretch and gives more time for recovery while
+                loading your muscles with the maximum amount of volume within a given weekly split. This is often
+                referenced as the "Arnold Split" and it has made me a ton of progress. I constructed my routine
+                to target each muscle groups with four different exercises of around 3 sets per workout.
+            <ul class="aligned-list">
+                <li class="dropdown no-bullets">
+                    <button onclick="toggleDropdown('monday-thursday')">Monday & Thursday: Chest & Back</button>
+                    <ol id="monday-thursday">
+                        <li>Incline Bench Press</li>
+                        <li>Chest Fly</li>
+                        <li>Lat Pulldowns</li>
+                        <li>Iso-lateral Rows</li>
+                        <li>Chest Dips</li>
+                        <li>Chest Press</li>
+                        <li>Close-Grip Pulldowns</li>
+                        <li>T-Bar Rows</li>
+                        <li>Forearm Curls</li>
+                    </ol>
+                </li>
+                <li class="dropdown no-bullets">
+                    <button onclick="toggleDropdown('tuesday-friday')">Tuesday & Friday: Arms & Shoulders</button>
+                    <ol id="tuesday-friday">
+                        <li>Dumbbell Lateral Raises</li>
+                        <li>Straight-Bar Front Raises</li>
+                        <li>Rear Delt Flys</li>
+                        <li>Shoulder Press</li>
+                        <li>Straight Bar Tricep Pushdown</li>
+                        <li>Straight Bar Bicep Curls</li>
+                        <li>Rope Tricep Pushdowns</li>
+                        <li>Iso-lateral Bicep Machine Curls</li>
+                        <li>Tricep Dips</li>
+                        <li>Preacher Curls</li>
+                        <li>Tricep Extension</li>
+                        <li>Hammer Curls</li>
+                    </ol>
+                </li>
+                <li class="dropdown no-bullets">
+                    <button onclick="toggleDropdown('wednesday-saturday')">Wednesday & Saturday: Leg Day</button>
+                    <ol id="wednesday-saturday">
+                        <li>
+                            Squat
+                        </li>
+                        <li>
+                            Seated Hamstring Curls
+                        </li>
+                        <li>
+                            Leg Extensions
+                        </li>
+                        <ul>
+                            <li>
+                                <i>*superset with sissy-squats</i>
+                            </li>
+                        </ul>
+                        <li>
+                            Lying Hamstring Curls
+                        </li>
+                        <li>
+                            Hip Adductors
+                        </li>
+                        <li>
+                            Hip Abductors
+                        </li>
+                        <li>
+                            Calf Raises
+                        </li>
+                    </ol>
+                </li>
+            </ul>
+            </p>
+        </section>
+
+        <section id="where">
+            <h2>Best Places to Train</h2>
+            <p>From hardcore gyms to home setups, find what works best for you.</p>
+        </section>
+
+        <section id="how">
+            <h2>How to Get Started</h2>
+            <p>Start with compound movements, proper nutrition, and consistency.</p>
+        </section>
+
+        <section id="why">
+            <h2>Why Bodybuilding?</h2>
+            <p>It builds discipline, strength, and confidence in all aspects of life.</p>
+        </section>
+
+        <section id="ai-prompts">
+            <h2>AI Prompts</h2>
+            <p>All AI-generated content used in this project:</p>
+            <ul>
+                <li>"Generate a realistic image of a bodybuilder posing."</li>
+                <li>"Create an aesthetic gym environment image."</li>
+            </ul>
+        </section>
+    </main>
+
+    <footer>
+        <p>Designed by Benjamin Taylor | <a href="#">My Design Firm</a></p>
+        <div class="validation-buttons">
+            <a href="https://validator.w3.org/">HTML Validation</a>
+            <a href="https://jigsaw.w3.org/css-validator/">CSS Validation</a>
+            <a href="https://wave.webaim.org/">Accessibility Validation</a>
+        </div>
+    </footer>
+</body>
+
+</html>

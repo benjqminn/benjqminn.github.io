@@ -336,6 +336,22 @@
         .breaker {
             padding-top: 20px;
         }
+
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 aspect ratio */
+            height: 0;
+            overflow: hidden;
+            max-width: 100%;
+        }
+        
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
     </style>
     <script>
         function showSection(sectionId) {
@@ -360,7 +376,8 @@
 
 <body>
     <header>
-        <h1 class="head1"><img src="images/brawny_toucan_bodybuilding_60x60.png" alt="Brawny Toucan Bodybuilder">Bodybuilding Hobby
+        <h1 class="head1"><img src="images/brawny_toucan_bodybuilding_60x60.png"
+                alt="Brawny Toucan Bodybuilder">Bodybuilding Hobby
             Site
         </h1>
         <nav>
@@ -539,8 +556,10 @@
                 </li>
             </ul>
             <div class="breaker"></div>
-            <iframe width="420" height="315" src="https://www.youtube.com/watch?v=71op1DQ2gyo&ab_channel=JeffNippard">
-            </iframe>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/71op1DQ2gyo?si=PgoOiA1nYoQnPW-L"
+                title="YouTube video player" frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
             <figure>
                 <figcaption>Video by Jeff Nippard explaining how to "purely train for muscle growth".</figcaption>
             </figure>

@@ -7,194 +7,396 @@
     <title>Bodybuilding - Hobby Website</title>
     <link rel="icon" href="images/favicon.png">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap" rel="stylesheet">
-    <!DOCTYPE html>
-    <html lang="en">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --tea-green: #ccd5ae;
+            --beige: #e9edc9;
+            --cornsilk: #fefae0;
+            --papaya-whip: #faedcd;
+            --buff: #d4a373;
+            --black: #111;
+            --white: #fff;
+            --gray: #222;
+            --transition-speed: 0.3s;
+        }
 
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Bodybuilding - Hobby Website</title>
-        <link rel="icon" href="images/favicon.png">
-        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap" rel="stylesheet">
-        <style>
-            :root {
-                --tea-green: #ccd5ae;
-                --beige: #e9edc9;
-                --cornsilk: #fefae0;
-                --papaya-whip: #faedcd;
-                --buff: #d4a373;
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--papaya-whip);
+            color: var(--black);
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+
+        header {
+            background: var(--tea-green);
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        header img {
+            height: 60px;
+            padding-right: 10px;
+        }
+
+        .head1 {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 2.2rem;
+            font-weight: bold;
+            margin: 0;
+            letter-spacing: 1px;
+        }
+
+        nav {
+            display: flex;
+            gap: 20px;
+        }
+
+        nav a {
+            color: var(--black);
+            font-size: 1rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: color var(--transition-speed), background-color var(--transition-speed);
+            padding: 8px 15px;
+            border-radius: 5px;
+        }
+
+        nav a:hover {
+            color: var(--buff);
+        }
+
+        main {
+            padding: 50px 20px;
+        }
+
+        main p {
+            margin-left: 150px;
+            margin-right: 150px;
+            text-align: center;
+        }
+
+        section {
+            background: var(--cornsilk);
+            padding: 40px;
+            border-radius: 12px;
+            margin: 20px auto;
+            max-width: 80%;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 0.5s ease-in-out;
+            display: none;
+        }
+
+        section:first-of-type {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
             }
 
-            body {
-                font-family: 'Poppins', sans-serif;
-                background-color: #faedcd;
-                color: black;
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        footer {
+            background: var(--tea-green);
+            padding: 20px;
+            font-size: 0.9rem;
+            text-align: center;
+        }
+
+        .button {
+            display: inline-block;
+            margin: 20px 10px;
+            padding: 12px 20px;
+            background: var(--buff);
+            color: var(--white);
+            font-weight: bold;
+            border-radius: 6px;
+            text-decoration: none;
+            transition: background var(--transition-speed), transform var(--transition-speed);
+        }
+
+        .button:hover {
+            background: var(--white);
+            color: var(--black);
+            transform: scale(1.05);
+        }
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown button {
+            background: var(--buff);
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            cursor: pointer;
+            font-size: 1rem;
+            border-radius: 5px;
+            transition: background var(--transition-speed);
+        }
+
+        .dropdown button:hover {
+            background: var(--tea-green);
+            color: var(--black);
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background: var(--cornsilk);
+            min-width: 160px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+            border-radius: 5px;
+            z-index: 1;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        ul,
+        ol {
+            text-align: left;
+            max-width: 60%;
+            margin: 0 auto;
+        }
+
+        li {
+            font-size: 1rem;
+            margin-bottom: 10px;
+            list-style-type: none;
+            padding-left: 10px;
+            position: relative;
+        }
+
+        li::before {
+            content: "•";
+            color: var(--buff);
+            font-weight: bold;
+            font-size: 1.2rem;
+            position: absolute;
+            left: -15px;
+        }
+
+        ol li::before {
+            content: none;
+        }
+
+        ol li {
+            list-style-type: decimal;
+            padding-left: 0;
+            margin-left: 20px;
+            font-style: bold;
+        }
+
+        footer ul li::before {
+            content: none;
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                flex-direction: column;
                 text-align: center;
-                margin: 0;
-                padding: 0;
             }
 
-            header {
-                background: var(--tea-green);
-                padding: 15px;
+            section {
+                max-width: 95%;
             }
+        }
 
-            nav a {
-                color: black;
-                padding: 10px;
-                text-decoration: none;
-                font-weight: bold;
-                transition: color 0.3s;
-            }
+        figure img {
+            width: 400px;
+            max-width: 40%;
+            height: auto;
+            margin-top: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
 
-            nav a:hover {
-                color: var(--buff);
-            }
+        figure figcaption {
+            padding-top: 10px;
+            font-style: italic;
+            font-size: 0.9rem;
+        }
 
-            main section {
-                display: none;
-                padding: 20px;
-                background: var(--cornsilk);
-                border-radius: 10px;
-                margin: 20px auto;
-                max-width: 80%;
-                box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
-                color: black;
-            }
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0px;
+        }
 
-            main section:first-of-type {
-                display: block;
-            }
+        .footer-logo img {
+            width: 30px;
+            height: auto;
+        }
 
-            figure img {
-                max-width: 500px;
-                height: auto;
-                margin-top: 22px;
-                border-radius: 10px;
-            }
+        .footer-logo p {
+            margin: 0;
+            padding-left: 10px;
+            font-size: 1rem;
+            align-items: center;
+            padding-left: 10px;
+        }
 
-            figcaption {
-                font-size: 14px;
-                margin-top: 8px;
-                font-style: italic;
-            }
+        footer {
+            text-align: center;
+            padding: 15px 0;
+            border-top: 2px solid #38220F;
+            margin-top: 20px;
+            background-color: var(--tea-green);
+            color: var(--black);
+        }
 
-            footer {
-                margin-top: 20px;
-                background: var(--tea-green);
-                padding: 10px;
-                color: black;
-            }
+        footer ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            max-width: 100%;
+            padding-bottom: 15px;
+        }
 
-            footer a {
-                color: black;
-                text-decoration: none;
-                font-weight: bold;
-            }
+        footer ul li {
+            list-style: none;
+            display: inline-block;
+            margin: 0;
+        }
 
-            footer a:hover {
-                color: var(--buff);
-            }
+        footer ul li a {
+            text-decoration: none;
+            font-size: 1rem;
+            font-weight: bold;
+            color: var(--black);
+            transition: color 0.3s ease-in-out;
+        }
 
-            .validation-buttons a {
-                display: inline-block;
-                margin: 5px;
-                padding: 10px;
-                background: var(--cornsilk);
-                color: black;
-                border-radius: 5px;
-                text-decoration: none;
-                font-weight: bold;
-                transition: background 0.3s;
-            }
+        footer ul li a:hover {
+            color: #634832;
+        }
 
-            .validation-buttons a:hover {
-                background: var(--cornsilk);
-                color: var(--buff);
-            }
+        footer p {
+            margin: 10px 0;
+            text-align: center;
+        }
 
-            .dropdown ol {
-                display: none;
-                padding-left: 20px;
-                text-align: center;
-            }
+        footer p a:hover {
+            color: #634832;
+        }
 
-            .no-bullets {
-                list-style-type: none;
-            }
+        footer p a {
+            color: var(--black);
+            font-weight: bold;
+            text-decoration: none;
+        }
 
-            .dropdown button {
-                background: var(--buff);
-                color: white;
-                border: none;
-                padding: 8px 12px;
-                cursor: pointer;
-                font-size: 16px;
-                border-radius: 5px;
-            }
+        footer p a:visited {
+            color: var(--black);
+        }
 
-            .aligned-text p {
-                max-width: 70%;
-                text-align: center;
-            }
+        footer .web-solutions {
+            font-weight: bold;
+            color: var(--black);
+            margin-top: 15px;
+        }
 
-            .aligned-list li {
-                text-align: left;
-                margin: 0 auto;
-                max-width: 70%;
-                margin-bottom: 8px;
-            }
+        .signature {
+            text-align: center;
+            font-style: italic;
+            margin-top: 20px;
+            color: var(--black);
+        }
 
-            .dropdown button:hover {
-                background: var(--tea-green);
-            }
-        </style>
-        <script>
-            function showSection(sectionId) {
-                document.querySelectorAll('main section').forEach(section => {
-                    section.style.display = 'none';
-                });
-                document.getElementById(sectionId).style.display = 'block';
-            }
-            function toggleDropdown(id) {
-                var element = document.getElementById(id);
-                if (element.style.display === "none" || element.style.display === "") {
-                    element.style.display = "block";
+        .breaker {
+            padding-top: 20px;
+        }
+    </style>
+    <script>
+        function showSection(sectionId) {
+            document.querySelectorAll('main section').forEach((section) => {
+                section.style.display = 'none';
+            });
+            document.getElementById(sectionId).style.display = 'block';
+        }
+
+        function toggleDropdown(id) {
+            document.querySelectorAll(".dropdown ol").forEach((list) => {
+                if (list.id === id) {
+                    list.style.display = list.style.display === "block" ? "none" : "block";
                 } else {
-                    element.style.display = "none";
+                    list.style.display = "none";
                 }
-            }
-        </script>
-    </head>
+            });
+        }
+
+    </script>
+</head>
 
 <body>
     <header>
-        <h1>Bodybuilding</h1>
+        <h1 class="head1"><img src="images/brawny_toucan_bodybuilding_60x60.png" alt="Brawny Toucan Bodybuilder">Bodybuilding Hobby
+            Site
+        </h1>
         <nav>
-            <a href="#" onclick="showSection('home')">Home</a> |
-            <a href="#" onclick="showSection('who')">Who</a> |
-            <a href="#" onclick="showSection('when')">When</a> |
-            <a href="#" onclick="showSection('where')">Where</a> |
-            <a href="#" onclick="showSection('how')">How</a> |
-            <a href="#" onclick="showSection('why')">Why</a> |
+            <a href="#" onclick="showSection('home')">Home</a>
+            <a href="#" onclick="showSection('who')">Who</a>
+            <a href="#" onclick="showSection('when')">When</a>
+            <a href="#" onclick="showSection('where')">Where</a>
+            <a href="#" onclick="showSection('how')">How</a>
+            <a href="#" onclick="showSection('why')">Why</a>
             <a href="#" onclick="showSection('ai-prompts')">AI Prompts</a>
+            <a href="../index.html">ITIS-3135</a>
+
         </nav>
+        <script src="https://lint.page/kit/4d0fe3.js" crossorigin="anonymous"></script>
+        <script src="scripts/IncludeHTML.js" defer></script>
     </header>
 
     <main>
         <section id="home">
             <h2>What is Bodybuilding?</h2>
-            <p>Bodybuilding is the sport of developing one's muscles through strength training, nutrition, and
-                dedication.</p>
+            <ul>
+                <li>"Bodybuilding is the practice of progressive resistance exercise to build, control, and develop
+                    one's
+                    muscles via hypertrophy. An individual who engages in this activity is referred to as a bodybuilder.
+                    It is primarily undertaken for aesthetic purposes over functional ones, distinguishing it from
+                    similar
+                    activities such as powerlifting and calisthenics." - <i>Wikipedia</i></li>
+            </ul>
             <figure>
-                <img src="images/bodybuilder.jpg" alt="Bodybuilder posing">
-                <figcaption>Strength, discipline, and aesthetics define bodybuilding.</figcaption>
+                <img src="images/6-time-Cbum.png" alt="6-Time Olympia Champion Chris Bumstead">
+                <figcaption>6-Time Olympia Champion Chris Bumstead.</figcaption>
             </figure>
         </section>
 
         <section id="who">
             <h2>About Me</h2>
-            <p>
             <ul class="aligned-list">
                 <li>
                     I have been weightlifting for a little over 2 years now, but I've really only focused on
@@ -214,24 +416,33 @@
                     whether or not I'd like to take the enhanced route and get my IFBB Pro Card in an enhanced setting.
                 </li>
             </ul>
-            </p>
             <figure>
-                <img src="images/Southside_Gym.jpg" alt="Southside Power & Fitness">
-                <figcaption>Southside Power & Fitness, the gym where I started bodybuilding.</figcaption>
+                <img src="images/gold's_gym_greensboro.png" alt="Gold's Gym in Greensboro">
+                <figcaption>Gold's Gym in Greensboro, a gym I visited a lot last summer.</figcaption>
             </figure>
         </section>
 
         <section id="when" class="aligned-text">
             <h2>My 7-Day Training Split</h2>
-            <p> I took a lot of inspiration from Arnold Schwarzenegger for my training routine, following the idea
-                that training alternating muscle groups allows a better stretch and gives more time for recovery while
-                loading your muscles with the maximum amount of volume within a given weekly split. This is often
-                referenced as the "Arnold Split" and it has made me a ton of progress. I constructed my routine
-                to target each muscle groups with four different exercises of around 3 sets per workout.
             <ul class="aligned-list">
-                <li class="dropdown no-bullets">
+                <li>
+                    I took a lot of inspiration from Arnold Schwarzenegger for my training routine, following the idea
+                    that training alternating muscle groups allows a better stretch and gives more time for recovery
+                    while
+                    loading your muscles with the maximum amount of volume within a given weekly split.
+                </li>
+                <li>
+                    This is often referenced as the "Arnold Split," and it has made me a ton of progress. I constructed
+                    my routine
+                    to target each muscle group with four different exercises of around 3 sets per workout.
+                </li>
+
+            </ul>
+            <div class="breaker"></div>
+            <div class="aligned-list">
+                <div class="dropdown">
                     <button onclick="toggleDropdown('monday-thursday')">Monday & Thursday: Chest & Back</button>
-                    <ol id="monday-thursday">
+                    <ol id="monday-thursday" style="display: none;">
                         <li>Incline Bench Press</li>
                         <li>Chest Fly</li>
                         <li>Lat Pulldowns</li>
@@ -242,10 +453,11 @@
                         <li>T-Bar Rows</li>
                         <li>Forearm Curls</li>
                     </ol>
-                </li>
-                <li class="dropdown no-bullets">
+                </div>
+
+                <div class="dropdown">
                     <button onclick="toggleDropdown('tuesday-friday')">Tuesday & Friday: Arms & Shoulders</button>
-                    <ol id="tuesday-friday">
+                    <ol id="tuesday-friday" style="display: none;">
                         <li>Dumbbell Lateral Raises</li>
                         <li>Straight-Bar Front Raises</li>
                         <li>Rear Delt Flys</li>
@@ -259,73 +471,192 @@
                         <li>Tricep Extension</li>
                         <li>Hammer Curls</li>
                     </ol>
-                </li>
-                <li class="dropdown no-bullets">
+                </div>
+
+                <div class="dropdown">
                     <button onclick="toggleDropdown('wednesday-saturday')">Wednesday & Saturday: Leg Day</button>
-                    <ol id="wednesday-saturday">
-                        <li>
-                            Squat
-                        </li>
-                        <li>
-                            Seated Hamstring Curls
-                        </li>
-                        <li>
-                            Leg Extensions
-                        </li>
-                        <ul>
-                            <li>
-                                <i>*superset with sissy-squats</i>
-                            </li>
-                        </ul>
-                        <li>
-                            Lying Hamstring Curls
-                        </li>
-                        <li>
-                            Hip Adductors
-                        </li>
-                        <li>
-                            Hip Abductors
-                        </li>
-                        <li>
-                            Calf Raises
-                        </li>
+                    <ol id="wednesday-saturday" style="display: none;">
+                        <li>Squat</li>
+                        <li>Seated Hamstring Curls</li>
+                        <li>Leg Extensions <i>(superset with sissy-squats)</i></li>
+                        <li>Lying Hamstring Curls</li>
+                        <li>Hip Adductors</li>
+                        <li>Hip Abductors</li>
+                        <li>Calf Raises</li>
                     </ol>
-                </li>
-            </ul>
-            </p>
+                </div>
+            </div>
+            <div class="breaker"></div>
+            <figure>
+                <img src="images/arnold-squats.png" alt="Arnold Schwarzenegger Squatting">
+                <figcaption>Arnold Schwarzenegger squatting on leg day.</figcaption>
+            </figure>
         </section>
 
         <section id="where">
-            <h2>Best Places to Train</h2>
-            <p>From hardcore gyms to home setups, find what works best for you.</p>
+            <h2>Best Gyms I've Trained At</h2>
+            <p>Choosing a gym is a huge decision and there are a lot of factors to consider,
+                such as how tailored their equipment is to your goals, what kind of environment
+                they provide, and even what their policies are (not to mention the price). Here
+                are some of the gyms that I've been to since I started lifting, ranked in order
+                of my favorite to least favorite:
+            </p>
+            <ol>
+                <li>Southside Power & Fitness</li>
+                <li>UNC Charlotte UREC</li>
+                <li>Oak Island Fitness</li>
+                <li>Planet Fitness New York</li>
+                <li>Perfect Workout</li>
+                <li>Gold's Gym Greensboro</li>
+                <li>Planet Fitness Hickory</li>
+            </ol>
+            <p>When ranking gyms, I think that environment is one of the biggest factors to
+                having a good workout. There are two huge contrasts in environments, both being great,
+                but if the environment isn't good then having a good workout is sometimes out of the
+                picture completely. The two BEST types of gym environments are:
+            </p>
+            <ul>
+                <li>Noisy & Crowded (full of passionate lifters)</li>
+                <li>Empty & Dark, Oldschool Equipment</li>
+            </ul>
         </section>
 
         <section id="how">
             <h2>How to Get Started</h2>
-            <p>Start with compound movements, proper nutrition, and consistency.</p>
+            <ul class="aligned-list">
+                <li>
+                    Getting started with bodybuilding is easy. You first have to assess what you're already
+                    working with, even if it's no lifting history whatsoever, and take the first step of
+                    going and hitting your first serious workout. The training style, music, food intake, and
+                    calorie counting all need to be on-point to fuel your training to the extend in which
+                    you're going to make great progress.
+                </li>
+                <li>
+                    I usually take a pre-workout supplement before I head
+                    to lift in order to wake up and be ready to go with the caffeine. I also spend some time choosing
+                    good music to listen to, because personally, my lift quality depends on the music I am
+                    listening to and how alert and carbed-up I am.
+                </li>
+            </ul>
+            <div class="breaker"></div>
+            <iframe width="420" height="315" src="https://www.youtube.com/watch?v=71op1DQ2gyo&ab_channel=JeffNippard">
+            </iframe>
+            <figure>
+                <figcaption>Video by Jeff Nippard explaining how to "purely train for muscle growth".</figcaption>
+            </figure>
         </section>
 
         <section id="why">
             <h2>Why Bodybuilding?</h2>
-            <p>It builds discipline, strength, and confidence in all aspects of life.</p>
+            <ul>
+                <li>There are so many benefits that come with bodybuilding it is hard to even pick out the best ones.
+                    So, I queried ChatGPT on some of the benefits of bodybuilding, and here is what it had to say:</li>
+            </ul>
+            <div class="breaker"></div>
+            <div class="breaker"></div>
+            <ol>
+                <li><strong>It Builds Unstoppable Discipline: </strong>Bodybuilding teaches consistency like nothing
+                    else. Progress isn't instant, but showing up every
+                    day—whether you feel like it or not—turns discipline into a habit. This mindset carries over into
+                    every aspect of life, making you more focused and relentless in your goals.
+                </li>
+                <li><strong>You Learn to Master Your Mindset: </strong>Lifting weights isn't just physical—it's a mental
+                    game. You push through fatigue, doubt, and
+                    discomfort, and in doing so, you train your mind to reject limits. That ability to embrace
+                    challenges makes you stronger in school, work, and personal life.
+
+                </li>
+                <li><strong>It Transforms Your Body (and Confidence): </strong>The results are undeniable. When you see
+                    your body changing as a result of your effort, your
+                    confidence skyrockets. You prove to yourself that you're capable of shaping your future—not just in
+                    fitness, but in anything you set your mind to.
+
+                </li>
+                <li><strong>It Teaches Patience and Long-Term Thinking: </strong>In a world that thrives on instant
+                    gratification, bodybuilding is the opposite. Progress happens
+                    over months and years, not days. Learning to trust the process makes you more patient, persistent,
+                    and resilient in all areas of life.
+
+                </li>
+                <li><strong>Strength is a Superpower: </strong>Being physically strong makes everyday life easier. You
+                    feel more energized, more capable, and ready
+                    to take on any challenge—whether it's crushing a workout, excelling in your career, or just carrying
+                    all your groceries in one trip.
+
+                </li>
+                <li><strong>You Become a Version of Yourself You Never Thought Possible: </strong>Bodybuilding forces
+                    you to evolve. The person who starts the journey isn't the same person who
+                    finishes it. You'll discover a level of mental and physical toughness you didn't know you had.
+
+                    At its core, bodybuilding isn't just a sport—it's a blueprint for success in life. It teaches you to
+                    commit, adapt, and become the best version of yourself. So why not start? The only thing standing
+                    between you and your strongest self is the decision to begin.</li>
+            </ol>
+
+            <div class="breaker"></div>
+            <div class="breaker"></div>
+            <ul>
+                <li>Ultimately, the pro's outweigh the con's (there aren't many at all actually), and there are SO many
+                    different transferrable skills that can carry over from bodybuilding into anything in life, such as
+                    discipline, a strong mindset to succeed, or a newfound sense of confidence.</li>
+            </ul>
+            <div class="breaker"></div>
+            <div class="breaker"></div>
+            <figure>
+                <img src="images/buff_scary_gym.png" alt="Bunch of buff bald men in the gym.">
+                <figcaption>Kind of terrifying ai-generated image of buff bald men in a gym.</figcaption>
+            </figure>
         </section>
 
         <section id="ai-prompts">
             <h2>AI Prompts</h2>
             <p>All AI-generated content used in this project:</p>
             <ul>
-                <li>"Generate a realistic image of a bodybuilder posing."</li>
-                <li>"Create an aesthetic gym environment image."</li>
+                <li>"Create a realistic image of a crowded gym that is dark and full of giant bodybuilders."</li>
+                <li>"Help me answer: Why bodybuilding? Write it as yourself, AI, trying to convince someone to start
+                    bodybuilding."</li>
+                <li>"Create a cartoon-style toucan bodybuilder, flexing its wings, with a muscular physique, standing in
+                    a gym, vibrant colors, small enough for a YouTube profile picture (800x800 pixels)"</li>
             </ul>
+
+            <div class="breaker"></div>
+            <div class="breaker"></div>
+
+            <figure>
+                <img src="images/brawny_toucan_bodybuilding.png" alt="Brawny Toucan Bodybuilder.">
+                <figcaption>Brawny Toucan, my bodybuilding mascot.</figcaption>
+            </figure>
         </section>
     </main>
 
     <footer>
-        <p>Designed by Benjamin Taylor | <a href="#">My Design Firm</a></p>
-        <div class="validation-buttons">
-            <a href="https://validator.w3.org/">HTML Validation</a>
-            <a href="https://jigsaw.w3.org/css-validator/">CSS Validation</a>
-            <a href="https://wave.webaim.org/">Accessibility Validation</a>
+        <ul>
+            <li><a href="https://charlotte.edu/">Charlotte.edu</a></li>
+            <li><a href="https://github.com/benjqminn">GitHub</a></li>
+            <li><a href="https://benjqminn.github.io">GitHub.io</a></li>
+            <li><a href="https://benjqminn.github.io/itis3135">ITIS 3135 GitHub.io</a></li>
+            <li><a href="https://www.freecodecamp.org/benjqmin">Freecodecamp</a></li>
+            <li><a href="https://www.codecademy.com/profiles/benjqminn">Codecademy</a></li>
+            <li><a href="https://www.linkedin.com/in/btayl106/">LinkedIn</a></li>
+        </ul>
+
+        <div class="footer-logo">
+            <img src="images/uncc__logo.png" alt="UNC Charlotte Logo">
+            <p>
+                Designed by <a href="taylordigital.co/index.html"><strong>Taylor Digital Solutions</strong></a>,
+                <em><a href="https://www.freecodecamp.org/certification/benjqmin/responsive-web-design">Certified in
+                        Responsive Web Design</a></em> ©2025
+            </p>
+        </div>
+        <div class="footer-validation">
+            <p>
+                <a href="https://validator.w3.org/check?uri=referer" id="validation-link-html">
+                    <img src="https://mytienhoang.github.io/itis3135/z_archives/html_validation.png" alt="Valid HTML!">
+                </a>
+                <a href="https://jigsaw.w3.org/css-validator/check/referer" id="validation-link-css">
+                    <img src="https://jigsaw.w3.org/css-validator/images/vcss" alt="Valid CSS!">
+                </a>
+            </p>
         </div>
     </footer>
 </body>

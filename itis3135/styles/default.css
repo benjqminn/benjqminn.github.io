@@ -354,3 +354,65 @@ footer .web-solutions {
     gap: 10px;
     margin-top: 10px;
 }
+
+form {
+    width: 70%;
+    margin: 0 auto;
+}
+
+button {
+    background-color: #634832;;
+    color: #f4f4f4;
+    padding: 10px 15px;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 5px;
+}
+
+button:hover {
+    background-color: #DBC1AC;
+    color: #634832;
+}
+
+input[type="text"],
+input[type="tel"],
+input[type="email"],
+select {
+    width: 100%;
+    margin: 5px 0 15px 0;
+    border-radius: 5px;
+    font-size: 16px;
+    background-color: #f9f9f9;
+}
+
+input:focus, select:focus {
+    outline: none;
+    border-color: #634832;
+    background-color: #fff;
+}
+
+input[type="checkbox"], input[type="radio"] {
+    margin-right: 10px;
+    accent-color: #634832;
+}
+
+input[type="radio"]:checked {
+    accent-color: #634832;
+}
+
+fieldset {
+    border: 1px solid #634832;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+
+legend {
+    font-weight: bold;
+    color: #38220F;
+}
+
+.h3-centered {
+    text-align: center;
+}

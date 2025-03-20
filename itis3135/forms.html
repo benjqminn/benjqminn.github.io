@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Forms - Company</title>
+    <link rel="stylesheet" href="styles/default.css">
+    <script src="https://lint.page/kit/4d0fe3.js" crossorigin="anonymous"></script>
+    <script src="scripts/IncludeHTML.js" defer></script>
+</head>
+
+<body>
+
+    <div data-include="components/header.html"></div>
+
+    <main>
+        <h2>HTML Forms</h2>
+        <h3 class="h3-centered">Business Consultation Request Form</h3>
+        <form action="#" method="post">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" placeholder="Your full name" required>
+            <br><br>
+
+            <label for="phone">Phone Number:</label>
+            <input type="tel" id="phone" name="phone" placeholder="123-456-7890" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
+                required>
+            <br><br>
+
+            <label for="email">Email Address:</label>
+            <input type="email" id="email" name="email" placeholder="your@email.com" required>
+            <br><br>
+
+            <fieldset>
+                <legend>Services Interested In (Select all that apply):</legend>
+                <input type="checkbox" id="web_dev" name="services" value="Web Development">
+                <label for="web_dev">Web Development</label><br>
+
+                <input type="checkbox" id="seo" name="services" value="SEO Optimization">
+                <label for="seo">SEO Optimization</label><br>
+
+                <input type="checkbox" id="marketing" name="services" value="Digital Marketing">
+                <label for="marketing">Digital Marketing</label><br>
+            </fieldset>
+            <br>
+
+            <fieldset>
+                <legend>Preferred Contact Method:</legend>
+                <input type="radio" id="contact_email" name="contact_method" value="Email" required>
+                <label for="contact_email">Email</label><br>
+
+                <input type="radio" id="contact_phone" name="contact_method" value="Phone">
+                <label for="contact_phone">Phone</label><br>
+
+                <input type="radio" id="contact_text" name="contact_method" value="Text">
+                <label for="contact_text">Text Message</label>
+            </fieldset>
+            <br>
+
+            <label for="budget">Estimated Budget:</label>
+            <select id="budget" name="budget" required>
+                <option value="" disabled selected>Select your budget range</option>
+                <option value="500-1000">$50 - $500</option>
+                <option value="500-1000">$500 - $1,000</option>
+                <option value="1000-5000">$1,000 - $5,000</option>
+                <option value="5000+">$5,000+</option>
+            </select>
+            <br><br>
+
+            <button type="reset">Reset</button>
+            <button type="submit">Submit</button>
+        </form>
+    </main>
+
+    <div data-include="components/footer.html"></div>
+
+    <script>
+        document.getElementById("validation_link_html").setAttribute("href", "https://validator.w3.org/check?uri=" + location.href);
+        document.getElementById("validation_link_css").setAttribute("href", "https://jigsaw.w3.org/css-validator/validator?uri=" + location.href);
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BYO Intro ~ ITIS 3135</title>
+    <link rel="stylesheet" href="styles/default.css" />
+    <script src="https://lint.page/kit/4d0fe3.js" crossorigin="anonymous"></script>
+    <script src="scripts/IncludeHTML.js" defer></script>
+    <script src="scripts/survey.js" defer></script>
+</head>
+
+<body>
+    <div data-include="components/header.html"></div>
+
+    <main>
+        <h2>BYO Intro</h2>
+        <h3 class="h3-centered">
+            Time to BYO Intro page, please fill out the form below so we can create your own page.
+        </h3><br>
+
+        <form id="byoForm">
+            <div class="form-group">
+                <label>Name:
+                    <input type="text" name="name" placeholder="Your name here" required />
+                </label>
+            </div><br>
+
+            <div class="form-group">
+                <label>Mascot:
+                    <input type="text" name="mascot" placeholder="Your mascot here" required />
+                </label>
+            </div><br>
+
+            <div class="form-group">
+                <label>Image Upload:
+                    <input type="file" name="image" accept="image/png, image/jpeg" required />
+                </label>
+            </div><br>
+
+            <div class="form-group">
+                <label>Image Caption:
+                    <input type="text" name="caption" placeholder="Caption text..." required />
+                </label>
+            </div><br>
+
+            <div class="form-group">
+                <label>Personal Background:
+                    <textarea name="personalBackground" placeholder="Your personal background here..."
+                        required></textarea>
+                </label>
+            </div><br>
+
+            <div class="form-group">
+                <label>Professional Background:
+                    <textarea name="professionalBackground" placeholder="Your professional background here..."
+                        required></textarea>
+                </label>
+            </div><br>
+
+            <div class="form-group">
+                <label>Academic Background:
+                    <textarea name="academicBackground" placeholder="Your academic background here..."
+                        required></textarea>
+                </label>
+            </div><br>
+
+            <div class="form-group">
+                <label>Background in Web Development:
+                    <textarea name="webDevBackground" placeholder="Your web development background here..."
+                        required></textarea>
+                </label>
+            </div><br>
+
+            <div class="form-group">
+                <label>Primary Computer Platform:
+                    <input type="text" name="platform" placeholder="Windows 11, Linux, etc." required />
+                </label>
+            </div><br>
+
+            <div class="form-group" id="courses-container">
+                <label>Courses currently taking:</label>
+                <div class="course-field">
+                    <input type="text" name="courses[]" placeholder="ITIS 3135" />
+                    <button type="button" onclick="deleteCourse(this)">Delete</button>
+                </div>
+            </div>
+
+            <button type="button" onclick="addCourse()">Add Course</button>
+
+            <div class="breaker"></div>
+            <div class="form-group">
+                <label>Funny Thing?
+                    <input type="text" name="funnyThing" placeholder="Funny thing about you goes here..." />
+                </label><br>
+            </div>
+
+            <div class="form-group">
+                <label>Anything Else?
+                    <input type="text" name="anythingElse" placeholder="Any additional information goes here..." />
+                </label><br>
+            </div>
+
+            <div class="form-group">
+                <label>
+                    <input type="checkbox" name="agreement" required />
+                    I understand that what is on this page is not password protected and I will not put anything here
+                    that I
+                    don’t want publicly available.
+                </label>
+            </div>
+
+            <input type="submit" value="Submit" />
+            <input type="reset" value="Reset" onclick="resetForm()" />
+        </form>
+
+        <div id="submittedData" style="display: none;"></div>
+    </main>
+
+    <div data-include="components/footer.html"></div>
+
+    <script>
+        // Wait for DOM + footer
+        window.addEventListener("DOMContentLoaded", () => {
+            setTimeout(() => {
+                const htmlValidator = document.getElementById("validation_link_html");
+                const cssValidator = document.getElementById("validation_link_css");
+                if (htmlValidator && cssValidator) {
+                    htmlValidator.setAttribute("href", "https://validator.w3.org/check?uri=" + location.href);
+                    cssValidator.setAttribute("href", "https://jigsaw.w3.org/css-validator/validator?uri=" + location.href);
+                }
+            }, 100);
+        });
+    </script>
+</body>
+
+</html>

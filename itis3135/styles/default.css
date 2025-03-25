@@ -22,6 +22,10 @@ header ul li {
     padding: 0;
 }
 
+.breaker {
+    padding-top: 20px;
+}
+
 nav {
     display: flex;
     justify-content: space-between;
@@ -353,4 +357,216 @@ footer .web-solutions {
     align-items: center;
     gap: 10px;
     margin-top: 10px;
+}
+
+form {
+    width: 70%;
+    margin: 0 auto;
+}
+
+button {
+    background-color: #634832;;
+    color: #f4f4f4;
+    padding: 10px 15px;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 5px;
+}
+
+button:hover {
+    background-color: #DBC1AC;
+    color: #634832;
+}
+
+input[type="text"],
+input[type="tel"],
+input[type="email"],
+select {
+    width: 100%;
+    margin: 5px 0 15px 0;
+    border-radius: 5px;
+    font-size: 16px;
+    background-color: #f9f9f9;
+}
+
+input:focus, select:focus {
+    outline: none;
+    border-color: #634832;
+    background-color: #fff;
+}
+
+input[type="checkbox"], input[type="radio"] {
+    margin-right: 10px;
+    accent-color: #634832;
+}
+
+input[type="radio"]:checked {
+    accent-color: #634832;
+}
+
+fieldset {
+    border: 1px solid #634832;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+
+legend {
+    font-weight: bold;
+    color: #38220F;
+}
+
+.h3-centered {
+    text-align: center;
+}
+
+form label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+    color: #38220F;
+    font-size: 1.1rem;
+    letter-spacing: 0.5px;
+}
+
+form input[type="text"],
+form input[type="file"],
+form textarea {
+    width: 100%;
+    margin-top: 8px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    background-color: #fff;
+    font-size: 1rem;
+    color: #38220F;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+form input[type="text"]:focus,
+form input[type="file"]:focus,
+form textarea:focus {
+    border-color: #967259;
+    box-shadow: 0 0 8px rgba(150, 114, 89, 0.3);
+    outline: none;
+}
+
+form textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+form label input[type="checkbox"] {
+    margin-right: 10px;
+    transform: scale(1.3);
+    accent-color: #634832;
+    cursor: pointer;
+}
+
+#courses-container {
+    margin-bottom: 20px;
+}
+
+.course-field {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.course-field input[type="text"] {
+    flex: 1;
+    padding: 10px;
+    border: 2px solid #DBC1AC;
+    border-radius: 8px;
+    font-size: 1rem;
+    background-color: #fff;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.course-field button {
+    background-color: #634832;
+    color: #fff;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    font-size: 1rem;
+    white-space: nowrap; 
+}
+
+.course-field input[type="text"]:focus {
+    border-color: #967259;
+    box-shadow: 0 0 8px rgba(150, 114, 89, 0.3);
+}
+
+input[type="submit"],
+input[type="reset"],
+button {
+    margin-bottom: 20px;
+    background-color: #634832;
+    color: #fff;
+    padding: 12px 24px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+input[type="submit"]:hover,
+input[type="reset"]:hover,
+button:hover {
+    background-color: #967259;
+    transform: translateY(-2px);
+}
+
+input[type="submit"]:active,
+input[type="reset"]:active,
+button:active {
+    transform: translateY(0);
+}
+
+#submittedData {
+    background-color: #fff;
+    padding: 25px;
+    border: 2px solid #634832;
+    border-radius: 10px;
+    margin-top: 30px;
+    color: #38220F;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+#submittedData .h3-text {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+    color: #634832;
+    font-weight: bold;
+}
+
+#submittedData ul {
+    padding-left: 20px;
+    list-style-type: disc;
+    color: #38220F;
+}
+
+#submittedData a {
+    display: block;
+    margin-top: 20px;
+    text-align: center;
+    font-weight: bold;
+    color: #634832;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+#submittedData a:hover {
+    color: #967259;
+    text-decoration: underline;
+}
+
+.form-group label[for="funnyThing"] {
+    margin-top: 20px;
 }

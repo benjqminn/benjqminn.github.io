@@ -20,38 +20,60 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
         const dataContainer = document.getElementById("submittedData");
-        let output = "<h3>Your Custom Page Content:</h3><ul>";
+        let output = `
+    <h2>${form.name.value}'s Introduction</h2>
+    <figure>
+        <img src="" alt="${form.name.value}">
+        <figcaption class="italic">${form.caption.value}</figcaption>
+    </figure>
+    <ul>
+        <li><strong>Personal Background:</strong> ${form.personalBackground.value}</li>
+        <li><strong>Professional Background:</strong> ${form.professionalBackground.value}</li>
+        <li><strong>Academic Background:</strong> ${form.academicBackground.value}</li>
+        <li><strong>Background in this Subject:</strong> ${form.webDevBackground.value}</li>
+        <li><strong>Primary Computer Platform:</strong> ${form.platform.value}</li>
+`;
 
-        new FormData(form).forEach((value, key) => {
-            if (key === "courses[]") {
-                output += `<li><strong>Course:</strong> ${value}</li>`;
-            } else if (key === "agreement") {
-                output += `<li><strong>Agreement:</strong> ${value === "on" ? "✓" : "X"}</li>`;
-            } else if (key !== "image") {
-                const formattedKey = key
-                    .replace(/([A-Z])/g, " $1") 
-                    .replace(/_/g, " ") 
-                    .replace(/^\w/, (c) => c.toUpperCase()); 
-                output += `<li><strong>${formattedKey}:</strong> ${value}</li>`;
-            }
-        });
+        const courses = form.querySelectorAll('input[name="courses[]"]');
+        if (courses.length > 0) {
+            output += `<li><strong>Courses I'm Taking & Why:</strong><ul>`;
+            courses.forEach((course) => {
+                if (course.value.trim() !== "") {
+                    output += `<li>${course.value}</li>`;
+                }
+            });
+            output += `</ul></li>`;
+        }
+
+        if (form.funnyThing.value) {
+            output += `<li><strong>Funny/Interesting Story:</strong> ${form.funnyThing.value}</li>`;
+        }
+
+        if (form.anythingElse.value) {
+            output += `<li><strong>I'd also like to Share:</strong> ${form.anythingElse.value}</li>`;
+        }
+
+        output += `</ul>`;
+        output += `<br><a href='#' onclick='resetForm()'>Reset and Try Again</a>`;
 
         if (image) {
             const reader = new FileReader();
             reader.onload = function (e) {
-                output += `<li><strong>Image:</strong><br><img src="${e.target.result}" alt="Uploaded Image" style="width: 500px; height: auto; margin-top: 10px;"></li>`;
-                output += "</ul><br><a href='#' onclick='resetForm()'>Reset and Try Again</a>";
-                dataContainer.innerHTML = output;
+                const tempContainer = document.createElement("div");
+                tempContainer.innerHTML = output;
+                tempContainer.querySelector("img").src = e.target.result;
+
+                dataContainer.innerHTML = tempContainer.innerHTML;
                 dataContainer.style.display = "block";
                 form.style.display = "none";
             };
             reader.readAsDataURL(image);
         } else {
-            output += "</ul><br><a href='#' onclick='resetForm()'>Reset and Try Again</a>";
             dataContainer.innerHTML = output;
             dataContainer.style.display = "block";
             form.style.display = "none";
         }
+
     });
 });
 

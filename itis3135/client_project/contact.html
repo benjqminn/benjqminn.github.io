@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - Jaylee Vasquez Training</title>
+    <link rel="stylesheet" href="styles/default.css">
+    <script src="https://lint.page/kit/4d0fe3.js" crossorigin="anonymous"></script>
+    <script src="scripts/components.js" defer></script>
+</head>
+
+<body>
+
+    <div data-include="components/header_client.html"></div>
+
+    <main>
+        <section>
+            <h3>Get in Touch</h3>
+            <form action="#" method="post" onsubmit="return validateForm()">
+                <label for="name">Name:</label><br>
+                <input type="text" id="name" name="name" required><br><br>
+
+                <label for="email">Email:</label><br>
+                <input type="email" id="email" name="email" required><br><br>
+
+                <label for="message">Message:</label><br>
+                <textarea id="message" name="message" rows="5" required></textarea><br><br>
+
+                <button type="submit">Send Message</button>
+            </form>
+        </section>
+    </main>
+
+    <div data-include="components/footer_client.html"></div>
+
+    <script>
+        function validateForm() {
+            const name = document.getElementById('name').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const message = document.getElementById('message').value.trim();
+            if (!name || !email || !message) {
+                alert("Please fill out all required fields.");
+                return false;
+            }
+            alert("Thank you! Your message has been submitted.");
+            return true;
+        }
+    </script>
+</body>
+
+</html>

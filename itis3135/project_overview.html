@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Project Overview</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f8f9fa;
+            color: #212529;
+            line-height: 1.6;
+            padding: 2rem;
+        }
+
+        header {
+            background: #D9EAD3;
+            color: #23445D;
+            padding: 1.5rem;
+            text-align: center;
+            border-radius: 0.5rem;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        header h1 {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+            letter-spacing: 1px;
+        }
+
+        header h2 {
+            font-size: 1.25rem;
+            font-weight: 400;
+            color: #23445D;
+        }
+
+        nav ul {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            list-style: none;
+            margin-top: 1rem;
+        }
+
+        nav a {
+            color: #23445D;
+            text-decoration: none;
+            font-weight: 500;
+            position: relative;
+            transition: color 0.3s ease;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: white;
+            transition: width 0.3s ease;
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        nav a:hover {
+            color: #634832;
+        }
+
+        main {
+            max-width: 1000px;
+            margin: 2rem auto;
+            background: white;
+            padding: 2rem;
+            border-radius: 1rem;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.07);
+            animation: fadeIn 1s ease-out;
+        }
+
+        section {
+            margin-bottom: 2.5rem;
+            animation: fadeSlideUp 0.7s ease-in-out;
+        }
+
+        h3 {
+            color: #23445D;
+            margin-bottom: 0.8rem;
+            font-size: 1.5rem;
+            border-left: 5px solid #23445D;
+            padding-left: 0.75rem;
+        }
+
+        ul,
+        ol {
+            padding-left: 1.5rem;
+            margin-top: 0.5rem;
+        }
+
+        li {
+            margin-bottom: 0.5rem;
+        }
+
+        figure {
+            margin: 1rem 0;
+            text-align: center;
+        }
+
+        figure img {
+            max-width: 100%;
+            border-radius: 0.5rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        figcaption {
+            font-size: 0.9rem;
+            color: #555;
+            margin-top: 0.5rem;
+        }
+
+        footer {
+            text-align: center;
+            padding: 1rem;
+            color: #6c757d;
+            font-size: 0.85rem;
+            margin-top: 3rem;
+        }
+
+        a {
+            color: #23445D;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: #634832;
+            text-decoration: underline;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeSlideUp {
+            0% {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0px;
+        }
+        
+        .footer-logo img {
+            width: 30px;
+            height: auto;
+        }
+        
+        .footer-logo p {
+            margin: 0;
+            padding-left: 10px;
+            font-size: 1rem;
+            align-items: center;
+            padding-left: 10px;
+        }
+        
+        footer ul li {
+            display: inline;
+            margin: 0 10px;
+        }
+        
+        footer p a:hover {
+            color: #634832;
+        }
+        
+        footer p {
+            margin-top: 10px;
+        }
+        
+        footer .web-solutions {
+            font-weight: bold;
+            margin-top: 15px;
+        }
+        
+        .signature {
+            text-align: center;
+            font-style: italic;
+            margin-top: 20px;
+        }
+
+        .footer-validation {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Client Project: Part 1</h1>
+        <h2>Project Overview</h2>
+        <nav>
+            <ul>
+                <li><a href="project_overview.html">Project Overview</a></li>
+                <li><a href="index.html">ITIS-3135</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section>
+            <h3>Project Overview</h3>
+            <p>
+                This web application is designed to serve as a professional and approachable online platform for personal trainer Jaylee Vasquez. The site promotes her training services, provides resources for clients, and allows users to explore program options, view rates, locate nearby training locations, and get in touch directly. It provides a responsive and dynamic experience that bridges online and in-person training opportunities.
+            </p>
+            <ul>
+                <li><strong>Intended Users:</strong> Prospective fitness clients, returning clients, and partners interested in collaborating with Jaylee.</li>
+                <li><strong>Overview of Content:</strong> The site includes a homepage overview, an about section, detailed training programs, pricing, physical locations with maps, contact functionality, and a secure member login for client access.</li>
+            </ul>
+        </section>
+
+        <section>
+            <h3>Client Information</h3>
+            <ul>
+                <li><strong>Name:</strong> Jaylee Vasquez</li>
+                <li><strong>Organization:</strong> BuiltBunny Personal Training</li>
+                <li><strong>Email:</strong> jvasqu12@charlotte.edu</li>
+                <li><strong>Phone:</strong> [private]</li>
+            </ul>
+        </section>
+
+        <section>
+            <h3>Wireframe</h3>
+            <figure>
+                <img src="client_project/images/Client_Page_Example_Outline.drawio.png" alt="Homepage Wireframe" />
+                <figcaption>Figure 1: Wireframe for the homepage layout (similar to blog-type training landing page).</figcaption>
+            </figure>
+            <p>View the wireframe on Draw.io: <a href="https://drive.google.com/file/d/162VbMtS9aLD4ch4vUaczswUNAiciMnHi/view?usp=sharing">Wireframe Link</a></p>
+        </section>
+
+        <section>
+            <h3>Site Map</h3>
+            <figure>
+                <img src="client_project\images\Site_Map_for_Client_Project.drawio.png" alt="Website Sitemap" />
+                <figcaption>Figure 2: Sitemap for the project website</figcaption>
+            </figure>
+            <p>View the sitemap on Draw.io: <a href="https://drive.google.com/file/d/1PYff_z3pqaG0BqSHiJ39lgfuG3pqD7oi/view?usp=sharing">Sitemap Link</a></p>
+        </section>
+
+        <section>
+            <h3>Page Designs</h3>
+            <ol>
+                <li>
+                    <strong>Home (index.html)</strong><br />
+                    <em>Purpose:</em> Introduce Jaylee’s brand and direct users to key parts of the site<br />
+                    <em>Audience:</em> General visitors and prospective clients<br />
+                    <em>Content:</em> Hero section, About preview, Program highlights, Testimonials, Location teaser, CTA<br />
+                    <em>User Data Input:</em> No<br />
+                    <em>Validation Needed:</em> N/A<br />
+                    <em>Interactive Elements:</em> Buttons, navigation links<br />
+                    <em>Actions:</em> Scroll or navigate to other pages<br />
+                </li>
+                <li>
+                    <strong>About (index.html)</strong><br />
+                    <em>Purpose:</em> Share Jaylee’s story and qualifications<br />
+                    <em>Audience:</em> Visitors, potential clients<br />
+                    <em>Content:</em> Bio, training philosophy, certifications, fun facts, professional photo<br />
+                    <em>User Data Input:</em> No<br />
+                    <em>Validation Needed:</em> N/A<br />
+                    <em>Interactive Elements:</em> Navigation links<br />
+                    <em>Actions:</em> Navigate to related pages<br />
+                </li>
+                <li>
+                    <strong>Programs (index.html)</strong><br />
+                    <em>Purpose:</em> Overview of available training services<br />
+                    <em>Audience:</em> Prospective clients<br />
+                    <em>Content:</em> Online training, in-person sessions, group classes, summary descriptions with icons or cards<br />
+                    <em>User Data Input:</em> No<br />
+                    <em>Validation Needed:</em> N/A<br />
+                    <em>Interactive Elements:</em> Buttons/links<br />
+                    <em>Actions:</em> Navigate to more detailed service sections<br />
+                </li>
+                <li>
+                    <strong>Locations (index.html)</strong><br />
+                    <em>Purpose:</em> Help users find training locations<br />
+                    <em>Audience:</em> In-person clients<br />
+                    <em>Content:</em> Address, hours, parking info, gym rules, location images<br />
+                    <em>User Data Input:</em> No<br />
+                    <em>Validation Needed:</em> N/A<br />
+                    <em>Interactive Elements:</em> Google Map, links<br />
+                    <em>Actions:</em> Open map, navigate to contact or programs page<br />
+                </li>
+                <li>
+                    <strong>Rates (index.html)</strong><br />
+                    <em>Purpose:</em> Display pricing tiers and packages<br />
+                    <em>Audience:</em> Interested clients or buyers<br />
+                    <em>Content:</em> Packages, individual session rates, group class pricing, nutrition add-ons, CTAs<br />
+                    <em>User Data Input:</em> No<br />
+                    <em>Validation Needed:</em> N/A<br />
+                    <em>Interactive Elements:</em> Pricing cards, booking buttons<br />
+                    <em>Actions:</em> Navigate to contact page or booking form<br />
+                </li>
+                <li>
+                    <strong>Contact (contact.html)</strong><br />
+                    <em>Purpose:</em> Enable user inquiries and session booking<br />
+                    <em>Audience:</em> Potential clients and partners<br />
+                    <em>Content:</em> Contact form, direct email, FAQ<br />
+                    <em>User Data Input:</em> Yes (form)<br />
+                    <em>Validation Needed:</em> Yes (required fields, email format)<br />
+                    <em>Interactive Elements:</em> Form inputs, submit button<br />
+                    <em>Actions:</em> Form validation, optional AJAX send<br />
+                </li>
+                <li>
+                    <strong>Member Login (login.html)</strong><br />
+                    <em>Purpose:</em> Allow access to private content<br />
+                    <em>Audience:</em> Registered members<br />
+                    <em>Content:</em> Login form, forgot password link<br />
+                    <em>User Data Input:</em> Yes (username/password)<br />
+                    <em>Validation Needed:</em> Yes (required fields)<br />
+                    <em>Interactive Elements:</em> Form fields, login button<br />
+                    <em>Actions:</em> Navigate to mock dashboard or show login error<br />
+                </li>
+            </ol>
+        </section>
+
+        <section>
+            <h3>Dynamic Functionality</h3>
+            <ul>
+                <li><strong>Home Page:</strong> Smooth scroll and animated CTA buttons that guide users to other sections of the site.</li>
+                <li><strong>Programs Page:</strong> Interactive cards or tabs that expand with more details on hover or click.</li>
+                <li><strong>Locations Page:</strong> Embedded interactive Google Map showing training locations with clickable markers.</li>
+                <li><strong>Rates Page:</strong> Expandable pricing tables or accordions for detailed package info using jQuery UI.</li>
+                <li><strong>Contact Page:</strong> JavaScript form validation (required fields, proper email format) with visual feedback on submission.</li>
+                <li><strong>Member Login:</strong> Mock login validation that redirects to a dashboard or displays error feedback if credentials are incorrect.</li>
+            </ul>
+            <p>Example inspiration from:
+                <a href="https://www.w3schools.com/howto/howto_js_tabs.asp">W3Schools Tab Example</a>,
+                <a href="https://jqueryui.com/accordion/">jQuery UI Accordion</a>,
+                <a href="https://www.w3schools.com/howto/howto_js_form_validation.asp">Form Validation Example</a>
+            </p>
+        </section>
+
+        <section>
+            <h3>Notes</h3>
+            <p>Created by: Benjamin Taylor<br />
+                Date: 3/31/2025<br />
+                References used: Class resources, freeCodeCamp material.<br />
+            </p>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-logo">
+            <p>
+                Designed by <a href="taylordigital.co/index.html"><strong>Taylor Digital Solutions</strong></a>, 
+                <em><a href="https://www.freecodecamp.org/certification/benjqmin/responsive-web-design">Certified in Responsive Web Design</a> <a href="https://www.freecodecamp.org/certification/benjqmin/javascript-algorithms-and-data-structures-v8">and JSS</a></em> ©2025
+            </p>
+        </div>
+        <div class="footer-validation">
+            <p>
+                <a href="https://validator.w3.org/check?uri=referer" id="validation-link-html">
+                    <img src="https://mytienhoang.github.io/itis3135/z_archives/html_validation.png" alt="Valid HTML!">
+                </a>
+                <a href="https://jigsaw.w3.org/css-validator/check/referer" id="validation-link-css">
+                    <img src="https://jigsaw.w3.org/css-validator/images/vcss" alt="Valid CSS!">
+                </a>
+            </p>
+        </div>
+    </footer>
+</body>
+
+</html>

@@ -1,0 +1,210 @@
+:root {
+    --blush: #fcd5ce;
+    --peach: #f8edeb;
+    --lavender: #e8e8ff;
+    --rose: #ffc8dd;
+    --grape: #cdb4db;
+    --midnight: #4a4e69;
+    --white: #ffffff;
+  }
+  
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--peach);
+    color: var(--midnight);
+    line-height: 1.6;
+    padding: 2rem;
+  }
+  
+  header {
+    background: var(--rose);
+    color: var(--midnight);
+    padding: 2rem 1rem;
+    text-align: center;
+    border-radius: 1rem;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+  }
+  
+  header h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+  }
+  
+  header h2 {
+    font-size: 1.25rem;
+    font-weight: 400;
+    color: var(--midnight);
+    margin-top: 0.5rem;
+  }
+  
+  nav ul {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    list-style: none;
+    margin-top: 1.5rem;
+  }
+  
+  nav a {
+    color: var(--midnight);
+    text-decoration: none;
+    font-weight: 600;
+    position: relative;
+    transition: color 0.3s ease;
+  }
+  
+  nav a::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--grape);
+    transition: width 0.3s ease;
+  }
+  
+  nav a:hover::after {
+    width: 100%;
+  }
+  
+  nav a:hover {
+    color: var(--grape);
+  }
+  
+  main {
+    max-width: 1000px;
+    margin: 2rem auto;
+    background: var(--white);
+    padding: 2rem;
+    border-radius: 1rem;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+    animation: fadeIn 1s ease-out;
+  }
+  
+  section {
+    margin-bottom: 2.5rem;
+    animation: fadeSlideUp 0.8s ease-in-out;
+  }
+  
+  h3 {
+    color: var(--rose);
+    margin-bottom: 1rem;
+    font-size: 1.75rem;
+    border-left: 6px solid var(--grape);
+    padding-left: 0.75rem;
+  }
+  
+  ul, ol {
+    padding-left: 1.5rem;
+    margin-top: 0.5rem;
+  }
+  
+  li {
+    margin-bottom: 0.6rem;
+  }
+  
+  figure img {
+    max-width: 100%;
+    border-radius: 0.75rem;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+  }
+  
+  figcaption {
+    font-size: 0.9rem;
+    color: var(--midnight);
+    margin-top: 0.5rem;
+    text-align: center;
+  }
+  
+  footer {
+    text-align: center;
+    padding: 2rem 1rem;
+    color: var(--midnight);
+    font-size: 0.9rem;
+    background-color: var(--lavender);
+    border-radius: 1rem;
+    margin-top: 3rem;
+  }
+  
+  .footer-logo a {
+    font-weight: bold;
+    color: var(--midnight);
+  }
+  
+  .footer-logo a:hover {
+    color: var(--grape);
+  }
+  
+  .cta {
+    background-color: var(--grape);
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border-radius: 30px;
+    font-weight: bold;
+    text-decoration: none;
+    transition: background 0.3s ease;
+  }
+  
+  .cta:hover {
+    background-color: var(--rose);
+    color: var(--midnight);
+  }
+  
+  button {
+    background-color: var(--rose);
+    color: var(--midnight);
+    padding: 0.6rem 1.2rem;
+    border: none;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+  
+  button:hover {
+    background-color: var(--grape);
+    color: white;
+  }
+  
+  input, textarea {
+    width: 100%;
+    padding: 0.5rem;
+    margin-top: 0.3rem;
+    margin-bottom: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 0.5rem;
+    font-size: 1rem;
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes fadeSlideUp {
+    0% {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  

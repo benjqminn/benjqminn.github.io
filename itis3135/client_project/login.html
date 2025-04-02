@@ -2,49 +2,51 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Member Login - Jaylee Vasquez Training</title>
-    <link rel="stylesheet" href="styles/default.css">
-    <script src="https://lint.page/kit/4d0fe3.js" crossorigin="anonymous"></script>
-    <script src="scripts/components.js" defer></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login - BuiltBunny Personal Training</title>
+  <link rel="stylesheet" href="styles/default.css">
+  <script src="scripts/components.js" defer></script>
 </head>
 
 <body>
-    
-    <div data-include="components/header_client.html"></div>
+  <div data-include="components/header_client.html"></div>
 
-    <main>
-        <section>
-            <h3>Login to Your Account</h3>
-            <form onsubmit="return mockLogin()">
-                <label for="username">Username:</label><br>
-                <input type="text" id="username" name="username" required><br><br>
+  <main>
+    <section>
+      <h3>Login to Your Account</h3>
+      <form onsubmit="return handleLogin(event)">
+        <label for="username">Username:</label><br>
+        <input type="text" id="username" name="username" required><br><br>
 
-                <label for="password">Password:</label><br>
-                <input type="password" id="password" name="password" required><br><br>
+        <label for="password">Password:</label><br>
+        <input type="password" id="password" name="password" required><br><br>
 
-                <button type="submit">Login</button>
-            </form>
-            <p><a href="#">Forgot Password?</a></p>
-        </section>
-    </main>
+        <button type="submit">Login</button>
+      </form>
 
-    <div data-include="components/footer_client.html"></div>
+      <hr>
 
-    <script>
-        function mockLogin() {
-            const user = document.getElementById("username").value;
-            const pass = document.getElementById("password").value;
-            if (user === "client" && pass === "trainhard") {
-                alert("Login successful! Redirecting to dashboard...");
-                return true;
-            } else {
-                alert("Invalid credentials. Please try again.");
-                return false;
-            }
-        }
-    </script>
+      <p>New Client? <button onclick="window.location.href='signup.html'">Create an account!</button></p>
+    </section>
+  </main>
+
+  <div data-include="components/footer.html"></div>
+
+  <script>
+    function handleLogin(event) {
+      event.preventDefault();
+      const user = document.getElementById("username").value;
+      const pass = document.getElementById("password").value;
+      const storedPass = localStorage.getItem(user);
+      if (storedPass && storedPass === pass) {
+        alert("Login successful! Redirecting to dashboard...");
+        window.location.href = "dashboard.html";
+      } else {
+        alert("Invalid credentials. Please try again.");
+      }
+    }
+  </script>
 </body>
 
 </html>

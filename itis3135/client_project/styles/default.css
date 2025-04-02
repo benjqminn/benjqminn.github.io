@@ -6,6 +6,7 @@
     --grape: #cdb4db;
     --midnight: #4a4e69;
     --white: #ffffff;
+    --bubblegum: #ffe5ec;
   }
   
   * {
@@ -24,7 +25,7 @@
   }
   
   header {
-    background: var(--rose);
+    background: var(--bubblegum);
     color: var(--midnight);
     padding: 2rem 1rem;
     text-align: center;
@@ -97,7 +98,7 @@
   }
   
   h3 {
-    color: var(--rose);
+    color: var(--midnight);
     margin-bottom: 1rem;
     font-size: 1.75rem;
     border-left: 6px solid var(--grape);
@@ -161,7 +162,7 @@
   }
   
   button {
-    background-color: var(--rose);
+    background-color: var(--bubblegum);
     color: var(--midnight);
     padding: 0.6rem 1.2rem;
     border: none;

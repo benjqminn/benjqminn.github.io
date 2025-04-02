@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign Up - BuiltBunny Personal Training</title>
+  <link rel="stylesheet" href="styles/default.css">
+  <script src="scripts/components.js" defer></script>
+</head>
+
+<body>
+  <div data-include="components/header_client.html"></div>
+
+  <main>
+    <section>
+      <h3>Create a New Account</h3>
+      <form onsubmit="return handleSignup(event)">
+        <label for="newUsername">Username:</label><br>
+        <input type="text" id="newUsername" name="newUsername" required><br><br>
+
+        <label for="newPassword">Password:</label><br>
+        <input type="password" id="newPassword" name="newPassword" required><br><br>
+
+        <button type="submit">Create Account</button>
+      </form>
+
+      <p>Already have an account? <a href="login.html">Login here</a>.</p>
+    </section>
+  </main>
+
+  <div data-include="components/footer.html"></div>
+
+  <script>
+    function handleSignup(event) {
+      event.preventDefault();
+      const newUser = document.getElementById("newUsername").value;
+      const newPass = document.getElementById("newPassword").value;
+      if (localStorage.getItem(newUser)) {
+        alert("Username already exists. Choose another.");
+      } else {
+        localStorage.setItem(newUser, newPass);
+        alert("Account created! You can now log in.");
+        window.location.href = "login.html";
+      }
+    }
+  </script>
+</body>
+
+</html>

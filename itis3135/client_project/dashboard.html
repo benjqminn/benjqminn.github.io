@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard - BuiltBunny</title>
+  <link rel="stylesheet" href="styles/default.css">
+  <script src="scripts/components.js" defer></script>
+</head>
+
+<body>
+  <div data-include="components/header_client.html"></div>
+
+  <main>
+    <h2>Welcome to your BuiltBunny Dashboard 🐰💪</h2>
+    <p id="welcomeMessage"></p>
+    <button onclick="logout()">Logout</button>
+  </main>
+
+  <div data-include="components/footer.html"></div>
+
+  <script>
+    // Check if user is logged in
+    const user = localStorage.getItem("loggedInUser");
+    if (!user) {
+      alert("You must be logged in to view the dashboard.");
+      window.location.href = "login.html";
+    } else {
+      document.getElementById("welcomeMessage").textContent = `Welcome back, ${user}!`;
+    }
+
+    function logout() {
+      localStorage.removeItem("loggedInUser");
+      alert("You’ve been logged out.");
+      window.location.href = "login.html";
+    }
+  </script>
+</body>
+</html>

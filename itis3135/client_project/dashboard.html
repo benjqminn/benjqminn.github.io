@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Dashboard - BuiltBunny</title>
   <link rel="stylesheet" href="styles/default.css">
+  <script src="https://lint.page/kit/4d0fe3.js" crossorigin="anonymous"></script>
   <script src="scripts/components.js" defer></script>
 </head>
 
@@ -14,23 +16,56 @@
   <main>
     <h2>Welcome to your BuiltBunny Dashboard 🐰💪</h2>
     <p id="welcomeMessage"></p>
+    <div class="breaker"></div>
+    <div class="breaker"></div>
     <section>
-      <h3>UNC Charlotte Group Fitness Schedule</h3>
-      <iframe 
-        src="https://urec.charlotte.edu/group-fitness" 
-        width="100%" 
-        height="600" 
-        style="border: 2px solid #ccc; border-radius: 12px;"
-        loading="lazy"
-      ></iframe>
-    </section>    
+      <h2>UNC Charlotte Group Fitness Schedule</h3>
+        <p>Click here to view! ➡️
+          <a href="https://urec.charlotte.edu/group-fitness" target="_blank" rel="noopener noreferrer"
+            class="embed-link">https://urec.charlotte.edu/group-fitness
+          </a>
+        </p>
+    </section>
+    <section>
+      <h2>Recommended Workout Split:</h3>
+        <ul>
+          <li>🟩 Monday – Chest & Back</li>
+          <li>🟨 Tuesday – Arms & Shoulders</li>
+          <li>🟦 Wednesday – Legs (Glute Focus)</li>
+          <li>🟥 Thursday – Chest & Back</li>
+          <li>🟧 Friday – Arms & Shoulders</li>
+          <li>🟪 Saturday – Legs</li>
+          <li>⬜ Sunday – Active Recovery</li>
+        </ul>
+    </section>
+    <section>
+      <h3>Influencer Spotlight: HOPE</h3>
+      <p>
+        Meet Hope Srgo, a powerful voice in fitness. Watch her bodybuilding show video here:
+      </p>
+      <div class="breaker"></div>
+      <div class="video-container">
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/tkixX7z8soU?si=ITdaajZVOXtig5vy"
+          title="YouTube video player" frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+        </iframe>
+      </div>
+      <div class="breaker"></div>
+      <p>
+        Follow her journey on
+        <a href="https://www.youtube.com/@Hopesgroo" target="_blank" class="embed-link">@Hopesgroo</a>
+      </p>
+    </section>
+
+
+
     <button onclick="logout()">Logout</button>
   </main>
 
   <div data-include="components/footer_client.html"></div>
 
   <script>
-    // Check if user is logged in
     const user = localStorage.getItem("loggedInUser");
     if (!user) {
       alert("You must be logged in to view the dashboard.");
@@ -46,4 +81,5 @@
     }
   </script>
 </body>
+
 </html>

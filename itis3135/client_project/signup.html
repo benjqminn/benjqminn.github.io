@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Sign Up - BuiltBunny Personal Training</title>
   <link rel="stylesheet" href="styles/default.css">
+  <script src="https://lint.page/kit/4d0fe3.js" crossorigin="anonymous"></script>
   <script src="scripts/components.js" defer></script>
 </head>
 
@@ -24,8 +25,8 @@
 
         <button type="submit">Create Account</button>
       </form>
-
-      <p>Already have an account? <a href="login.html">Login here</a>.</p>
+      <div class="breaker"></div>
+      <p>Already have an account? <a href="login.html" class="embed-link">Login here</a>.</p>
     </section>
   </main>
 
@@ -36,10 +37,14 @@
       event.preventDefault();
       const newUser = document.getElementById("newUsername").value;
       const newPass = document.getElementById("newPassword").value;
-      if (localStorage.getItem(newUser)) {
+
+      let users = JSON.parse(localStorage.getItem("users")) || {};
+
+      if (users[newUser]) {
         alert("Username already exists. Choose another.");
       } else {
-        localStorage.setItem(newUser, newPass);
+        users[newUser] = newPass;
+        localStorage.setItem("users", JSON.stringify(users));
         alert("Account created! You can now log in.");
         window.location.href = "login.html";
       }

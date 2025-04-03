@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Login - BuiltBunny Personal Training</title>
   <link rel="stylesheet" href="styles/default.css">
+  <script src="https://lint.page/kit/4d0fe3.js" crossorigin="anonymous"></script>
   <script src="scripts/components.js" defer></script>
 </head>
 
@@ -24,9 +25,9 @@
 
         <button type="submit">Login</button>
       </form>
-
+      <div class="breaker"></div>
       <hr>
-
+      <div class="breaker"></div>
       <p>New Client? <button onclick="window.location.href='signup.html'">Create an account!</button></p>
     </section>
   </main>
@@ -38,9 +39,10 @@
       event.preventDefault();
       const user = document.getElementById("username").value;
       const pass = document.getElementById("password").value;
-      const storedPass = localStorage.getItem(user);
-    
-      if (storedPass && storedPass === pass) {
+
+      let users = JSON.parse(localStorage.getItem("users")) || {};
+
+      if (users[user] && users[user] === pass) {
         localStorage.setItem("loggedInUser", user);
         alert("Login successful! Redirecting to dashboard...");
         window.location.href = "dashboard.html";
@@ -48,7 +50,6 @@
         alert("Invalid credentials. Please try again.");
       }
     }
-    
   </script>
 </body>
 

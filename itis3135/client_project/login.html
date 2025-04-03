@@ -31,7 +31,7 @@
     </section>
   </main>
 
-  <div data-include="components/footer.html"></div>
+  <div data-include="components/footer_client.html"></div>
 
   <script>
     function handleLogin(event) {
@@ -39,13 +39,16 @@
       const user = document.getElementById("username").value;
       const pass = document.getElementById("password").value;
       const storedPass = localStorage.getItem(user);
+    
       if (storedPass && storedPass === pass) {
+        localStorage.setItem("loggedInUser", user);
         alert("Login successful! Redirecting to dashboard...");
         window.location.href = "dashboard.html";
       } else {
         alert("Invalid credentials. Please try again.");
       }
     }
+    
   </script>
 </body>
 

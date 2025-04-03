@@ -14,10 +14,20 @@
   <main>
     <h2>Welcome to your BuiltBunny Dashboard 🐰💪</h2>
     <p id="welcomeMessage"></p>
+    <section>
+      <h3>UNC Charlotte Group Fitness Schedule</h3>
+      <iframe 
+        src="https://urec.charlotte.edu/group-fitness" 
+        width="100%" 
+        height="600" 
+        style="border: 2px solid #ccc; border-radius: 12px;"
+        loading="lazy"
+      ></iframe>
+    </section>    
     <button onclick="logout()">Logout</button>
   </main>
 
-  <div data-include="components/footer.html"></div>
+  <div data-include="components/footer_client.html"></div>
 
   <script>
     // Check if user is logged in

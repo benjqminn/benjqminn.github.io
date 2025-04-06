@@ -6,35 +6,114 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Programs - BuiltBunny Personal Training</title>
     <link rel="stylesheet" href="styles/default.css">
+    <link href="https://fonts.googleapis.com/css2?family=Satisfy&display=swap" rel="stylesheet">
     <script src="https://lint.page/kit/4d0fe3.js" crossorigin="anonymous"></script>
     <script src="scripts/components.js" defer></script>
+    <style>
+        .dots {
+          margin-top: 1rem;
+          display: flex;
+          justify-content: center;
+          gap: 10px;
+        }
+        .dot {
+          width: 12px;
+          height: 12px;
+          border-radius: 50%;
+          background: #ccc;
+          cursor: pointer;
+          transition: background 0.3s ease;
+        }
+        .dot[class~="active"] {
+          background: #d63384;
+        }
+      </style>
 </head>
 
 <body>
-    
     <div data-include="components/header_client.html"></div>
 
     <main>
-        <section>
-            <h3>Online Training</h3>
-            <p>Work out from anywhere with BuiltBunny's structured weekly plans, video demos, and check-in support.
-                Ideal for independent queens and on-the-go baddies.</p>
+        <section style="text-align: center; margin-bottom: 2rem;">
+            <h2 style="font-size: 2rem; color: #4a4e69;">Choose Your Bunny Path 🐰</h2>
+            <p style="font-size: 1.1rem; max-width: 700px; margin: 1rem auto;">
+                Whether you want to train from home, in person, or with a community - BuiltBunny has a program designed
+                to help you grow strong, feel confident, and stay consistent.
+            </p>
         </section>
 
-        <section>
-            <h3>In-Person Training</h3>
-            <p>One-on-one coaching at our private Charlotte studio. Hands-on guidance to ensure proper form, progress
-                tracking, and accountability to hit your strongest self.</p>
+        <section style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem;">
+            <div class="card"
+                style="background: #ffe5ec; padding: 2rem; border-radius: 1rem; box-shadow: 0 6px 18px rgba(0, 0, 0, 0.05);">
+                <h3 style="color: #d63384;" class="head3">💻 Online Training</h3>
+                <p>Work out from anywhere with BuiltBunny's structured weekly plans, demo videos, and virtual check-ins.
+                    Includes optional progress tracking and nutrition add-ons.</p>
+            </div>
+
+            <div class="card"
+                style="background: #fcd5ce; padding: 2rem; border-radius: 1rem; box-shadow: 0 6px 18px rgba(0, 0, 0, 0.05);">
+                <h3 style="color: #e76f51;" class="head3">🏋️‍♀️ In-Person Training</h3>
+                <p>One-on-one coaching at our private Charlotte studio. Hands-on form correction, personalized plans,
+                    and motivation that keeps you pushing for progress.</p>
+            </div>
+
+            <div class="card"
+                style="background: #e8e8ff; padding: 2rem; border-radius: 1rem; box-shadow: 0 6px 18px rgba(0, 0, 0, 0.05);">
+                <h3 style="color: #5f0f40;" class="head3">🔥 Group Classes</h3>
+                <p>High-energy group workouts that feel more like a party. Strength, cardio, and community-driven vibes
+                    to help you thrive - all fitness levels welcome!</p>
+            </div>
         </section>
 
-        <section>
-            <h3>Group Classes</h3>
-            <p>Feel the hype and energy of small group strength and HIIT sessions. Push together, grow together, and
-                never train alone again.</p>
-        </section>
+        <section style="margin-top: 4rem; text-align: center;">
+            <h2 style="color: #4a4e69; margin-bottom: 1rem;">✨ Client Love ✨</h2>
+            <div id="testimonial-carousel" style="max-width: 700px; margin: 0 auto; position: relative;">
+              <div class="testimonial" style="display: block; animation: fadeSlideUp 0.6s ease-in-out;">
+                <img src="images/hope_testimonial.png" alt="Hope photo" style="width: 100px; height: 100px; border-radius: 50%; margin-bottom: 0.5rem;">
+                <p>“Jaylee helped me finally stick to a plan that works. <br>My glutes are gluting and my mindset is glowing!”</p>
+                <strong>- Hope, Online Program</strong>
+              </div>
+              <div class="testimonial" style="display: none;">
+                <img src="images/ariel_testimonial.jpg" alt="Ariel photo" style="width: 100px; height: 100px; border-radius: 50%; margin-bottom: 0.5rem;">
+                <p>“I used to hate working out until BuiltBunny made it fun <br>and feminine. Jaylee gets me hype every session.”</p>
+                <strong>- Ariel, Group Class</strong>
+              </div>
+              <div class="testimonial" style="display: none;">
+                <img src="images/carly_testimonial.jpeg" alt="Carly photo" style="width: 100px; height: 100px; border-radius: 50%; margin-bottom: 0.5rem;">
+                <p>“Accountability + form coaching = finally seeing <br>results. I love the vibe and support.”</p>
+                <strong>- Carly, In-Person</strong>
+              </div>
+              <div class="dots">
+                <div class="dot active" onclick="showTestimonial(0)"></div>
+                <div class="dot" onclick="showTestimonial(1)"></div>
+                <div class="dot" onclick="showTestimonial(2)"></div>
+              </div>
+            </div>
+          </section>
     </main>
 
     <div data-include="components/footer_client.html"></div>
+
+    <script>
+        let current = 0;
+        const testimonials = document.querySelectorAll(".testimonial");
+        const dots = document.querySelectorAll(".dot");
+    
+        function showTestimonial(index) {
+          testimonials[current].style.display = "none";
+          dots[current].classList.remove("active");
+          current = index;
+          testimonials[current].style.display = "block";
+          dots[current].classList.add("active");
+        }
+    
+        function cycleTestimonials() {
+          let next = (current + 1) % testimonials.length;
+          showTestimonial(next);
+        }
+    
+        setInterval(cycleTestimonials, 5000);
+      </script>
 </body>
 
 </html>

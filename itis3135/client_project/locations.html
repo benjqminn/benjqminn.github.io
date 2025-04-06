@@ -2,34 +2,77 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Locations - Jaylee Vasquez Training</title>
-    <link rel="stylesheet" href="styles/default.css">
-    <script src="https://lint.page/kit/4d0fe3.js" crossorigin="anonymous"></script>
-    <script src="scripts/components.js" defer></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Locations - BuiltBunny Personal Training</title>
+  <link rel="stylesheet" href="styles/default.css">
+  <link href="https://fonts.googleapis.com/css2?family=Satisfy&display=swap" rel="stylesheet">
+  <script src="https://lint.page/kit/4d0fe3.js" crossorigin="anonymous"></script>
+  <script src="scripts/components.js" defer></script>
+  <style>
+    .location-section {
+      background-color: #f8edeb;
+      border-radius: 1rem;
+      padding: 2rem;
+      margin: 2rem auto;
+      max-width: 900px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+    }
+
+    .location-section {
+      font-size: 2rem;
+      color: #4a4e69;
+      text-align: center;
+      margin-bottom: 1rem;
+    }
+
+    .location-details {
+      font-size: 1.1rem;
+      text-align: center;
+      color: #333;
+    }
+
+    .location-details p {
+      margin-bottom: 0.75rem;
+    }
+
+    .map-container {
+      text-align: center;
+      margin-top: 2rem;
+    }
+
+    .map-container iframe {
+      width: 100%;
+      max-width: 850px;
+      height: 320px;
+      border: 0;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    }
+  </style>
 </head>
 
 <body>
+  <div data-include="components/header_client.html"></div>
 
-    <div data-include="components/header_client.html"></div>
+  <main>
+    <section class="location-section">
+      <h3 class="norm_h3">🏙️ Charlotte, NC</h3>
+      <div class="location-details">
+        <p>Private gym studio located on the UNC Charlotte campus, fully equipped <br>with machines, free weights, locker rooms, and chill vibes 💪✨</p>
+        <p><strong>📍 Address:</strong> 8827 Craver Rd, Charlotte, NC 28262</p>
+        <p><strong>🕒 Hours:</strong> Mon-Sat: 6am - 8pm</p>
+      </div>
+      <div class="map-container">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2073.447561700829!2d-80.73583309493285!3d35.30787154616614!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88541ba63c426aab%3A0x2f82ae3e740fd33d!2sUniversity%20Recreation%20Center%20(UREC)!5e0!3m2!1sen!2sus!4v1712078412345!5m2!1sen!2sus"
+          allowfullscreen=""
+          referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+    </section>
+  </main>
 
-    <main>
-        <section>
-            <h3>Charlotte, NC</h3>
-            <p>Private gym studio located on UNC Charlotte campus with full equipment, locker rooms, and flexible
-                training hours.</p>
-            <div class="breaker"></div>
-            <p><strong>Address:</strong> 8827 Craver Rd, Charlotte, NC 28262</p>
-            <p><strong>Hours:</strong> Mon–Sat: 6am – 8pm</p>
-            <div class="breaker"></div>
-            <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2073.447561700829!2d-80.73583309493285!3d35.30787154616614!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88541ba63c426aab%3A0x2f82ae3e740fd33d!2sUniversity%20Recreation%20Center%20(UREC)!5e0!3m2!1sen!2sus!4v1712078412345!5m2!1sen!2sus"
-                width="935" height="300" style="border:0; border-radius: 8px;" allowfullscreen=""></iframe>
-        </section>
-    </main>
-
-    <div data-include="components/footer_client.html"></div>
+  <div data-include="components/footer_client.html"></div>
 </body>
 
 </html>

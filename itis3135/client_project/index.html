@@ -2,46 +2,82 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>BuiltBunny Personal Training</title>
-    <link rel="stylesheet" href="styles/default.css">
-    <script src="https://lint.page/kit/4d0fe3.js" crossorigin="anonymous"></script>
-    <script src="scripts/components.js" defer></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BuiltBunny Personal Training</title>
+  <link rel="stylesheet" href="styles/default.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Satisfy&display=swap" rel="stylesheet">
+  <script src="https://lint.page/kit/4d0fe3.js" crossorigin="anonymous"></script>
+  <script src="scripts/components.js" defer></script>
 </head>
 
 <body>
+  <div data-include="components/header_client.html"></div>
 
-    <div data-include="components/header_client.html"></div>
+  <main>
+    <section class="hero-section">
+      <img src="images/builtbunny-hero.jpg" alt="Jaylee smiling" class="hero-img" />
+      <div class="hero-text">
+        <h1 class="hero-h1">Welcome to BuiltBunny</h1>
+        <p>✨ Strong, soft, and seriously unstoppable. ✨<br />
+          Whether you're training at home or at the gym, BuiltBunny is your safe space to grow, glow, and get results.
+        </p>
+        <div class="breaker"></div>
+        <a href="contact.html" class="cta">Book Your Free Consultation</a>
+      </div>
+    </section>
 
-    <main>
-        <section>
-            <h3>Welcome</h3>
-            <p>Welcome to the official site of BuiltBunny Personal Training — certified trainer dedicated to helping you
-                build strength, confidence, and sustainable fitness habits. Whether you're looking for in-person
-                coaching, on-demand programs, or small group classes, you're in the right place.</p>
-        </section>
+    <section>
+      <h3 class="head3">Popular Programs</h3>
+      <div class="program-gridd">
+        <div class="program-card">
+          <img src="images/online_training.jpg" alt="Online training" />
+          <h4>Online Coaching</h4>
+          <p>Structured home workouts with accountability check-ins from anywhere.</p>
+        </div>
+        <div class="program-card">
+          <img src="images/urec.jpg" alt="In-person coaching" />
+          <h4>In-Person Training</h4>
+          <p>Work 1-on-1 with Jaylee at the Charlotte location. Form, feedback, and real-time support through the workout.</p>
+        </div>
+        <div class="program-card">
+          <img src="images/group_training.jpg" alt="Group class" />
+          <h4>Group Classes</h4>
+          <p>Train alongside a small group of supportive clients with energy and vibes!</p>
+        </div>
+      </div>
+      <p style="text-align: center; margin-top: 1rem;"><a href="programs.html" class="cta">See All Programs</a></p>
+    </section>
 
-        <section>
-            <h3>Featured Programs</h3>
-            <ul>
-                <li><strong>Online Training:</strong> Remote coaching with weekly plans and video check-ins</li>
-                <li><strong>In-Person Training:</strong> One-on-one sessions at local gym studios</li>
-                <li><strong>Group Classes:</strong> High-energy small group workouts for all levels</li>
-            </ul>
-            <div class="breaker"></div>
-            <p><a href="programs.html" class="embed-link">View All Programs HERE</a></p>
-        </section>
+    <section>
+      <h3 class="head3">BuiltBunny Blog</h3>
+      <div class="blog-gridd">
+        <div class="blog-post">
+          <h4>🌸 How to Stay Consistent</h4>
+          <p>Jaylee's top 5 mindset tricks to keep showing up even when life gets hectic.</p>
+          <a href="#">Read More</a>
+        </div>
+        <div class="blog-post">
+          <h4>💪 Glute Training 101</h4>
+          <p>Everything you need to know to grow your buns with buns of steel-level form.</p>
+          <a href="#">Read More</a>
+        </div>
+        <div class="blog-post">
+          <h4>🍓 What Jaylee Eats in a Day</h4>
+          <p>Nutrition tips for energy, recovery, and feeling good from the inside out.</p>
+          <a href="#">Read More</a>
+        </div>
+      </div>
+    </section>
 
-        <section>
-            <h3>Ready to Get Started?</h3>
-            <div class="breaker"></div>
-            <p><a href="contact.html" class="cta">Book a Free Consultation</a></p>
-        </section>
-    </main>
+    <section style="text-align: center;">
+      <h3 class="head3">You're Not Just Training - You're Transforming 🐰</h3>
+      <p>Let's glow up together. BuiltBunny is here for your fitness journey, start to forever.</p>
+      <a href="contact.html" class="cta">Start Now</a>
+    </section>
+  </main>
 
-    <div data-include="components/footer_client.html"></div>
-
+  <div data-include="components/footer_client.html"></div>
 </body>
 
 </html>

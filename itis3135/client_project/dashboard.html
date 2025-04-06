@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Dashboard - BuiltBunny</title>
   <link rel="stylesheet" href="styles/default.css">
+  <link href="https://fonts.googleapis.com/css2?family=Satisfy&display=swap" rel="stylesheet">
   <script src="https://lint.page/kit/4d0fe3.js" crossorigin="anonymous"></script>
   <script src="scripts/components.js" defer></script>
 </head>
@@ -13,55 +14,50 @@
 <body>
   <div data-include="components/header_client.html"></div>
 
-  <main>
-    <h2>Welcome to your BuiltBunny Dashboard 🐰💪</h2>
-    <p id="welcomeMessage"></p>
-    <div class="breaker"></div>
-    <div class="breaker"></div>
-    <section>
-      <h2>UNC Charlotte Group Fitness Schedule</h2>
-        <p>Click here to view! ➡️
-          <a href="https://urec.charlotte.edu/group-fitness" target="_blank" rel="noopener noreferrer"
-            class="embed-link">https://urec.charlotte.edu/group-fitness
-          </a>
-        </p>
+  <main class="dashboard">
+    <h2 class="dashboard-title">Welcome to your BuiltBunny Dashboard 🐰💪</h2>
+    <p id="welcomeMessage" class="welcome-msg"></p>
+  
+    <section class="dashboard-card">
+      <h3 class="dashboard-card3">📅 UNC Charlotte Group Fitness Schedule</h3>
+      <p>Click below to view the current class lineup:</p>
+      <a href="https://urec.charlotte.edu/group-fitness" target="_blank" class="cta">View Schedule</a>
     </section>
-    <section>
-      <h2>Recommended Workout Split:</h2>
-        <ul>
-          <li>🟩 Monday – Chest & Back</li>
-          <li>🟨 Tuesday – Arms & Shoulders</li>
-          <li>🟦 Wednesday – Legs (Glute Focus)</li>
-          <li>🟥 Thursday – Chest & Back</li>
-          <li>🟧 Friday – Arms & Shoulders</li>
-          <li>🟪 Saturday – Legs</li>
-          <li>⬜ Sunday – Active Recovery</li>
-        </ul>
+  
+    <section class="dashboard-card">
+      <h3 class="dashboard-card3">
+        🔥 BuiltBunny Weekly Split <span class="sub-label">(tailored by Jaylee)</span>
+      </h3>
+      
+      <ul class="split-list">
+        <li><span class="badge green">Mon</span> Chest & Back</li>
+        <li><span class="badge yellow">Tue</span> Arms & Shoulders</li>
+        <li><span class="badge blue">Wed</span> Legs (Glute Focus)</li>
+        <li><span class="badge red">Thu</span> Chest & Back</li>
+        <li><span class="badge orange">Fri</span> Arms & Shoulders</li>
+        <li><span class="badge purple">Sat</span> Legs</li>
+        <li><span class="badge gray">Sun</span> Active Recovery</li>
+      </ul>
     </section>
-    <section>
-      <h2>Influencer Spotlight: HOPE</h2>
-      <p>
-        Meet Hope Srgo, a powerful voice in fitness. Watch her bodybuilding show video here:
-      </p>
-      <div class="breaker"></div>
+  
+    <section class="dashboard-card">
+      <h3 class="dashboard-card3">⭐ Influencer Spotlight: Hope Srgo</h3>
+      <p>Watch Hope's empowering bodybuilding video and follow her journey!</p>
+      <br>
       <div class="video-container">
         <iframe width="560" height="315" src="https://www.youtube.com/embed/tkixX7z8soU?si=ITdaajZVOXtig5vy"
-          title="YouTube video player" frameborder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
-        </iframe>
+          title="Hope Srgo video" allowfullscreen></iframe>
       </div>
-      <div class="breaker"></div>
-      <p>
-        Follow her journey on
-        <a href="https://www.youtube.com/@Hopesgroo" target="_blank" class="embed-link">@Hopesgroo</a>
+      <p style="margin-top: 1rem;">
+        Follow her on <a href="https://www.youtube.com/@Hopesgroo" target="_blank" class="embed-link">@Hopesgroo</a>
       </p>
     </section>
-
-
-
-    <button onclick="logout()">Logout</button>
+  
+    <div class="logout-section">
+      <button onclick="logout()" class="logout-btn">Logout</button>
+    </div>
   </main>
+  
 
   <div data-include="components/footer_client.html"></div>
 

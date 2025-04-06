@@ -6,41 +6,70 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>About - BuiltBunny Personal Training</title>
     <link rel="stylesheet" href="styles/default.css">
+    <link href="https://fonts.googleapis.com/css2?family=Satisfy&display=swap" rel="stylesheet">
     <script src="https://lint.page/kit/4d0fe3.js" crossorigin="anonymous"></script>
     <script src="scripts/components.js" defer></script>
 </head>
 
 <body>
-
     <div data-include="components/header_client.html"></div>
 
     <main>
-        <section>
-            <h3>Meet Jaylee</h3>
-            <p>Jaylee Vasquez is the founder of BuiltBunny Personal Training — a certified personal trainer on a mission
-                to help you level up physically and mentally. She specializes in building glutes, confidence, and
-                routines that stick.</p>
+        <section style="text-align: center;">
+            <img src="images/jaylee-profile.jpg" alt="Jaylee Vasquez"
+                style="max-width: 200px; border-radius: 50%; box-shadow: 0 4px 12px rgba(0,0,0,0.2);">
+            <h3 class="norm_h3 head3" style="margin-top: 1rem;">Meet Jaylee</h3>
+            <p>Jaylee Vasquez is the founder of <strong>BuiltBunny Personal Training</strong> - a certified personal
+                trainer on a mission to help you level up physically and mentally. She specializes in building glutes,
+                confidence, and routines that stick. Jaylee is also recently certified in teaching <strong>group fitness
+                    classes</strong> and is happy to announce her <i><strong>new</strong></i> group fitness programs!
+            </p>
+        </section>
+
+        <section class="philosophy"
+            style="background: #ffe5ec; padding: 2rem; border-radius: 1rem; margin: 2rem 0; text-align: center;">
+            <h3 class="norm_h3 head3" style="color: #4a4e69;">Philosophy</h3>
+            <blockquote style="font-style: italic; font-size: 1.2rem; color: #4a4e69;">“Fitness should be empowering,
+                not intimidating.”</blockquote>
+            <p style="margin-top: 1rem;">BuiltBunny is a brand made to embrace strength and softness. Jaylee creates a
+                safe, uplifting environment where your growth is the priority.</p>
         </section>
 
         <section>
-            <h3>Philosophy</h3>
-            <p>"Fitness should be empowering, not intimidating." BuiltBunny is a brand made to embrace strength and
-                softness. Jaylee creates a safe, uplifting environment where your growth is the priority.</p>
+            <h3 class="norm_h3 head3" style="text-align: center;">Certifications & Highlights</h3>
+            <div
+                style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; padding: 1rem;">
+                <div class="card">
+                    <h4>🏋️ NASM CPT</h4>
+                    <p>Nationally accredited Personal Trainer certification</p>
+                </div>
+                <div class="card">
+                    <h4>🥗 Nutrition Certified</h4>
+                    <p>Coaching for sustainable and customized nutrition plans</p>
+                </div>
+                <div class="card">
+                    <h4>💪 3+ Years Training</h4>
+                    <p>From one-on-one clients to high-energy group sessions</p>
+                </div>
+                <div class="card">
+                    <h4>🍑 Glute & Strength Focus</h4>
+                    <p>Progressive overload, form coaching, and real results</p>
+                </div>
+            </div>
         </section>
 
-        <section>
-            <h3>Certifications & Highlights</h3>
-            <ul>
-                <li>NASM Certified Personal Trainer</li>
-                <li>Nutrition Coaching Certification</li>
-                <li>3+ years of personal and group training experience</li>
-                <li>Specialty in lower body strength, hypertrophy, and holistic coaching</li>
-            </ul>
+        <section style="text-align: center;">
+            <h3 class="norm_h3 head3" style="text-align: center; color: #4a4e69;">More About Jaylee</h3>
+            <p>
+                In addition to running BuiltBunny, Jaylee is currently attending the University of North Carolina at
+                Charlotte where she is pursuing a degree in Elementary Education. Her passion for fitness is matched
+                only by her desire to inspire and uplift the next generation — both in the classroom and in the gym. Her
+                ability to connect, teach, and lead shines through every training session she coaches.
+            </p>
         </section>
     </main>
 
     <div data-include="components/footer_client.html"></div>
-
 </body>
 
 </html>

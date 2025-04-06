@@ -2,34 +2,118 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Login - BuiltBunny Personal Training</title>
-  <link rel="stylesheet" href="styles/default.css">
+  <link rel="stylesheet" href="styles/default.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Satisfy&display=swap" rel="stylesheet" />
   <script src="https://lint.page/kit/4d0fe3.js" crossorigin="anonymous"></script>
   <script src="scripts/components.js" defer></script>
+  <style>
+    .login-card {
+      max-width: 450px;
+      margin: 3rem auto;
+      background: var(--white);
+      padding: 2.5rem;
+      border-radius: 1.5rem;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+      text-align: center;
+      animation: fadeSlideUp 0.8s ease-in-out;
+    }
+
+    .login-card3 {
+      font-family: 'Satisfy', cursive;
+      font-size: 2rem;
+      color: var(--midnight);
+      margin-bottom: 1.5rem;
+    }
+
+    .login-card label {
+      font-weight: bold;
+      color: var(--midnight);
+      display: block;
+      margin-bottom: 0.3rem;
+      text-align: left;
+    }
+
+    .login-card input {
+      width: 100%;
+      padding: 0.6rem;
+      margin-bottom: 1.2rem;
+      border-radius: 0.5rem;
+      border: 1px solid #ccc;
+      transition: border 0.3s ease;
+      box-sizing: border-box;
+    }
+    
+
+    .login-card input:focus {
+      border-color: var(--rose);
+      outline: none;
+      box-shadow: 0 0 0 1px rgba(255, 200, 221, 0.4);
+    }
+
+    .login-card .login-btn {
+      background-color: var(--grape);
+      color: white;
+      padding: 0.7rem 1.5rem;
+      border: none;
+      border-radius: 2rem;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .login-card .login-btn:hover {
+      background-color: var(--rose);
+      color: var(--midnight);
+    }
+
+    .login-card .signup-btn {
+      background-color: var(--bubblegum);
+      color: var(--midnight);
+      font-weight: 600;
+      padding: 0.6rem 1.2rem;
+      border: none;
+      border-radius: 1rem;
+      cursor: pointer;
+      margin-top: 1rem;
+      transition: background 0.3s ease;
+    }
+
+    .login-card .signup-btn:hover {
+      background-color: var(--grape);
+      color: white;
+    }
+
+    .login-card hr {
+      margin: 2rem 0;
+      border: none;
+      border-top: 1px solid #ddd;
+    }
+  </style>
 </head>
 
 <body>
   <div data-include="components/header_client.html"></div>
 
   <main>
-    <section>
-      <h3>Login to Your Account</h3>
+    <div class="login-card">
+      <h3 class="login-card3">Welcome Back, Bunny 🐰</h3>
       <form onsubmit="return handleLogin(event)">
-        <label for="username">Username:</label><br>
-        <input type="text" id="username" name="username" required><br><br>
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required />
 
-        <label for="password">Password:</label><br>
-        <input type="password" id="password" name="password" required><br><br>
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required />
 
-        <button type="submit">Login</button>
+        <button type="submit" class="login-btn">Login</button>
       </form>
-      <div class="breaker"></div>
-      <hr>
-      <div class="breaker"></div>
-      <p>New Client? <button onclick="window.location.href='signup.html'">Create an account!</button></p>
-    </section>
+
+      <hr />
+      <p>New here?</p>
+      <button class="signup-btn" onclick="window.location.href='signup.html'">Create an Account</button>
+    </div>
   </main>
 
   <div data-include="components/footer_client.html"></div>

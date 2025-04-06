@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Sign Up - BuiltBunny Personal Training</title>
   <link rel="stylesheet" href="styles/default.css">
+  <link href="https://fonts.googleapis.com/css2?family=Satisfy&display=swap" rel="stylesheet">
   <script src="https://lint.page/kit/4d0fe3.js" crossorigin="anonymous"></script>
   <script src="scripts/components.js" defer></script>
 </head>
@@ -14,19 +15,25 @@
   <div data-include="components/header_client.html"></div>
 
   <main>
-    <section>
-      <h3>Create a New Account</h3>
+    <section class="login-card bounce-in">
+      <h3 class="head3" style="text-align: center;">Create Your BuiltBunny Account 🐰</h3>
+      <p style="text-align: center; margin-bottom: 1rem;">Let's get you glowing, lifting, and thriving 💖</p>
+
       <form onsubmit="return handleSignup(event)">
-        <label for="newUsername">Username:</label><br>
-        <input type="text" id="newUsername" name="newUsername" required><br><br>
+        <label for="newUsername">Username:</label>
+        <input type="text" id="newUsername" name="newUsername" required>
 
-        <label for="newPassword">Password:</label><br>
-        <input type="password" id="newPassword" name="newPassword" required><br><br>
+        <label for="newPassword">Password:</label>
+        <input type="password" id="newPassword" name="newPassword" required>
 
-        <button type="submit">Create Account</button>
+        <button type="submit" class="cta">Create Account</button>
       </form>
+
       <div class="breaker"></div>
-      <p>Already have an account? <a href="login.html" class="embed-link">Login here</a>.</p>
+      <p style="text-align: center;">
+        Already have an account? 
+        <a href="login.html" class="embed-link">Login here</a>.
+      </p>
     </section>
   </main>
 

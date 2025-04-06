@@ -4,30 +4,95 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact - Jaylee Vasquez Training</title>
+    <title>Contact - BuiltBunny Personal Training</title>
     <link rel="stylesheet" href="styles/default.css">
+    <link href="https://fonts.googleapis.com/css2?family=Satisfy&display=swap" rel="stylesheet">
     <script src="https://lint.page/kit/4d0fe3.js" crossorigin="anonymous"></script>
     <script src="scripts/components.js" defer></script>
+    <style>
+        .contact-form {
+            background-color: #ffe5ec;
+            padding: 2rem;
+            border-radius: 1rem;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+            max-width: 600px;
+            margin: 2rem auto;
+        }
+
+        .contact-form .heading3 {
+            text-align: center;
+            color: #4a4e69;
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-form label {
+            font-weight: bold;
+            color: #4a4e69;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 0.75rem;
+            margin-top: 0.5rem;
+            margin-bottom: 1.5rem;
+            border-radius: 0.5rem;
+            font-size: 1rem;
+        }
+
+        .contact-form button {
+            background-color: #4a4e69;
+            color: white;
+            font-weight: bold;
+            border: none;
+            padding: 0.75rem 2rem;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+            display: block;
+            margin: 0 auto;
+        }
+
+        .contact-form button:hover {
+            background-color: #d63384;
+        }
+
+        .contact-intro {
+            text-align: center;
+            max-width: 700px;
+            margin: 2rem auto 0 auto;
+        }
+
+        .contact-intro p {
+            font-size: 1.1rem;
+            color: #5a5a5a;
+        }
+    </style>
 </head>
 
 <body>
-
     <div data-include="components/header_client.html"></div>
 
     <main>
-        <section>
-            <h3>Get in Touch</h3>
+        <section class="contact-intro">
+            <h2 style="color: #4a4e69;">Let's Make Magic Happen ✨</h2>
+            <p>Whether you’ve got questions, want to schedule a session, or just need a little encouragement to start
+                your journey - drop a message below and Jaylee will be in touch!</p>
+        </section>
+
+        <section class="contact-form">
+            <h3 class="norm_h3 heading3 head3">Get in Touch</h3>
             <form action="#" method="post" onsubmit="return validateForm()">
-                <label for="name">Name:</label><br>
-                <input type="text" id="name" name="name" required><br><br>
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
 
-                <label for="email">Email:</label><br>
-                <input type="email" id="email" name="email" required><br><br>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
 
-                <label for="message">Message:</label><br>
-                <textarea id="message" name="message" rows="5" required></textarea><br><br>
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" rows="5" required></textarea>
 
-                <button type="submit">Send Message</button>
+                <button type="submit">Send Message 💌</button>
             </form>
         </section>
     </main>

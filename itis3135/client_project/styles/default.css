@@ -269,12 +269,24 @@ textarea {
   padding: 2rem 0;
 }
 
+@keyframes fadeInZoom {
+  0% {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
 .hero-img {
   width: 100%;
-  max-height: 400px;
+  max-width: 400px;
   object-fit: cover;
   border-radius: 1rem;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+  animation: fadeInZoom 1.4s ease-out forwards;
 }
 
 .hero-h1 {

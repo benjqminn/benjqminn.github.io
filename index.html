@@ -2,147 +2,196 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://lint.page/kit/4d0fe3.js" crossorigin="anonymous"></script>
-    <title>Benjamin Taylor's Brawny Toucan ~ ITIS 3135</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Benjamin Taylor | Cybersecurity Student</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet" />
+    <script src="https://kit.fontawesome.com/a81368914c.js" crossorigin="anonymous"></script>
     <style>
-        body {
-            font-family: Calibri, sans-serif;
-            font-size: 18px;
-            line-height: 1.6;
-            margin: 20px;
+        * {
+            margin: 0;
             padding: 0;
-            background-color: #ECE0D1;
-            color: #634832;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: #f5f5f5;
+            color: #222;
+            overflow-x: hidden;
         }
 
         header {
             text-align: center;
-            font-size: 1.5rem;
-            font-weight: bold;
-            padding: 15px 0;
-            background-color: #DBC1AC;
-            color: #634832;
-            border-bottom: 2px solid #38220F;
+            padding: 4rem 2rem 2rem;
+            animation: fadeDown 1s ease-out;
+        }
+
+        header h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: #222;
+        }
+
+        header h2 {
+            font-weight: 400;
+            color: #555;
+            font-size: 1.3rem;
         }
 
         nav {
             display: flex;
-            justify-content: space-between;
-            max-width: 800px;
-            margin: 15px auto;
-            padding: 10px 0;
+            justify-content: center;
+            background-color: #ffffff;
+            padding: 1rem;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
         }
 
-        nav ul {
-            display: flex;
-            width: 100%;
-            justify-content: space-between;
-            list-style: none;
-            padding: 0;
-        }
-
-        nav ul li {
-            flex: 1;
-            text-align: center;
-        }
-
-        nav ul li a {
-            text-decoration: none;
-            color: #634832;
-            font-size: 1.1rem;
+        nav a {
+            color: #222;
+            margin: 0 1rem;
             text-transform: uppercase;
             font-weight: bold;
-            padding: 10px;
-            transition: color 0.3s;
+            transition: transform 0.3s, color 0.3s;
+            text-decoration: none;
         }
 
-        nav ul li a:hover {
-            color: #634832;
+        nav a:hover {
+            color: #0078D4;
+            transform: scale(1.1);
         }
 
         main {
-            max-width: 800px;
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 2rem;
+            background: #ffffff;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            animation: fadeUp 1.2s ease-out;
+        }
+
+        main h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: #0078D4;
+            text-align: center;
+        }
+
+        main p,
+        main a {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            color: #333;
+            text-align: center;
+        }
+
+        main a {
+            font-weight: bold;
+            text-decoration: none;
+            color: #0078D4;
+        }
+
+        main a:hover {
+            text-decoration: underline;
+        }
+
+        .carousel-section {
+            text-align: center;
+            margin-top: 3rem;
+        }
+
+        .carousel-container {
+            position: relative;
+            max-width: 600px;
             margin: 0 auto;
-            padding: 20px;
-            background-color: #DBC1AC;
+            overflow: hidden;
+        }
+
+        .carousel-slide {
+            display: none;
+            animation: fade 0.5s ease-in-out;
+        }
+
+        .carousel-slide.active {
+            display: block;
+        }
+
+        .carousel-slide img {
+            width: 100%;
+            max-height: 300px;
+            object-fit: contain;
             border-radius: 10px;
-            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
         }
 
-        h1 {
-            font-weight: bold;
-            color: #634832;
-            font-size: 1.8rem;
-            text-align: center;
-            margin-bottom: 15px;
-        }
-
-        h2 {
-            font-weight: bold;
-            color: #634832;
-            font-size: 1.5rem;
-            text-align: center;
-            margin-bottom: 10px;
-            padding-bottom: 5px;
-        }
-
-        h3 {
-            font-weight: bold;
-            color: #634832;
-            font-size: 1.3rem;
-            margin-bottom: 8px;
-        }
-
-        p,
-        ul li,
-        figcaption {
-            color: #634832;
-            text-align: justify;
-        }
-
-        ul {
-            margin-left: 20px;
-            padding-left: 15px;
-        }
-
-        ul li {
-            margin-bottom: 8px;
-        }
-
-        .footer-logo {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0px;
-        }
-
-        .footer-logo img {
-            width: 30px;
-            height: auto;
-        }
-
-        .footer-logo p {
-            margin: 0;
-            padding-left: 10px;
+        .carousel-caption {
+            margin-top: 10px;
             font-size: 1rem;
-            align-items: center;
-            padding-left: 10px;
+            color: #333;
+        }
+
+        .carousel-nav {
+            margin-top: 1rem;
+        }
+
+        .carousel-nav button {
+            background: #0078D4;
+            color: #fff;
+            border: none;
+            padding: 10px 15px;
+            margin: 0 5px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .carousel-nav button:hover {
+            background: #005ea6;
+        }
+
+        .dots {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin-top: 10px;
+        }
+
+        .dot {
+            width: 10px;
+            height: 10px;
+            background: #ccc;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+
+        .dot.active {
+            background: #0078D4;
+        }
+
+        iframe.github-embed {
+            width: 100%;
+            height: 250px;
+            border: none;
+            margin-top: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
         }
 
         footer {
             text-align: center;
-            padding: 15px 0;
-            border-top: 2px solid #38220F;
-            margin-top: 20px;
-            background-color: #DBC1AC;
-            color: #634832;
+            padding: 2rem;
+            background-color: #ffffff;
+            color: #444;
+            font-size: 0.9rem;
+            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.05);
         }
 
         footer ul {
             list-style: none;
             padding: 0;
+            margin-bottom: 10px;
         }
 
         footer ul li {
@@ -151,62 +200,43 @@
         }
 
         footer ul li a {
+            color: #0078D4;
             text-decoration: none;
-            font-size: 1rem;
             font-weight: bold;
-            color: #634832;
+            font-size: 1rem;
             transition: color 0.3s ease-in-out;
         }
 
-        footer p a:hover {
-            color: #634832;
+        footer ul li a:hover {
+            color: #111;
         }
 
-        footer p a {
-            color: #634832;
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 1rem;
+        }
+
+        .footer-logo img {
+            width: 40px;
+        }
+
+        .footer-logo p {
+            margin: 0;
+            font-size: 0.95rem;
+            color: #666;
+        }
+
+        .footer-logo p a {
+            color: #0078D4;
             font-weight: bold;
             text-decoration: none;
         }
 
-        footer p a:visited {
-            color: #634832;
-        }
-
-        footer p {
-            margin-top: 10px;
-        }
-
-        footer .web-solutions {
-            font-weight: bold;
-            color: #38220F;
-            margin-top: 15px;
-        }
-
-        .signature {
-            text-align: center;
-            font-style: italic;
-            margin-top: 20px;
-            color: #38220F;
-        }
-
-        @media (max-width: 768px) {
-            nav ul {
-                flex-direction: column;
-                text-align: center;
-            }
-
-            nav ul li {
-                width: 100%;
-            }
-
-            main {
-                width: 90%;
-            }
-
-            .logo img {
-                max-width: 100%;
-                max-height: 150px;
-            }
+        .footer-logo p a:hover {
+            text-decoration: underline;
         }
 
         .footer-validation {
@@ -214,43 +244,309 @@
             justify-content: center;
             align-items: center;
             gap: 10px;
-            margin-top: 10px;
+            margin-top: 15px;
         }
 
-        p a:hover {
-            color: #634832;
+        .breaker {
+            padding-top: 20px;
         }
-        
-        p a {
-            color: #634832;
-            font-weight: bold;
-            text-decoration: none;
+
+        .bigger-breaker {
+            padding-top: 50px;
         }
-        
-        p a:visited {
-            color: #634832;
+
+        .smaller-breaker {
+            padding-top: 10px;
+        }
+
+        @keyframes fade {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeDown {
+            from {
+                opacity: 0;
+                transform: translateY(-40px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .section-pair {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 2rem;
+            margin-top: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .section-block {
+            flex: 1 1 48%;
+            padding: 1rem;
+            background: #f9f9f9;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            text-align: center;
+        }
+
+        .section-block h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: #0078D4;
+            font-weight: 700;
+        }
+
+        .section-block p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #333;
+        }
+
+        .quote-block {
+            font-style: italic;
+            font-size: 1.2rem;
+            color: #444;
+            max-width: 800px;
+            margin: 0 auto 2rem;
+            border-left: 5px solid #0078D4;
+            padding-left: 1.5rem;
+            border-radius: 5px;
+            position: relative;
+            min-height: 100px;
+        }
+
+        #typewriter {
+            display: inline-block;
+            white-space: pre-wrap;
+            overflow-wrap: break-word;
+            word-break: break-word;
+            animation: blink-caret 0.75s step-end infinite;
+        }
+
+        @keyframes blink-caret {
+
+            from,
+            to {
+                border-right: 2px solid transparent;
+            }
+
+            50% {
+                border-right: 2px solid #0078D4;
+            }
+        }
+
+        .quote-block strong {
+            color: #000;
+            font-weight: 700;
         }
     </style>
 </head>
 
 <body>
     <header>
-        <h1>Benjamin Taylor - Cybersecurity Student</h1>
-        <h2>UNC Charlotte | Computer Science B.S.</h2>
+        <h1>Benjamin Taylor</h1>
+        <h2>Cybersecurity Student | SOC Analyst in Training</h2>
     </header>
 
     <nav>
-        <ul>
-            <li><a href="itis3135/index.html">ITIS-3135 Course Page</a></li>
-        </ul>
+        <a href="https://github.com/benjqminn">GitHub</a>
+        <a href="https://www.linkedin.com/in/btayl106/">LinkedIn</a>
+        <a href="https://benjqminn.github.io">Projects</a>
+        <a href="itis3135/index.html">ITIS-3135</a>
     </nav>
 
     <main>
-        <h2>My Homepage</h2>
-        <p>This is my homepage to navigate to all of my different sections.</p>
-        <p>Feel free to check out my <a href="https://www.linkedin.com/in/btayl106/">LinkedIn</a>
-            or my <a href="https://github.com/benjqminn">GitHub</a> for projects and
-            certifications!</p>
+        <div class="section-pair">
+            <div class="section-block">
+                <h2>Welcome</h2>
+                <p>
+                    I am a current Computer Science student at UNC Charlotte, concentrating in Cybersecurity.
+                    I have a profound interest in technology and a dedication to making the internet more secure.
+                    I'm particularly drawn to cybersecurity because it allows me to combine technical problem-solving
+                    with meaningful impact.
+                </p>
+            </div>
+
+            <div class="section-block">
+                <h2>Objective</h2>
+                <p>
+                    My journey in computer science has led me to develop a passion for cybersecurity,
+                    and I am now eager to transition into this field, specifically aiming to join a
+                    Security Operations Center (SOC) as a Tier 1 Analyst. I've always found it fascinating to be able
+                    to protect people online, and I'm driven by the goal of making a meaningful impact in the
+                    cybersecurity space.
+                </p>
+            </div>
+        </div>
+
+        <div class="quote-block">
+            <span id="typewriter"></span>
+        </div>
+
+        <div class="breaker"></div>
+        <section class="carousel-section">
+            <h2>📜 Certifications</h2>
+            <div class="carousel-container" id="cert-carousel">
+                <div class="carousel-slide active">
+                    <img src="images/certifications/Google_Cybersecurity_Certificate_-_Benjamin_Taylor-1.png"
+                        alt="Google Cybersecurity Certificate">
+                    <div class="carousel-caption">Google Cybersecurity Certificate</div>
+                </div>
+                <div class="carousel-slide">
+                    <img src="images/certifications/CC_Certified_in Cybersecurity_(CC)-1.png"
+                        alt="ISC2 Certified in Cybersecurity (CC)">
+                    <div class="carousel-caption">ISC2 Certified in Cybersecurity (CC)</div>
+                </div>
+                <div class="carousel-slide">
+                    <img src="images/certifications/Cyber_Security_101_-_TryHackMe-1.png"
+                        alt="TryHackMe Cyber Security 101">
+                    <div class="carousel-caption">TryHackMe Cyber Security 101</div>
+                </div>
+                <div class="carousel-slide">
+                    <img src="images/certifications/Cisco_Introduction_to_Cybersecurity_-_Benjamin_Taylor-1.png"
+                        alt="Cisco Intro to Cybersecurity">
+                    <div class="carousel-caption">Cisco Intro to Cybersecurity</div>
+                </div>
+                <div class="carousel-slide">
+                    <img src="images/certifications/Csharp_Microsoft_Benjamin_Taylor.png"
+                        alt="Foundational C# With Microsoft">
+                    <div class="carousel-caption">Foundational C# With Microsoft</div>
+                </div>
+                <div class="carousel-slide">
+                    <img src="images/certifications/Javascript_Freecodecamp_Benjamin_Taylor.png"
+                        alt="Javascript Algorithms & Data Structures">
+                    <div class="carousel-caption">Javascript Algorithms & Data Structures</div>
+                </div>
+                <div class="carousel-slide">
+                    <img src="images/certifications/Web_Design_Freecodecamp_Benjamin_Taylor.png"
+                        alt="Responsive Web Design">
+                    <div class="carousel-caption">Responsive Web Design</div>
+                </div>
+                <div class="carousel-slide">
+                    <img src="images/certifications/Google_Business_Intelligence_Certificate_-_Benjamin_Taylor-1.png"
+                        alt="Google Business Intelligence">
+                    <div class="carousel-caption">Google Business Intelligence</div>
+                </div>
+            </div>
+            <div class="smaller-breaker"></div>
+            <div class="dots" id="cert-dots"></div>
+        </section>
+        <div class="bigger-breaker"></div>
+        <section class="carousel-section"
+            style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 2rem;">
+            <div style="flex: 1 1 48%;">
+                <h2>💻 Projects</h2>
+                <div class="carousel-container" id="project-carousel">
+                    <div class="carousel-slide active">
+                        <a href="https://github.com/benjqminn/cybersecurity/tree/730b7c2738b87811b2f065d412d0debb88da8d2b/Infosecurity/bannergrabber"
+                            target="_blank">
+                            <img src="images/code_images/banner_grabber_code.png" alt="Banner Grabber">
+                        </a>
+                        <div class="carousel-caption">Banner Grabber - Service identification via banner data</div>
+                    </div>
+                    <div class="carousel-slide">
+                        <a href="https://github.com/benjqminn/cybersecurity/tree/730b7c2738b87811b2f065d412d0debb88da8d2b/Infosecurity/clientserver"
+                            target="_blank">
+                            <img src="images/code_images/server_client_code.png" alt="Socket Programming">
+                        </a>
+                        <div class="carousel-caption">Socket Programming - TCP echo client/server in Python</div>
+                    </div>
+                    <div class="carousel-slide">
+                        <a href="https://github.com/benjqminn/cybersecurity/tree/730b7c2738b87811b2f065d412d0debb88da8d2b/Infosecurity/nmap_scanner"
+                            target="_blank">
+                            <img src="images/code_images/nmap_scanner_code.png" alt="Nmap Scanner">
+                        </a>
+                        <div class="carousel-caption">Nmap Scanner - Python wrapper for automated scanning</div>
+                    </div>
+                    <div class="carousel-slide">
+                        <a href="https://github.com/benjqminn/cybersecurity/tree/730b7c2738b87811b2f065d412d0debb88da8d2b/Infosecurity/portscanner"
+                            target="_blank">
+                            <img src="images/code_images/port_scanner_code.png" alt="Port Scanner">
+                        </a>
+                        <div class="carousel-caption">Port Scanner - Threaded socket-based network tool</div>
+                    </div>
+                </div>
+                <div class="smaller-breaker"></div>
+                <div class="dots" id="project-dots"></div>
+            </div>
+
+            <div style="flex: 1 1 48%;">
+                <h2>📚 Research & Presentations</h2>
+                <div class="carousel-container" id="research-carousel">
+                    <div class="carousel-slide active">
+                        <a href="https://github.com/benjqminn/cybersecurity/blob/main/Presentations/Hardening%20Cybersecurity%20(WannaCry)/Hardening%20Cybersecurity%20in%20Healthcare.pdf"
+                            target="_blank">
+                            <img src="images/presentations/hardening_cybersecurity_benjamin_taylor.png"
+                                alt="Healthcare Cybersecurity">
+                        </a>
+                        <div class="carousel-caption">Hardening Cybersecurity in Healthcare - Zero Trust & segmentation
+                        </div>
+                    </div>
+                    <div class="carousel-slide">
+                        <a href="https://github.com/benjqminn/cybersecurity/blob/main/Presentations/2015%20Tesla%20Model%20S%20Hack.pdf"
+                            target="_blank">
+                            <img src="images/presentations/tesla_model_s_hack_benjamin_taylor.png"
+                                alt="Tesla Model S Hack">
+                        </a>
+                        <div class="carousel-caption">Tesla Model S Hack - Ethical hacking analysis</div>
+                    </div>
+                    <div class="carousel-slide">
+                        <a href="https://github.com/benjqminn/cybersecurity/tree/730b7c2738b87811b2f065d412d0debb88da8d2b/Presentations/Socket%20Programming%20Python"
+                            target="_blank">
+                            <img src="images/presentations/socket_programming_python_echo_client_server.png"
+                                alt="Socket Programming in Python - Echo Client & Server">
+                        </a>
+                        <div class="carousel-caption">Tesla Model S Hack - Ethical hacking analysis</div>
+                    </div>
+                    <div class="carousel-slide">
+                        <a href="https://github.com/benjqminn/cybersecurity/blob/main/Presentations/DDoS%20mitigation%20from%20Cloudflare.pdf"
+                            target="_blank">
+                            <img src="images/presentations/ddos_mitigation_cloudflare_group9.png" alt="DDoS Mitigation">
+                        </a>
+                        <div class="carousel-caption">DDoS Mitigation Strategies - Research on Cloudflare & Anycast
+                        </div>
+                    </div>
+                    <div class="carousel-slide">
+                        <a href="https://github.com/benjqminn/cybersecurity/blob/main/Presentations/Cloud%20Computing%20-%20A%20Network%20Application%20Analysis.pdf"
+                            target="_blank">
+                            <img src="images/presentations/cloud_network_application_analysis.png"
+                                alt="Cloud Network Analysis">
+                        </a>
+                        <div class="carousel-caption">Cloud Computing - Network architecture & latency study</div>
+                    </div>
+                </div>
+                <div class="smaller-breaker"></div>
+                <div class="dots" id="research-dots"></div>
+            </div>
+        </section>
+        <div class="bigger-breaker"></div>
+        <div class="bigger-breaker"></div>
+        <h2>🔐 Cybersecurity GitHub Repository</h2>
+        <iframe class="github-embed" src="https://github.com/benjqminn/cybersecurity"></iframe>
     </main>
 
     <footer>
@@ -261,29 +557,101 @@
             <li><a href="itis3135/index.html">ITIS-3135</a></li>
             <li><a href="https://www.linkedin.com/in/btayl106/">LinkedIn</a></li>
         </ul>
-
         <div class="footer-logo">
             <img src="itis3135/images/uncc__logo.png" alt="UNC Charlotte Logo">
             <p>
-                Designed by <a href="itis3135/taylordigital.co/index.html"><strong>Taylor Digital
-                        Solutions</strong></a>,
+                Designed by <a href="itis3135/taylordigital.co/index.html">Taylor Digital Solutions</a>,
                 <em><a href="https://www.freecodecamp.org/certification/benjqmin/responsive-web-design">Certified in
-                        Responsive Web Design</a> <a
-                        href="https://www.freecodecamp.org/certification/benjqmin/javascript-algorithms-and-data-structures-v8">and
-                        JSS</a></em> ©2025
+                        Responsive Web Design</a>,
+                    <a
+                        href="https://www.freecodecamp.org/certification/benjqmin/javascript-algorithms-and-data-structures-v8">JS
+                        Algorithms</a></em> ©2025
             </p>
         </div>
         <div class="footer-validation">
-            <p>
-                <a href="https://validator.w3.org/check?uri=referer" id="validation-link-html">
-                    <img src="https://mytienhoang.github.io/itis3135/z_archives/html_validation.png" alt="Valid HTML!">
-                </a>
-                <a href="https://jigsaw.w3.org/css-validator/check/referer" id="validation-link-css">
-                    <img src="https://jigsaw.w3.org/css-validator/images/vcss" alt="Valid CSS!">
-                </a>
-            </p>
+            <a href="https://validator.w3.org/check?uri=referer">
+                <img src="https://mytienhoang.github.io/itis3135/z_archives/html_validation.png" alt="Valid HTML!">
+            </a>
+            <a href="https://jigsaw.w3.org/css-validator/check/referer">
+                <img src="https://jigsaw.w3.org/css-validator/images/vcss" alt="Valid CSS!">
+            </a>
         </div>
     </footer>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const quote = `“For me, life is continuously being hungry. The meaning of life is not simply to exist… but to move ahead, to go up, to achieve, to conquer.”`;
+            const author = `— Arnold Schwarzenegger`;
+            const typewriterElement = document.getElementById("typewriter");
+
+            let fullText = quote + '\n' + author;
+            let i = 0;
+
+            function typeWriter() {
+                if (i < fullText.length) {
+                    let char = fullText.charAt(i);
+
+                    if (i === quote.length) {
+                        const strong = document.createElement("strong");
+                        strong.setAttribute("id", "author-line");
+                        typewriterElement.appendChild(document.createElement("br"));
+                        typewriterElement.appendChild(strong);
+                    }
+
+                    if (i < quote.length) {
+                        typewriterElement.innerHTML += char;
+                    } else {
+                        document.getElementById("author-line").textContent += char;
+                    }
+
+                    i++;
+                    setTimeout(typeWriter, 30);
+                }
+            }
+
+            typeWriter();
+        });
+
+
+        function initCarousel(carouselId, dotId, autoSlide = false, interval = 5000) {
+            const container = document.getElementById(carouselId);
+            const slides = container.querySelectorAll(".carousel-slide");
+            const dotsContainer = document.getElementById(dotId);
+            let currentIndex = 0;
+
+            const showSlide = (index) => {
+                slides.forEach((slide, i) => {
+                    slide.classList.remove("active");
+                    dotsContainer.children[i].classList.remove("active");
+                });
+                slides[index].classList.add("active");
+                dotsContainer.children[index].classList.add("active");
+                currentIndex = index;
+            };
+
+            slides.forEach((_, i) => {
+                const dot = document.createElement("div");
+                dot.classList.add("dot");
+                if (i === 0) dot.classList.add("active");
+                dot.addEventListener("click", () => showSlide(i));
+                dotsContainer.appendChild(dot);
+            });
+
+            if (autoSlide) {
+                setInterval(() => {
+                    currentIndex = (currentIndex + 1) % slides.length;
+                    showSlide(currentIndex);
+                }, interval);
+            }
+        }
+
+        window.onload = () => {
+            initCarousel("cert-carousel", "cert-dots", true, 5000);
+            initCarousel("project-carousel", "project-dots", true, 8000);
+            initCarousel("research-carousel", "research-dots", true, 10000);
+        };
+    </script>
+
 </body>
 
 </html>

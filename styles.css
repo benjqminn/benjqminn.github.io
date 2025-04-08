@@ -660,7 +660,7 @@ nav a i {
     overflow: hidden;
     z-index: 0;
     transition: transform 0.3s ease;
-  }
+}
 
 .google-card::before {
     content: "";
@@ -726,3 +726,161 @@ nav a i {
 .google-card h3 {
     color: #34A853;
 }
+
+/* 📱 MOBILE OPTIMIZATION */
+@media (max-width: 1024px) {
+    nav {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0.5rem;
+    }
+
+    nav a {
+        margin: 0.5rem 0.75rem;
+        font-size: 1rem;
+    }
+
+    .section-pair {
+        flex-direction: column;
+    }
+
+    .section-block {
+        width: 100%;
+    }
+
+    .carousel-container {
+        width: 100%;
+    }
+
+    .quote-block {
+        font-size: 1rem;
+        padding-left: 1rem;
+    }
+
+    .github-link-card,
+    .connect-section {
+        padding: 1rem;
+    }
+}
+
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 2rem;
+    }
+
+    header h2 {
+        font-size: 1rem;
+    }
+
+    main {
+        padding: 1rem;
+        margin: 0.5rem;
+    }
+
+    .edu-card {
+        flex: 1 1 100% !important;
+        margin: 0.5rem 0;
+    }
+
+    .carousel-slide img {
+        max-height: 180px;
+    }
+
+    .carousel-caption {
+        font-size: 0.9rem;
+    }
+
+    .connect-list li {
+        font-size: 0.95rem;
+        line-height: 1.5;
+    }
+
+    footer ul {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .footer-logo {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+
+@media (max-width: 768px) {
+    header {
+        padding: 2rem 1rem;
+    }
+}
+
+@media (max-width: 768px) {
+
+    .section-block p,
+    .edu-card p,
+    .connect-section p,
+    .connect-list li {
+        text-align: left;
+    }
+}
+
+.linkedin-connect {
+    margin: 4rem auto;
+    padding: 2.5rem;
+    max-width: 700px;
+    background: #f0f4f8;
+    border-radius: 18px;
+    text-align: center;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+    animation: fadeUp 1s ease;
+}
+
+.linkedin-connect h2 {
+    font-size: 2rem;
+    color: #0078D4;
+    margin-bottom: 1rem;
+}
+
+.linkedin-connect p {
+    font-size: 1.1rem;
+    color: #333;
+    margin-bottom: 1.5rem;
+}
+
+.connect-btn {
+    display: inline-block;
+    background-color: #0078D4;
+    color: #fff;
+    font-weight: bold;
+    padding: 0.75rem 1.5rem;
+    border-radius: 10px;
+    font-size: 1.1rem;
+    text-decoration: none;
+    transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.connect-btn:hover {
+    background-color: #005fa3;
+    transform: scale(1.05);
+    box-shadow: 0 0 12px rgba(0, 120, 212, 0.5);
+    text-decoration: none;
+}
+
+.connect-btn i {
+    margin-right: 8px;
+    font-size: 1.2rem;
+    vertical-align: middle;
+}
+
+.linkedin-font {
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 18.5px;
+}
+
+.linkedin-logo {
+    height: 35px;
+    vertical-align: middle;
+    margin-right: 10px;
+    margin-bottom: 7px;
+    margin-left: 3px;
+}
+

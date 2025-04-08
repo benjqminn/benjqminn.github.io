@@ -7,382 +7,36 @@
     <title>Benjamin Taylor | Cybersecurity Student</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet" />
     <script src="https://kit.fontawesome.com/a81368914c.js" crossorigin="anonymous"></script>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Montserrat', sans-serif;
-            background: #f5f5f5;
-            color: #222;
-            overflow-x: hidden;
-        }
-
-        header {
-            text-align: center;
-            padding: 4rem 2rem 2rem;
-            animation: fadeDown 1s ease-out;
-        }
-
-        header h1 {
-            font-size: 3rem;
-            font-weight: 700;
-            margin-bottom: 0.5rem;
-            color: #222;
-        }
-
-        header h2 {
-            font-weight: 400;
-            color: #555;
-            font-size: 1.3rem;
-        }
-
-        nav {
-            display: flex;
-            justify-content: center;
-            background-color: #ffffff;
-            padding: 1rem;
-            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
-        }
-
-        nav a {
-            color: #222;
-            margin: 0 1rem;
-            text-transform: uppercase;
-            font-weight: bold;
-            transition: transform 0.3s, color 0.3s;
-            text-decoration: none;
-        }
-
-        nav a:hover {
-            color: #0078D4;
-            transform: scale(1.1);
-        }
-
-        main {
-            max-width: 1200px;
-            margin: 2rem auto;
-            padding: 2rem;
-            background: #ffffff;
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            animation: fadeUp 1.2s ease-out;
-        }
-
-        main h2 {
-            font-size: 2rem;
-            margin-bottom: 1rem;
-            color: #0078D4;
-            text-align: center;
-        }
-
-        main p,
-        main a {
-            font-size: 1.1rem;
-            line-height: 1.6;
-            color: #333;
-            text-align: center;
-        }
-
-        main a {
-            font-weight: bold;
-            text-decoration: none;
-            color: #0078D4;
-        }
-
-        main a:hover {
-            text-decoration: underline;
-        }
-
-        .carousel-section {
-            text-align: center;
-            margin-top: 3rem;
-        }
-
-        .carousel-container {
-            position: relative;
-            max-width: 600px;
-            margin: 0 auto;
-            overflow: hidden;
-        }
-
-        .carousel-slide {
-            display: none;
-            animation: fade 0.5s ease-in-out;
-        }
-
-        .carousel-slide.active {
-            display: block;
-        }
-
-        .carousel-slide img {
-            width: 100%;
-            max-height: 300px;
-            object-fit: contain;
-            border-radius: 10px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-        }
-
-        .carousel-caption {
-            margin-top: 10px;
-            font-size: 1rem;
-            color: #333;
-        }
-
-        .carousel-nav {
-            margin-top: 1rem;
-        }
-
-        .carousel-nav button {
-            background: #0078D4;
-            color: #fff;
-            border: none;
-            padding: 10px 15px;
-            margin: 0 5px;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background 0.3s;
-        }
-
-        .carousel-nav button:hover {
-            background: #005ea6;
-        }
-
-        .dots {
-            display: flex;
-            justify-content: center;
-            gap: 8px;
-            margin-top: 10px;
-        }
-
-        .dot {
-            width: 10px;
-            height: 10px;
-            background: #ccc;
-            border-radius: 50%;
-            cursor: pointer;
-        }
-
-        .dot.active {
-            background: #0078D4;
-        }
-
-        iframe.github-embed {
-            width: 100%;
-            height: 250px;
-            border: none;
-            margin-top: 2rem;
-            border-radius: 10px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-        }
-
-        footer {
-            text-align: center;
-            padding: 2rem;
-            background-color: #ffffff;
-            color: #444;
-            font-size: 0.9rem;
-            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.05);
-        }
-
-        footer ul {
-            list-style: none;
-            padding: 0;
-            margin-bottom: 10px;
-        }
-
-        footer ul li {
-            display: inline;
-            margin: 0 10px;
-        }
-
-        footer ul li a {
-            color: #0078D4;
-            text-decoration: none;
-            font-weight: bold;
-            font-size: 1rem;
-            transition: color 0.3s ease-in-out;
-        }
-
-        footer ul li a:hover {
-            color: #111;
-        }
-
-        .footer-logo {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            margin-top: 1rem;
-        }
-
-        .footer-logo img {
-            width: 40px;
-        }
-
-        .footer-logo p {
-            margin: 0;
-            font-size: 0.95rem;
-            color: #666;
-        }
-
-        .footer-logo p a {
-            color: #0078D4;
-            font-weight: bold;
-            text-decoration: none;
-        }
-
-        .footer-logo p a:hover {
-            text-decoration: underline;
-        }
-
-        .footer-validation {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 10px;
-            margin-top: 15px;
-        }
-
-        .breaker {
-            padding-top: 20px;
-        }
-
-        .bigger-breaker {
-            padding-top: 50px;
-        }
-
-        .smaller-breaker {
-            padding-top: 10px;
-        }
-
-        @keyframes fade {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes fadeUp {
-            from {
-                opacity: 0;
-                transform: translateY(40px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes fadeDown {
-            from {
-                opacity: 0;
-                transform: translateY(-40px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .section-pair {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-            gap: 2rem;
-            margin-top: 2rem;
-            margin-bottom: 3rem;
-        }
-
-        .section-block {
-            flex: 1 1 48%;
-            padding: 1rem;
-            background: #f9f9f9;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-            text-align: center;
-        }
-
-        .section-block h2 {
-            font-size: 2rem;
-            margin-bottom: 1rem;
-            color: #0078D4;
-            font-weight: 700;
-        }
-
-        .section-block p {
-            font-size: 1.1rem;
-            line-height: 1.8;
-            color: #333;
-        }
-
-        .quote-block {
-            font-style: italic;
-            font-size: 1.2rem;
-            color: #444;
-            max-width: 800px;
-            margin: 0 auto 2rem;
-            border-left: 5px solid #0078D4;
-            padding-left: 1.5rem;
-            border-radius: 5px;
-            position: relative;
-            min-height: 100px;
-        }
-
-        #typewriter {
-            display: inline-block;
-            white-space: pre-wrap;
-            overflow-wrap: break-word;
-            word-break: break-word;
-            animation: blink-caret 0.75s step-end infinite;
-        }
-
-        @keyframes blink-caret {
-
-            from,
-            to {
-                border-right: 2px solid transparent;
-            }
-
-            50% {
-                border-right: 2px solid #0078D4;
-            }
-        }
-
-        .quote-block strong {
-            color: #000;
-            font-weight: 700;
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
     <header>
-        <h1>Benjamin Taylor</h1>
+        <h1>
+            <a href="index.html" class="site-title">Benjamin Taylor</a>
+        </h1>
         <h2>Cybersecurity Student | SOC Analyst in Training</h2>
     </header>
 
     <nav>
-        <a href="https://github.com/benjqminn">GitHub</a>
-        <a href="https://www.linkedin.com/in/btayl106/">LinkedIn</a>
-        <a href="https://benjqminn.github.io">Projects</a>
-        <a href="itis3135/index.html">ITIS-3135</a>
+        <a href="https://github.com/benjqminn">
+            <i class="fab fa-github"></i> GitHub
+        </a>
+        <a href="https://www.linkedin.com/in/btayl106/">
+            <i class="fab fa-linkedin"></i> LinkedIn
+        </a>
+        <a href="projects.html">
+            <i class="fas fa-gavel"></i> Projects
+        </a>
+        <a href="itis3135/index.html">
+            <i class="fas fa-book"></i> ITIS-3135
+        </a>
     </nav>
 
     <main>
         <div class="section-pair">
             <div class="section-block">
-                <h2>Welcome</h2>
+                <h2>My Mission</h2>
                 <p>
                     I am a current Computer Science student at UNC Charlotte, concentrating in Cybersecurity.
                     I have a profound interest in technology and a dedication to making the internet more secure.
@@ -392,7 +46,7 @@
             </div>
 
             <div class="section-block">
-                <h2>Objective</h2>
+                <h2>Why Cybersecurity</h2>
                 <p>
                     My journey in computer science has led me to develop a passion for cybersecurity,
                     and I am now eager to transition into this field, specifically aiming to join a
@@ -407,7 +61,47 @@
             <span id="typewriter"></span>
         </div>
 
+        <section class="education-section">
+            <h2>🎓 Education</h2>
+            <div class="education-grid">
+
+                <div class="edu-card full-width unc-charlotte-card">
+                    <img src="images/logos/uncc_logo.jpg" alt="UNC Charlotte">
+                    <h3>UNC Charlotte</h3>
+                    <p>B.S. in Computer Science<br>Cybersecurity Concentration<br>Mathematics Minor</p>
+                    <p>Fall 2023 - Fall 2026</p>
+                </div>
+
+                <div class="edu-card half-width google-card">
+                    <img src="images/logos/google_logo.png" alt="Google Career Certificates">
+                    <h3>Google</h3>
+                    <p>Cybersecurity<br>Business Intelligence<br>Project Management</p>
+                </div>
+
+                <div class="edu-card half-width tryhackme-card">
+                    <img src="images/logos/tryhackme_logo.png" alt="TryHackMe">
+                    <h3>TryHackMe</h3>
+                    <p>Cybersecurity Labs & Paths<br>Red Teaming, SOC, Network Security</p>
+                </div>
+
+                <div class="edu-card half-width cisco-card">
+                    <img src="images/logos/cisco_isc2_logo.png" alt="Cisco & ISC2 Logo">
+                    <h3>Cisco & ISC2</h3>
+                    <p>Intro to Cybersecurity (Cisco)<br>Certified in Cybersecurity (ISC2)</p>
+                </div>
+
+                <div class="edu-card half-width fcc-card">
+                    <img src="images/logos/freecodecamp_logo.png" alt="freeCodeCamp">
+                    <h3>freeCodeCamp</h3>
+                    <p>JavaScript Algorithms<br>Responsive Web Design</p>
+                    <p>Foundational C# With Microsoft</p>
+                </div>
+
+            </div>
+        </section>
+
         <div class="breaker"></div>
+
         <section class="carousel-section">
             <h2>📜 Certifications</h2>
             <div class="carousel-container" id="cert-carousel">
@@ -544,9 +238,32 @@
             </div>
         </section>
         <div class="bigger-breaker"></div>
-        <div class="bigger-breaker"></div>
-        <h2>🔐 Cybersecurity GitHub Repository</h2>
-        <iframe class="github-embed" src="https://github.com/benjqminn/cybersecurity"></iframe>
+        <div class="github-link-card">
+            <h2>🔐 Cybersecurity GitHub Repository</h2>
+            <p>
+                View my collection of cybersecurity scripts, tools, and research on GitHub.
+            </p>
+            <a href="https://github.com/benjqminn/cybersecurity" target="_blank">
+                <i class="fab fa-github"></i> github.com/benjqminn/cybersecurity
+            </a>
+        </div>
+
+
+        <section class="connect-section">
+            <h2>🤝 Let's Connect!</h2>
+            <p>
+                I'm always open to meeting like-minded learners, security professionals, <br>and anyone passionate about
+                technology. Feel free to reach out at:
+            </p>
+            <ul class="connect-list">
+                <li>📫 <strong>Email:</strong> <a href="mailto:btayl106@charlotte.edu">btayl106@charlotte.edu</a></li>
+                <li>💼 <strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/btayl106/"
+                        target="_blank">linkedin.com/in/btayl106</a></li>
+                <li>🛠️ <strong>GitHub:</strong> <a href="https://github.com/benjqminn"
+                        target="_blank">github.com/benjqminn</a></li>
+            </ul>
+        </section>
+
     </main>
 
     <footer>
@@ -647,8 +364,8 @@
 
         window.onload = () => {
             initCarousel("cert-carousel", "cert-dots", true, 5000);
-            initCarousel("project-carousel", "project-dots", true, 8000);
-            initCarousel("research-carousel", "research-dots", true, 10000);
+            initCarousel("project-carousel", "project-dots", true, 7000);
+            initCarousel("research-carousel", "research-dots", true, 9000);
         };
     </script>
 

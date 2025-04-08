@@ -7,13 +7,54 @@
     <link rel="stylesheet" href="styles/default.css">
     <script src="https://lint.page/kit/4d0fe3.js" crossorigin="anonymous"></script>
     <script src="scripts/IncludeHTML.js" defer></script>
+    <style>
+        main {
+            animation: fadeIn 1s ease-in-out;
+            padding: 30px;
+            border-radius: 16px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+        }
+        
+        main2 {
+            font-size: 2.2rem;
+            color: #38220F;
+            margin-bottom: 1rem;
+            text-align: center;
+            animation: slideDown 1s ease-in-out;
+        }
+        
+        main p {
+            font-size: 1.2rem;
+            text-align: center;
+            color: #38220F;
+        }
+        
+        figure img {
+            border: 4px solid #967259;
+            transition: transform 0.3s ease;
+        }
+        
+        figure img:hover {
+            transform: scale(1.05);
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        @keyframes slideDown {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
 </head>
 <body>
     
     <div data-include="components/header.html"></div>
 
     <main>
-        <h2>ITIS-3135 Home</h2>
+        <h2 class="main2">ITIS-3135 Home</h2>
         <figure>
             <p>This is all the content for my ITIS 3135 class.</p>
             <img src="images/coding_chimp.webp" alt="Buff Coding Chimp">
@@ -27,6 +68,6 @@
         document.getElementById("validation_link_html").setAttribute("href", "https://validator.w3.org/check?uri=" + location.href);
         document.getElementById("validation_link_css").setAttribute("href", "https://jigsaw.w3.org/css-validator/validator?uri=" + location.href);
     </script>
-
+    <script src="scripts/functionality.js"></script>
 </body>
 </html>

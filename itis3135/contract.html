@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,19 +8,113 @@
     <link rel="stylesheet" href="styles/default.css">
     <script src="https://lint.page/kit/4d0fe3.js" crossorigin="anonymous"></script>
     <script src="scripts/IncludeHTML.js" defer></script>
+    <style>
+        .contract-page {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 8px 24px rgba(99, 72, 50, 0.2);
+        }
+
+        .contract-heading {
+            font-size: 2.2rem;
+            color: #38220F;
+            text-align: center;
+            margin-bottom: 25px;
+            animation: fadeInDown 1s ease-out;
+        }
+
+        .contract-text {
+            font-size: 1.05rem;
+            color: #38220F;
+            line-height: 1.8;
+            margin-bottom: 30px;
+        }
+
+        .contract-text .signature {
+            text-align: right;
+            font-style: italic;
+            font-size: 1rem;
+            margin-top: 20px;
+            color: #634832;
+        }
+
+        .contract-img {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 40px;
+        }
+
+        .contract-img img {
+            max-width: 100%;
+            width: 300px;
+            border-radius: 12px;
+            box-shadow: 0 6px 14px rgba(0, 0, 0, 0.15);
+            transition: transform 0.3s ease;
+        }
+
+        .contract-img img:hover {
+            transform: scale(1.04);
+        }
+
+        .contract-caption {
+            margin-top: 12px;
+            font-size: 0.95rem;
+            color: #38220F;
+            font-style: italic;
+            text-align: center;
+            opacity: 0.9;
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-5px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 600px) {
+            .contract-page {
+                padding: 20px;
+            }
+
+            .contract-meme img {
+                width: 90%;
+            }
+        }
+    </style>
 </head>
+
 <body>
-    
+
     <div data-include="components/header.html"></div>
 
-    <main>
-        <h2>Contract</h2>
-        <p> I, Benjamin C. Taylor, agree to abide by the terms in my Spring 2025 ITIS-3135 052 Web-Based Application Design &#38; Development with my instructor, D.I. von Briesen.<br>
-            I understand that all work that I do on my school and personal websites will be publicly available to the world. I will not put information there that is inappropriate for schoolwork, or that I wish to keep private.
-        </p>
+    <main class="contract-page">
+        <h2 class="contract-heading">Contract</h2>
+
+        <div class="contract-text">
+            <p>
+                I, Benjamin C. Taylor, agree to abide by the terms in my Spring 2025 ITIS-3135 052 Web-Based Application
+                Design &#38; Development with my instructor, D.I. von Briesen.<br>
+                I understand that all work that I do on my school and personal websites will be publicly available to
+                the world. I will not put information there that is inappropriate for schoolwork, or that I wish to keep
+                private.
+            </p>
             <p class="signature"><em>Signed: Benjamin C. Taylor, 30 January 2025</em></p>
-        
+        </div>
+
+        <figure class="contract-img">
+            <img src="images/gorilla_contract.png" alt="">
+        </figure>
     </main>
+
 
     <div data-include="components/footer.html"></div>
 
@@ -29,4 +124,5 @@
     </script>
 
 </body>
+
 </html>

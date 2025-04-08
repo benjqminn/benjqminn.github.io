@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,42 +8,167 @@
     <link rel="stylesheet" href="styles/default.css">
     <script src="https://lint.page/kit/4d0fe3.js" crossorigin="anonymous"></script>
     <script src="scripts/IncludeHTML.js" defer></script>
+    <style>
+        .intro-page {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 8px 24px rgba(99, 72, 50, 0.2);
+        }
+
+        .intro-heading {
+            font-size: 2.4rem;
+            color: #38220F;
+            text-align: center;
+            margin-bottom: 30px;
+            animation: fadeInDown 1s ease-out;
+        }
+
+        .intro-figure {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+
+        .intro-img {
+            width: 220px;
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+        }
+
+        .intro-img:hover {
+            transform: scale(1.05);
+        }
+
+        .intro-caption {
+            font-style: italic;
+            margin-top: 10px;
+            color: #38220F;
+            font-size: 1rem;
+            text-align: center;
+        }
+
+        .intro-list {
+            list-style: none;
+            padding: 0;
+            margin-top: 20px;
+        }
+
+        .intro-list>li {
+            margin-bottom: 20px;
+            padding: 15px 20px;
+            border-radius: 12px;
+            font-size: 1.05rem;
+            color: #38220F;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .intro-list>li:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(99, 72, 50, 0.2);
+        }
+
+        .intro-list>li strong {
+            display: block;
+            font-size: 1.1rem;
+            color: #634832;
+            margin-bottom: 5px;
+        }
+
+        .intro-list>li ul {
+            margin-top: 10px;
+            padding-left: 25px;
+        }
+
+        .intro-list>li ul li {
+            font-size: 0.95rem;
+            color: #5a3e2e;
+            padding: 6px 0;
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 600px) {
+            .intro-img {
+                width: 100%;
+                max-width: 300px;
+            }
+
+            .intro-page {
+                padding: 20px;
+            }
+
+            .intro-heading {
+                font-size: 2rem;
+            }
+        }
+    </style>
 </head>
+
 <body>
-    
+
     <div data-include="components/header.html"></div>
 
-    <main>
-        <h2>Benjamin Taylor's Introduction</h2>
-    
-        <figure>
-            <img src="images/IMG_4532.jpg" alt="Benjamin Taylor">
-            <figcaption class="italic">About to tear up this crazy pancake.</figcaption>
+    <main class="intro-page">
+        <h2 class="intro-heading">Benjamin Taylor's Introduction</h2>
+
+        <figure class="intro-figure">
+            <img src="images/IMG_4532.jpg" alt="Benjamin Taylor" class="intro-img">
+            <figcaption class="intro-caption">About to tear up this crazy pancake.</figcaption>
         </figure>
-    
-        <ul>
-            <li><strong>Personal Background:</strong> I’m originally from Lynchburg, Virginia but I’ve lived in Maiden, NC for most of my life (which is a small town roughly an hour from Charlotte). I am 19 years old and some of my hobbies include working out and bodybuilding.
+
+        <ul class="intro-list">
+            <li><strong>Personal Background:</strong> I'm originally from Lynchburg, Virginia but I've lived in Maiden,
+                NC for most of my life (which is a small town roughly an hour from Charlotte). I am 19 years old and
+                some of my hobbies include working out and bodybuilding.
             </li>
-            <li><strong>Professional Background:</strong> I’ve only ever worked part-time jobs before, but I am looking to work in the Computer Science field while continuing my education, ideally an internship in the next year or so.
+            <li><strong>Professional Background:</strong> I've only ever worked part-time jobs before, but I am looking
+                to work in the Computer Science field while continuing my education, ideally an internship in the next
+                year or so.
             </li>
-            <li><strong>Academic Background:</strong> I’m a junior majoring in Computer Science with a concentration in Cybersecurity. I also anticipate getting my master’s degree in Cybersecurity and a minor in mathematics.
+            <li><strong>Academic Background:</strong> I'm a junior majoring in Computer Science with a concentration in
+                Cybersecurity. I also anticipate getting my master's degree in Cybersecurity and a minor in mathematics.
             </li>
-            <li><strong>Background in this Subject:</strong> I don’t have much experience with web-based applications, but I am confident that I can become familiar with HTML pretty quickly!
+            <li><strong>Background in this Subject:</strong> I don't have much experience with web-based applications,
+                but I am confident that I can become familiar with HTML pretty quickly!
             </li>
             <li><strong>Primary Computer Platform:</strong> Windows PC/Laptop.</li>
             <li><strong>Courses I'm Taking &#38; Why:</strong>
                 <ul>
                     <li>MATH-1242 - Calculus II: This class is required for my major.</li>
-                    <li>ITSC-3688 - Computers &#38; Their Impact on Society: I’m taking this course since its not only required but also I would like to become better at communicating with my peers and public speaking.</li>
-                    <li>ITIS-3135 - Web-Based Application Design and Development: This course is also required and I also thought that it would be interesting (and useful) to learn more about web-based application development.</li>
-                    <li>ITSC-2181 - Introduction to Computer Systems: This class is required and I think it would also be useful to know the course material, especially since almost all the information is fundamental to Computer Science.</li>
-                    <li>SOCY-1101 - Introduction to Sociology: Unfortunately I only needed one more elective credit hour for my degree so I chose this course because it was the easiest-sounding online course available.</li>
+                    <li>ITSC-3688 - Computers &#38; Their Impact on Society: I'm taking this course since its not only
+                        required but also I would like to become better at communicating with my peers and public
+                        speaking.</li>
+                    <li>ITIS-3135 - Web-Based Application Design and Development: This course is also required and I
+                        also thought that it would be interesting (and useful) to learn more about web-based application
+                        development.</li>
+                    <li>ITSC-2181 - Introduction to Computer Systems: This class is required and I think it would also
+                        be useful to know the course material, especially since almost all the information is
+                        fundamental to Computer Science.</li>
+                    <li>SOCY-1101 - Introduction to Sociology: Unfortunately I only needed one more elective credit hour
+                        for my degree so I chose this course because it was the easiest-sounding online course
+                        available.</li>
                 </ul>
             </li>
-            <li><strong>Funny/Interesting Story:</strong> I’m really interested in bodybuilding and working out in general (a huge part of my life), and eventually I plan on competing professionally as a bodybuilder in competitions.</li>
-            <li><strong>I'd also like to Share:</strong>  I love sushi and Japanese food.</li>
+            <li><strong>Funny/Interesting Story:</strong> I'm really interested in bodybuilding and working out in
+                general (a huge part of my life), and eventually I plan on competing professionally as a bodybuilder in
+                competitions.</li>
+            <li><strong>I'd also like to Share:</strong> I love sushi and Japanese food.</li>
         </ul>
     </main>
+
 
     <div data-include="components/footer.html"></div>
 
@@ -52,4 +178,5 @@
     </script>
 
 </body>
+
 </html>

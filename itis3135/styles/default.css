@@ -180,7 +180,7 @@ h3 a:visited {
 }
 
 .small-logo .logo-title img {
-    width: 23px; 
+    width: 23px;
     height: auto;
 }
 
@@ -188,7 +188,9 @@ h3 a:visited {
     margin: 0;
 }
 
-p, ul li, figcaption {
+p,
+ul li,
+figcaption {
     color: #634832;
     text-align: justify;
 }
@@ -365,7 +367,8 @@ form {
 }
 
 button {
-    background-color: #634832;;
+    background-color: #634832;
+    ;
     color: #f4f4f4;
     padding: 10px 15px;
     border: none;
@@ -390,13 +393,15 @@ select {
     background-color: #f9f9f9;
 }
 
-input:focus, select:focus {
+input:focus,
+select:focus {
     outline: none;
     border-color: #634832;
     background-color: #fff;
 }
 
-input[type="checkbox"], input[type="radio"] {
+input[type="checkbox"],
+input[type="radio"] {
     margin-right: 10px;
     accent-color: #634832;
 }
@@ -493,7 +498,7 @@ form label input[type="checkbox"] {
     cursor: pointer;
     transition: background-color 0.3s ease, transform 0.2s ease;
     font-size: 1rem;
-    white-space: nowrap; 
+    white-space: nowrap;
 }
 
 .course-field input[type="text"]:focus {
@@ -569,4 +574,172 @@ button:active {
 
 .form-group label[for="funnyThing"] {
     margin-top: 20px;
+}
+
+.site-header {
+    animation: fadeDown 1s ease-out;
+}
+
+.dropdown-content {
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: opacity 0.4s ease, transform 0.4s ease;
+    pointer-events: none;
+}
+
+nav ul li.dropdown:hover .dropdown-content {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+    pointer-events: auto;
+}
+
+.dropdown-content li {
+    opacity: 0;
+    transform: translateY(10px);
+    animation: dropdownItemFade 0.4s ease forwards;
+}
+
+.dropdown-content li:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+.dropdown-content li:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.dropdown-content li:nth-child(3) {
+    animation-delay: 0.3s;
+}
+
+.dropdown-content li:nth-child(4) {
+    animation-delay: 0.4s;
+}
+
+.dropdown-content li:nth-child(5) {
+    animation-delay: 0.5s;
+}
+
+.dropdown-content li:nth-child(6) {
+    animation-delay: 0.6s;
+}
+
+.dropdown-content li:nth-child(7) {
+    animation-delay: 0.7s;
+}
+
+.dropdown-content li:nth-child(8) {
+    animation-delay: 0.8s;
+}
+
+.dropdown-content li:nth-child(9) {
+    animation-delay: 0.9s;
+}
+
+.dropdown-content li:nth-child(10) {
+    animation-delay: 1s;
+}
+
+@keyframes dropdownItemFade {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+footer {
+    background-color: #DBC1AC;
+    color: #634832;
+    padding: 30px 20px;
+    border-top: 1px solid #38220F;
+    margin-top: 50px;
+    text-align: center;
+}
+
+.footer-links {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    padding: 0;
+    list-style: none;
+    margin-bottom: 20px;
+}
+
+.footer-links li a {
+    font-weight: 600;
+    text-decoration: none;
+    font-size: 1rem;
+    padding: 6px 12px;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+    color: #634832;
+}
+
+.footer-links li a:hover {
+    background-color: #967259;
+    color: #fefefe;
+}
+
+.footer-logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 15px;
+}
+
+.footer-logo img {
+    width: 36px;
+    height: auto;
+    filter: drop-shadow(2px 2px 2px rgba(0, 0, 0, 0.2));
+}
+
+.footer-logo p {
+    margin: 0;
+    font-size: 0.95rem;
+    color: #38220F;
+}
+
+.footer-logo a {
+    color: #38220F;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.footer-logo a:hover {
+    color: #967259;
+}
+
+.footer-validation {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.footer-validation img {
+    width: 80px;
+    height: auto;
+    transition: transform 0.3s ease;
+}
+
+.footer-validation img:hover {
+    transform: scale(1.05);
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }

@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Projects | Benjamin Taylor</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet" />
+    <script src="https://kit.fontawesome.com/a81368914c.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: #f5f5f5;
+            color: #222;
+        }
+
+        main {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 2rem;
+            background: #ffffff;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            animation: fadeUp 1s ease-out;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            text-align: center;
+            color: #0078D4;
+            margin-bottom: 2rem;
+        }
+
+        .project-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            justify-content: center;
+        }
+
+        header {
+            text-align: center;
+            padding: 4rem 2rem 2rem;
+            animation: fadeDown 1s ease-out;
+          }
+          
+          header h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: #222;
+          }
+          
+          header h2 {
+            font-weight: 400;
+            color: #555;
+            font-size: 1.3rem;
+          }
+          
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>
+          <a href="index.html" class="site-title">Benjamin Taylor</a>
+        </h1>
+        <h2>Cybersecurity Student | SOC Analyst in Training</h2>
+      </header>
+
+      <nav>
+        <a href="https://github.com/benjqminn">
+            <i class="fab fa-github"></i> GitHub
+        </a>
+        <a href="https://www.linkedin.com/in/btayl106/">
+            <i class="fab fa-linkedin"></i> LinkedIn
+        </a>
+        <a href="projects.html">
+            <i class="fas fa-gavel"></i> Projects
+        </a>
+        <a href="itis3135/index.html">
+            <i class="fas fa-book"></i> ITIS-3135
+        </a>
+      </nav>
+
+    <main>
+        <h2>🛠️ My Projects</h2>
+        <div class="project-grid">
+            <div class="project-card">
+                <img src="images/code_images/banner_grabber_code.png" alt="Banner Grabber">
+                <h3>Banner Grabber</h3>
+                <p>Python script for grabbing service banners to identify systems.</p>
+                <a href="https://github.com/benjqminn/cybersecurity/tree/main/Infosecurity/bannergrabber"
+                    target="_blank">View on GitHub</a>
+            </div>
+
+            <div class="project-card">
+                <img src="images/code_images/server_client_code.png" alt="Client/Server TCP">
+                <h3>Socket Programming</h3>
+                <p>Simple TCP echo client/server using socket library in Python.</p>
+                <a href="https://github.com/benjqminn/cybersecurity/tree/main/Infosecurity/clientserver"
+                    target="_blank">View on GitHub</a>
+            </div>
+
+            <div class="project-card">
+                <img src="images/code_images/nmap_scanner_code.png" alt="Nmap Scanner">
+                <h3>Nmap Scanner</h3>
+                <p>Automates Nmap scanning with clean output parsing and report generation.</p>
+                <a href="https://github.com/benjqminn/cybersecurity/tree/main/Infosecurity/nmap_scanner"
+                    target="_blank">View on GitHub</a>
+            </div>
+
+            <div class="project-card">
+                <img src="images/code_images/port_scanner_code.png" alt="Port Scanner">
+                <h3>Port Scanner</h3>
+                <p>Threaded Python-based port scanner for checking open ports on targets.</p>
+                <a href="https://github.com/benjqminn/cybersecurity/tree/main/Infosecurity/portscanner"
+                    target="_blank">View on GitHub</a>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <ul>
+            <li><a href="https://github.com/benjqminn">GitHub</a></li>
+            <li><a href="https://webpages.charlotte.edu/btayl106/">CLT Page</a></li>
+            <li><a href="https://benjqminn.github.io">GitHub.io</a></li>
+            <li><a href="itis3135/index.html">ITIS-3135</a></li>
+            <li><a href="https://www.linkedin.com/in/btayl106/">LinkedIn</a></li>
+        </ul>
+        <div class="footer-logo">
+            <img src="itis3135/images/uncc__logo.png" alt="UNC Charlotte Logo">
+            <p>
+                Designed by <a href="itis3135/taylordigital.co/index.html">Taylor Digital Solutions</a>,
+                <em><a href="https://www.freecodecamp.org/certification/benjqmin/responsive-web-design">Certified in
+                        Responsive Web Design</a>,
+                    <a
+                        href="https://www.freecodecamp.org/certification/benjqmin/javascript-algorithms-and-data-structures-v8">JS
+                        Algorithms</a></em> ©2025
+            </p>
+        </div>
+        <div class="footer-validation">
+            <a href="https://validator.w3.org/check?uri=referer">
+                <img src="https://mytienhoang.github.io/itis3135/z_archives/html_validation.png" alt="Valid HTML!">
+            </a>
+            <a href="https://jigsaw.w3.org/css-validator/check/referer">
+                <img src="https://jigsaw.w3.org/css-validator/images/vcss" alt="Valid CSS!">
+            </a>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const quote = `“For me, life is continuously being hungry. The meaning of life is not simply to exist… but to move ahead, to go up, to achieve, to conquer.”`;
+            const author = `— Arnold Schwarzenegger`;
+            const typewriterElement = document.getElementById("typewriter");
+
+            let fullText = quote + '\n' + author;
+            let i = 0;
+
+            function typeWriter() {
+                if (i < fullText.length) {
+                    let char = fullText.charAt(i);
+
+                    if (i === quote.length) {
+                        const strong = document.createElement("strong");
+                        strong.setAttribute("id", "author-line");
+                        typewriterElement.appendChild(document.createElement("br"));
+                        typewriterElement.appendChild(strong);
+                    }
+
+                    if (i < quote.length) {
+                        typewriterElement.innerHTML += char;
+                    } else {
+                        document.getElementById("author-line").textContent += char;
+                    }
+
+                    i++;
+                    setTimeout(typeWriter, 30);
+                }
+            }
+
+            typeWriter();
+        });
+
+
+        function initCarousel(carouselId, dotId, autoSlide = false, interval = 5000) {
+            const container = document.getElementById(carouselId);
+            const slides = container.querySelectorAll(".carousel-slide");
+            const dotsContainer = document.getElementById(dotId);
+            let currentIndex = 0;
+
+            const showSlide = (index) => {
+                slides.forEach((slide, i) => {
+                    slide.classList.remove("active");
+                    dotsContainer.children[i].classList.remove("active");
+                });
+                slides[index].classList.add("active");
+                dotsContainer.children[index].classList.add("active");
+                currentIndex = index;
+            };
+
+            slides.forEach((_, i) => {
+                const dot = document.createElement("div");
+                dot.classList.add("dot");
+                if (i === 0) dot.classList.add("active");
+                dot.addEventListener("click", () => showSlide(i));
+                dotsContainer.appendChild(dot);
+            });
+
+            if (autoSlide) {
+                setInterval(() => {
+                    currentIndex = (currentIndex + 1) % slides.length;
+                    showSlide(currentIndex);
+                }, interval);
+            }
+        }
+
+        window.onload = () => {
+            initCarousel("cert-carousel", "cert-dots", true, 5000);
+            initCarousel("project-carousel", "project-dots", true, 7000);
+            initCarousel("research-carousel", "research-dots", true, 9000);
+        };
+    </script>
+</body>
+
+</html>

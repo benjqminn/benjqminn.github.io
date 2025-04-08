@@ -7,7 +7,8 @@
     <title>Benjamin Taylor | Cybersecurity Student</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet" />
     <script src="https://kit.fontawesome.com/a81368914c.js" crossorigin="anonymous"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700&display=swap"
+        rel="stylesheet" />
     <link rel="stylesheet" href="styles.css">
 </head>
 
@@ -250,7 +251,8 @@
         </div>
 
         <section class="linkedin-connect">
-            <h2>📈 Connect with Me on <img src="images/logos/linkedin_logo.png" alt="LinkedIn Logo" class="linkedin-logo" /></h2>
+            <h2>📈 Connect with Me on <img src="images/logos/linkedin_logo.png" alt="LinkedIn Logo"
+                    class="linkedin-logo" /></h2>
             <p>Let's grow together in the cybersecurity space - whether you're a student or professional, or just
                 interested in tech.
             </p>
@@ -266,9 +268,10 @@
                 technology. Feel free to reach out at:
             </p>
             <ul class="connect-list">
-                <li><i class="fas fa-envelope"></i> &nbsp;<strong>Email:</strong> <a href="mailto:btayl106@charlotte.edu">btayl106@charlotte.edu</a></li>
-                <li><i class="fab fa-linkedin"></i> &nbsp;<strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/btayl106/"
-                        target="_blank">linkedin.com/in/btayl106</a></li>
+                <li><i class="fas fa-envelope"></i> &nbsp;<strong>Email:</strong> <a
+                        href="mailto:btayl106@charlotte.edu">btayl106@charlotte.edu</a></li>
+                <li><i class="fab fa-linkedin"></i> &nbsp;<strong>LinkedIn:</strong> <a
+                        href="https://www.linkedin.com/in/btayl106/" target="_blank">linkedin.com/in/btayl106</a></li>
                 <li><i class="fab fa-github"></i> &nbsp;<strong>GitHub:</strong> <a href="https://github.com/benjqminn"
                         target="_blank">github.com/benjqminn</a></li>
             </ul>
@@ -422,27 +425,6 @@
             swipeCarousel("project-carousel", "project-dots");
             swipeCarousel("research-carousel", "research-dots");
         };
-
-        document.addEventListener("DOMContentLoaded", () => {
-            const countEl = document.getElementById("connectionCount");
-            let count = 0;
-            const target = 160 +;
-            const speed = 50;
-
-            const updateCount = () => {
-                const increment = Math.ceil((target - count) / 10);
-                count += increment;
-                if (count >= target) {
-                    count = target;
-                    countEl.textContent = count;
-                } else {
-                    countEl.textContent = count;
-                    setTimeout(updateCount, speed);
-                }
-            };
-
-            updateCount();
-        });
 
     </script>
 

@@ -496,46 +496,6 @@
             initCarousel("research-carousel", "research-dots", true, 9000);
         };
     </script>
-    <script>
-        function enableSwipe(carouselId, showSlide) {
-            const container = document.getElementById(carouselId);
-            let startX = 0;
-
-            container.addEventListener("touchstart", (e) => {
-                startX = e.touches[0].clientX;
-            });
-
-            container.addEventListener("touchend", (e) => {
-                const endX = e.changedTouches[0].clientX;
-                const delta = startX - endX;
-
-                if (Math.abs(delta) > 50) {
-                    const dir = delta > 0 ? 1 : -1;
-                    showSlide(dir);
-                }
-            });
-        }
-
-        function swipeCarousel(carouselId, dotId) {
-            const container = document.getElementById(carouselId);
-            const slides = container.querySelectorAll(".carousel-slide");
-            const dots = document.getElementById(dotId).children;
-            let current = 0;
-
-            const show = (delta) => {
-                slides[current].classList.remove("active");
-                dots[current].classList.remove("active");
-
-                current = (current + delta + slides.length) % slides.length;
-
-                slides[current].classList.add("active");
-                dots[current].classList.add("active");
-            };
-
-            enableSwipe(carouselId, show);
-        }
-
-    </script>
 
     <script>
         const backToTopBtn = document.querySelector('.back-to-top');

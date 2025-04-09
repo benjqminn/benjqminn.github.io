@@ -9,27 +9,89 @@
     <script src="https://kit.fontawesome.com/a81368914c.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="styles.css">
     <style>
-        body {
-            font-family: 'Montserrat', sans-serif;
-            background: #f5f5f5;
-            color: #222;
-        }
-
-        main {
-            max-width: 1200px;
-            margin: 2rem auto;
-            padding: 2rem;
+        .project-card {
             background: #ffffff;
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            animation: fadeUp 1s ease-out;
+            border-radius: 15px;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
+            padding: 1.5rem;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            max-width: 300px;
         }
 
-        h2 {
-            font-size: 2.5rem;
-            text-align: center;
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
+        }
+
+        .project-card img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+        }
+
+        .project-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 0.5rem;
             color: #0078D4;
-            margin-bottom: 2rem;
+        }
+
+        .project-card p {
+            font-size: 0.95rem;
+            color: #444;
+            margin-bottom: 1rem;
+        }
+
+        .project-card a {
+            display: inline-block;
+            margin-top: 0.5rem;
+            text-decoration: none;
+            color: #fff;
+            background: #0078D4;
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            transition: background 0.3s ease;
+        }
+
+        .project-card a:hover {
+            background: #005fa3;
+            text-decoration: none;
+        }
+
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .project-grid {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .project-card {
+                width: 100%;
+            }
         }
 
         .project-grid {
@@ -37,39 +99,20 @@
             flex-wrap: wrap;
             gap: 2rem;
             justify-content: center;
-        }
-
-        header {
-            text-align: center;
-            padding: 4rem 2rem 2rem;
-            animation: fadeDown 1s ease-out;
+            padding: 2rem 0;
           }
-          
-          header h1 {
-            font-size: 3rem;
-            font-weight: 700;
-            margin-bottom: 0.5rem;
-            color: #222;
-          }
-          
-          header h2 {
-            font-weight: 400;
-            color: #555;
-            font-size: 1.3rem;
-          }
-          
     </style>
 </head>
 
 <body>
     <header>
         <h1>
-          <a href="index.html" class="site-title">Benjamin Taylor</a>
+            <a href="index.html" class="site-title">Benjamin Taylor</a>
         </h1>
         <h2>Cybersecurity Student | SOC Analyst in Training</h2>
-      </header>
+    </header>
 
-      <nav>
+    <nav>
         <a href="https://github.com/benjqminn">
             <i class="fab fa-github"></i> GitHub
         </a>
@@ -82,44 +125,44 @@
         <a href="itis3135/index.html">
             <i class="fas fa-book"></i> ITIS-3135
         </a>
-      </nav>
+        <a href="documents/Resume_Benjamin_Taylor.pdf" class="resume-download-header" download>
+            <i class="fas fa-file-download"></i> Download Resume
+        </a>
+    </nav>
 
     <main>
-        <h2>🛠️ My Projects</h2>
+        <h2 class="section-title">🛠️ My Projects</h2>
         <div class="project-grid">
             <div class="project-card">
                 <img src="images/code_images/banner_grabber_code.png" alt="Banner Grabber">
                 <h3>Banner Grabber</h3>
                 <p>Python script for grabbing service banners to identify systems.</p>
-                <a href="https://github.com/benjqminn/cybersecurity/tree/main/Infosecurity/bannergrabber"
-                    target="_blank">View on GitHub</a>
+                <a href="https://github.com/benjqminn/cybersecurity/tree/main/Infosecurity/bannergrabber" target="_blank">View on GitHub</a>
             </div>
-
+    
             <div class="project-card">
                 <img src="images/code_images/server_client_code.png" alt="Client/Server TCP">
                 <h3>Socket Programming</h3>
                 <p>Simple TCP echo client/server using socket library in Python.</p>
-                <a href="https://github.com/benjqminn/cybersecurity/tree/main/Infosecurity/clientserver"
-                    target="_blank">View on GitHub</a>
+                <a href="https://github.com/benjqminn/cybersecurity/tree/main/Infosecurity/clientserver" target="_blank">View on GitHub</a>
             </div>
-
+    
             <div class="project-card">
                 <img src="images/code_images/nmap_scanner_code.png" alt="Nmap Scanner">
                 <h3>Nmap Scanner</h3>
                 <p>Automates Nmap scanning with clean output parsing and report generation.</p>
-                <a href="https://github.com/benjqminn/cybersecurity/tree/main/Infosecurity/nmap_scanner"
-                    target="_blank">View on GitHub</a>
+                <a href="https://github.com/benjqminn/cybersecurity/tree/main/Infosecurity/nmap_scanner" target="_blank">View on GitHub</a>
             </div>
-
+    
             <div class="project-card">
                 <img src="images/code_images/port_scanner_code.png" alt="Port Scanner">
                 <h3>Port Scanner</h3>
                 <p>Threaded Python-based port scanner for checking open ports on targets.</p>
-                <a href="https://github.com/benjqminn/cybersecurity/tree/main/Infosecurity/portscanner"
-                    target="_blank">View on GitHub</a>
+                <a href="https://github.com/benjqminn/cybersecurity/tree/main/Infosecurity/portscanner" target="_blank">View on GitHub</a>
             </div>
         </div>
     </main>
+    
 
     <footer>
         <ul>

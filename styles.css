@@ -885,42 +885,65 @@ nav a i {
 }
 
 .skills-section {
-    margin: 4rem 0;
+    padding: 3rem 2rem;
+    background-color: #f9f9f9;
+    border-radius: 16px;
+    margin: 3rem auto;
+    max-width: 1200px;
+}
+
+.skills-section h2 {
     text-align: center;
+    font-size: 2.5rem;
+    color: #222;
+    margin-bottom: 2rem;
 }
 
 .skills-grid {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 2rem;
-    padding: 1rem;
 }
 
-.skill-category {
-    background-color: #f9f9f9;
+.skill-group {
+    background: #ffffff;
     border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
     padding: 1.5rem;
-    min-width: 250px;
-    flex: 1 1 300px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.skill-category h3 {
-    margin-bottom: 0.75rem;
-    font-weight: 700;
-    color: #333;
+.skill-group:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
 }
 
-.skill-category ul {
+.skill-group h3 {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    color: #0078D4;
+}
+
+.skill-group ul {
     list-style: none;
     padding: 0;
+    margin: 0;
 }
 
-.skill-category li {
-    margin-bottom: 0.5rem;
-    font-weight: 500;
+.skill-group li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.95rem;
+    padding: 8px 0;
 }
+
+.skill-group li img {
+    width: 22px;
+    height: 22px;
+    object-fit: contain;
+}
+
 
 .resume-download {
     text-align: center;
@@ -1094,7 +1117,7 @@ nav a i {
     background: #537fe7;
     color: #fff;
     padding: 12px;
-    border-radius: 6px; 
+    border-radius: 6px;
     text-align: center;
     font-size: 1.3rem;
     z-index: 999;
@@ -1107,15 +1130,15 @@ nav a i {
     display: flex;
     justify-content: center;
     align-items: center;
-  }
-  
-  .back-to-top:hover {
+}
+
+.back-to-top:hover {
     background: #3867d6;
     transform: scale(1.05);
     text-decoration: none;
-  }
-  
-  .back-to-top.show {
+}
+
+.back-to-top.show {
     opacity: 1;
     visibility: visible;
-  }
+}

@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Slideshow HTML</title>
+  <link rel="stylesheet" href="styles/default.css" />
+  <script src="https://lint.page/kit/4d0fe3.js" crossorigin="anonymous"></script>
+  <script src="scripts/IncludeHTML.js" defer></script>
+  <style>
+    main {
+      padding: 2rem;
+      max-width: 900px;
+      margin: auto;
+      text-align: center;
+    }
+
+    .slideshow-container {
+      position: relative;
+    }
+
+    .slide {
+      display: none;
+      position: relative;
+    }
+
+    .slide-active {
+      display: block;
+    }
+
+    .slide img {
+      width: 100%;
+      max-height: 500px;
+      object-fit: cover;
+      border-radius: 10px;
+      box-sizing: border-box;
+    }
+
+    .caption {
+      position: absolute;
+      bottom: 0;
+      width: 97.35%;
+      background: rgba(0, 0, 0, 0.6);
+      color: #fff;
+      padding: 0.75rem;
+      font-size: 1.1rem;
+      font-weight: bold;
+      border-bottom-left-radius: 10px;
+      border-bottom-right-radius: 10px;
+    }
+
+    .thumbnail-nav {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-top: 20px;
+      gap: 3.5px;
+    }
+
+    .thumbnail-nav img {
+      width: 60px;
+      height: 40px;
+      object-fit: cover;
+      border: 2px solid transparent;
+      border-radius: 4px;
+      cursor: pointer;
+      box-sizing: border-box;
+      transition: transform 0.2s ease, border-color 0.3s ease;
+    }
+
+    .thumbnail-nav img:hover {
+      transform: scale(1.1);
+      border-color: #38220F;
+    }
+
+    .ai-prompts {
+      margin-top: 2rem;
+      text-align: left;
+    }
+
+    .ai-prompts ul {
+      padding-left: 1.5rem;
+    }
+
+    .ai-prompts li {
+      margin: 0.5rem 0;
+    }
+  </style>
+</head>
+
+<body>
+  <div data-include="components/header.html"></div>
+
+  <main>
+    <section class="slideshow-container">
+      <h2>📸 Slideshow of My Name</h2>
+      <p class="slideshow-subtext">Each image represents a letter in my full name: <strong>BENJAMIN TAYLOR</strong></p>
+
+      <div class="slides">
+        <div class="slide slide-active">
+          <img src="images/slideshow/B_book.png" alt="Book" />
+          <div class="caption">B - for Book</div>
+        </div>
+        <div class="slide">
+          <img src="images/slideshow/E_eagle.png" alt="Eagle" />
+          <div class="caption">E - for Eagle</div>
+        </div>
+        <div class="slide">
+          <img src="images/slideshow/N_nighthawk.png" alt="Nighthawk" />
+          <div class="caption">N - for Nighthawk</div>
+        </div>
+        <div class="slide">
+          <img src="images/slideshow/J_jellyfish.png" alt="Jellyfish" />
+          <div class="caption">J - for Jellyfish</div>
+        </div>
+        <div class="slide">
+          <img src="images/slideshow/A_apple.png" alt="Apple" />
+          <div class="caption">A - for Apple</div>
+        </div>
+        <div class="slide">
+          <img src="images/slideshow/M_mountain.png" alt="Mountain" />
+          <div class="caption">M - for Mountain</div>
+        </div>
+        <div class="slide">
+          <img src="images/slideshow/I_icecream.png" alt="Ice Cream" />
+          <div class="caption">I - for Ice Cream</div>
+        </div>
+        <div class="slide">
+          <img src="images/slideshow/N_notebook.png" alt="Notebook" />
+          <div class="caption">N - for Notebook</div>
+        </div>
+        <div class="slide">
+          <img src="images/slideshow/T_tree.png" alt="Tree" />
+          <div class="caption">T - for Tree</div>
+        </div>
+        <div class="slide">
+          <img src="images/slideshow/A_astronaut.png" alt="Astronaut" />
+          <div class="caption">A - for Astronaut</div>
+        </div>
+        <div class="slide">
+          <img src="images/slideshow/Y_yarn.png" alt="Yarn" />
+          <div class="caption">Y - for Yarn</div>
+        </div>
+        <div class="slide">
+          <img src="images/slideshow/L_lantern.png" alt="Lantern" />
+          <div class="caption">L - for Lantern</div>
+        </div>
+        <div class="slide">
+          <img src="images/slideshow/O_orange.png" alt="Orange" />
+          <div class="caption">O - for Orange</div>
+        </div>
+        <div class="slide">
+          <img src="images/slideshow/R_rabbit.png" alt="Rabbit" />
+          <div class="caption">R - for Rabbit</div>
+        </div>
+      </div>
+
+      <div class="thumbnail-nav">
+        <img src="images/slideshow/icons/B_book_57x37.png" alt="Book" onclick="setSlide(0)">
+        <img src="images/slideshow/icons/E_eagle_57x37.png" alt="Eagle" onclick="setSlide(1)">
+        <img src="images/slideshow/icons/N_nighthawk_57x37.png" alt="Nighthawk" onclick="setSlide(2)">
+        <img src="images/slideshow/icons/J_jellyfish_57x37.png" alt="Jellyfish" onclick="setSlide(3)">
+        <img src="images/slideshow/icons/A_apple_57x37.png" alt="Apple" onclick="setSlide(4)">
+        <img src="images/slideshow/icons/M_mountain_57x37.png" alt="Mountain" onclick="setSlide(5)">
+        <img src="images/slideshow/icons/I_icecream_57x37.png" alt="Ice Cream" onclick="setSlide(6)">
+        <img src="images/slideshow/icons/N_notebook_57x37.png" alt="Notebook" onclick="setSlide(7)">
+        <img src="images/slideshow/icons/T_tree_57x37.png" alt="Tree" onclick="setSlide(8)">
+        <img src="images/slideshow/icons/A_astronaut_57x37.png" alt="Astronaut" onclick="setSlide(9)">
+        <img src="images/slideshow/icons/Y_yarn_57x37.png" alt="Yarn" onclick="setSlide(10)">
+        <img src="images/slideshow/icons/L_lantern_57x37.png" alt="Lantern" onclick="setSlide(11)">
+        <img src="images/slideshow/icons/O_orange_57x37.png" alt="Orange" onclick="setSlide(12)">
+        <img src="images/slideshow/icons/R_rabbit_57x37.png" alt="Rabbit" onclick="setSlide(13)">
+      </div>
+    </section>
+
+    <section class="ai-prompts">
+      <h3>🧠 AI Prompt Log</h3>
+      <p><strong>Tool Used:</strong> DALL·E</p>
+      <ul>
+        <li><strong>B:</strong> "A glowing book on a wooden table, soft lighting"</li>
+        <li><strong>E:</strong> "A majestic eagle flying over a canyon at sunrise"</li>
+        <li><strong>N:</strong> "A sleek black Nighthawk jet soaring through sunset skies"</li>
+        <li><strong>J:</strong> "A translucent jellyfish glowing in deep ocean water"</li>
+        <li><strong>A:</strong> "A red apple sitting on a rustic wooden table"</li>
+        <li><strong>M:</strong> "A snow-covered mountain peak under clear skies"</li>
+        <li><strong>I:</strong> "A colorful ice cream cone melting in the sun"</li>
+        <li><strong>N:</strong> "A spiral-bound notebook on a student's desk with a pencil"</li>
+        <li><strong>T:</strong> "A large oak tree in the middle of a grassy field"</li>
+        <li><strong>A:</strong> "An astronaut floating in space with Earth in the background"</li>
+        <li><strong>Y:</strong> "A soft ball of yarn unraveling on a cozy blanket"</li>
+        <li><strong>L:</strong> "A glowing paper lantern floating at dusk"</li>
+        <li><strong>O:</strong> "A sliced orange on a ceramic plate in natural sunlight"</li>
+        <li><strong>R:</strong> "A cute rabbit running across a sun-kissed clover field"</li>
+      </ul>
+    </section>
+  </main>
+
+  <div data-include="components/footer.html"></div>
+
+  <script>
+    const slides = document.querySelectorAll(".slide");
+
+    function setSlide(index) {
+      slides.forEach((slide, i) => {
+        slide.classList.remove("slide-active");
+      });
+      slides[index].classList.add("slide-active");
+    }
+  </script>
+
+  <script>
+    document.getElementById("validation_link_html").setAttribute("href", "https://validator.w3.org/check?uri=" + location.href);
+    document.getElementById("validation_link_css").setAttribute("href", "https://jigsaw.w3.org/css-validator/validator?uri=" + location.href);
+  </script>
+
+  <script src="scripts/functionality.js"></script>
+</body>
+
+</html>

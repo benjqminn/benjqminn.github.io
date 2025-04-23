@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Benjamin Taylor - ITIS-3135 Drawing with p5.js</title>
+    <link rel="stylesheet" href="styles/default.css" />
+    <script src="scripts/IncludeHTML.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.8.0/lib/p5.min.js"></script>
+    <script src="scripts/sketch.js" defer></script>
+    <style>
+        .assignment-section {
+            text-align: center;
+        }
+
+        .page-title {
+            font-size: 2.2rem;
+            color: #222;
+            margin-bottom: 0.5rem;
+        }
+
+        .description {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            color: #555;
+            margin-bottom: 2rem;
+        }
+
+        canvas {
+            display: block;
+            margin: 0 auto;
+            border-radius: 8px;
+            box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+        }
+
+        @keyframes shake {
+            0% { transform: translate(0, 0); }
+            20% { transform: translate(-10px, 0); }
+            40% { transform: translate(10px, 0); }
+            60% { transform: translate(-10px, 0); }
+            80% { transform: translate(10px, 0); }
+            100% { transform: translate(0, 0); }
+        }
+
+        body.shake {
+            animation: shake 0.1s linear infinite;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div data-include="components/header.html"></div>
+
+    <main>
+        <section class="assignment-section">
+            <h2 class="page-title">p5.js Drawing Assignment</h2>
+            <p class="description">
+                This interactive sketch is powered by the <strong>p5.js</strong> library. It's inspired by examples from
+                the official p5.js gallery, allowing creative visual output through JavaScript code.
+            </p>
+            <p><em>Once the Creeper draws, click the canvas.</em></p>
+            <div class="breaker"></div>
+            <div id="canvas-container"></div>
+        </section>
+    </main>
+
+    <div data-include="components/footer.html"></div>
+
+    <script>
+        const htmlVal = document.getElementById("validation_link_html");
+        const cssVal = document.getElementById("validation_link_css");
+        if (htmlVal) htmlVal.href = `https://validator.w3.org/check?uri=${location.href}`;
+        if (cssVal) cssVal.href = `https://jigsaw.w3.org/css-validator/validator?uri=${location.href}`;
+    </script>
+    <script src="scripts/functionality.js"></script>
+</body>
+
+</html>

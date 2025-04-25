@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Peer Reviews – Benjamin Taylor ITIS 3135</title>
+  <link rel="stylesheet" href="styles/default.css" />
+  <script src="https://lint.page/kit/4d0fe3.js" crossorigin="anonymous"></script>
+  <script src="scripts/IncludeHTML.js" defer></script>
+  <style>
+    main {
+      animation: fadeIn 1s ease-in-out;
+      padding: 30px;
+      border-radius: 16px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .main2 {
+      font-size: 2.2rem;
+      color: #38220F;
+      margin-bottom: 1.5rem;
+      text-align: center;
+      animation: slideDown 1s ease-in-out;
+    }
+
+    .card-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+    }
+
+    .review-card {
+      width: 100%;
+      max-width: 500px;
+      background-color: #FFF8F0;
+      border-radius: 12px;
+      box-shadow: 0 6px 16px rgba(99, 72, 50, 0.15);
+      overflow: hidden;
+      transition: transform 0.3s ease;
+      text-align: center;
+    }
+
+    .review-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .review-card img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-bottom: 3px solid #967259;
+    }
+
+    .review-card_h3 {
+      font-size: 1.4rem;
+      color: #38220F;
+      margin: 15px 0 5px;
+    }
+
+    .review-card p {
+      font-size: 1.05rem;
+      color: #634832;
+      margin: 0 20px 20px;
+    }
+
+    .review-card a {
+      display: inline-block;
+      margin-bottom: 20px;
+      padding: 10px 20px;
+      background-color: #634832;
+      color: #fff;
+      text-decoration: none;
+      font-weight: bold;
+      border-radius: 8px;
+      transition: background-color 0.3s ease;
+    }
+
+    .review-card a:hover {
+      background-color: #967259;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes slideDown {
+      from {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div data-include="components/header.html"></div>
+
+  <main>
+    <h2 class="main2">Peer Reviews</h2>
+
+    <div class="card-container">
+      <div class="review-card">
+        <img src="images/Brummer_Greyson_Website_Preview.png" alt="Screenshot of Greyson's site" />
+        <h3 class="review-card_h3">Review 1: Greyson Brummer</h3>
+        <p>A full analysis of Greyson's Grumpy Banshee site with constructive suggestions and visual feedback.</p>
+        <a href="review1.html">View Review</a>
+      </div>
+
+      <div class="review-card">
+        <img src="images/Lutabingwa_Jonathan_Website_Preview.png" alt="Screenshot of Jonathan's site" />
+        <h3 class="review-card_h3">Review 2: Jonathan Lutabingwa</h3>
+        <p>A full analysis of Jonathan's Joyful Lion site with constructive suggestions and visual feedback.</p>
+        <a href="review2.html">View Review</a>
+      </div>
+    </div>
+  </main>
+
+  <div data-include="components/footer.html"></div>
+
+  <script>
+    document.getElementById("validation_link_html").setAttribute("href", "https://validator.w3.org/check?uri=" + location.href);
+    document.getElementById("validation_link_css").setAttribute("href", "https://jigsaw.w3.org/css-validator/validator?uri=" + location.href);
+  </script>
+  <script src="scripts/functionality.js"></script>
+</body>
+
+</html>

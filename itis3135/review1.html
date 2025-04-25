@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Peer Review 1 - Benjamin Taylor ITIS 3135</title>
+    <link rel="stylesheet" href="styles/default.css">
+    <script src="https://lint.page/kit/4d0fe3.js" crossorigin="anonymous"></script>
+    <script src="scripts/IncludeHTML.js" defer></script>
+    <style>
+        .review-screenshot {
+            width: 100%;
+            max-width: 810px;
+            height: auto;
+            border-radius: 20px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+            margin: 2.5rem auto;
+            transition: transform 0.35s ease;
+            display: block;
+        }
+
+        .review-screenshot:hover {
+            transform: scale(1.015);
+        }
+
+        figure {
+            background-color: #FAF3EA;
+            border: 2px solid #DBC1AC;
+            padding: 24px;
+            border-radius: 18px;
+            box-shadow: 0 8px 22px rgba(99, 72, 50, 0.15);
+            margin: 0 auto;
+            max-width: 1150px;
+            text-align: center;
+        }
+
+        figure figcaption {
+            font-style: normal;
+            font-size: 1.05rem;
+            margin-top: 12px;
+            color: #38220F;
+        }
+
+        figure figcaption a {
+            color: #38220F;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        figure figcaption a:hover {
+            color: #967259;
+            text-decoration: underline;
+        }
+
+        section {
+            background-color: #FFF8F0;
+            border-radius: 16px;
+            padding: 30px;
+            margin-top: 2.5rem;
+            box-shadow: 0 5px 20px rgba(99, 72, 50, 0.12);
+            max-width: 1100px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .h3Section {
+            text-align: center;
+            margin-bottom: 1.8rem;
+            font-size: 1.65rem;
+            color: #38220F;
+            border-bottom: 2px solid #DBC1AC;
+            padding-bottom: 8px;
+            width: fit-content;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        section ol,
+        section ul {
+            font-size: 1.07rem;
+            line-height: 1.8;
+            color: #634832;
+            margin-bottom: 20px;
+        }
+
+        section ul ul {
+            list-style-type: circle;
+            margin-top: 8px;
+            padding-left: 25px;
+        }
+
+        section li {
+            margin-bottom: 14px;
+        }
+
+        section p {
+            font-size: 1.05rem;
+            margin-top: 0.75rem;
+            color: #38220F;
+        }
+
+        .main2 {
+            font-size: 2rem;
+            color: #38220F;
+            text-align: center;
+            padding-top: 20px;
+            margin-bottom: 25px;
+        }
+
+        .grade-section {
+            background-color: #FDF6EE;
+            border: 2px solid #DBC1AC;
+            border-radius: 16px;
+            padding: 25px;
+            margin-top: 2.5rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            box-shadow: 0 6px 18px rgba(99, 72, 50, 0.12);
+            text-align: center;
+        }
+
+        .grade-section .h3Section {
+            margin-bottom: 1.2rem;
+        }
+
+        .grade-box {
+            background-color: #FFF8F0;
+            border-radius: 12px;
+            padding: 20px;
+            font-size: 1.1rem;
+            color: #38220F;
+            box-shadow: inset 0 0 10px rgba(150, 114, 89, 0.1);
+        }
+
+        .grade-box p:first-child {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #4B2E2B;
+            margin-bottom: 10px;
+        }
+
+        .head2Link {
+            color: #38220F;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .head2Link:hover {
+            color: #967259;
+            text-decoration: underline;
+            transition: color 0.3s ease;
+        }
+
+        ul,
+        ul ul {
+            list-style: none;
+            padding-left: 0;
+            margin-bottom: 3px;
+        }
+
+        ol ul,
+        ol ul ul {
+            list-style: none;
+            padding-left: 20px;
+            margin-left: 0;
+        }
+
+        ul li {
+            margin-bottom: 10px;
+            line-height: 1.4;
+        }
+
+        li.pass::before,
+        li.fail::before {
+            display: inline-block;
+            margin-right: 10px;
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+
+        li.pass::before {
+            content: "✓";
+            color: #2E7D32;
+        }
+
+        li.fail::before {
+            content: "❌";
+            color: #C62828;
+        }
+
+        section a {
+            color: #38220F;
+            text-decoration: none;
+            transition: color 0.3s ease;
+            font-weight: bold;
+        }
+
+        section a:hover {
+            color: #967259;
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div data-include="components/header.html"></div>
+
+    <main>
+        <h2 class="main2">Peer Review 1: <a class="head2Link" href="https://webpages.charlotte.edu/gbrummer/itis3135/"
+                target="_blank">Brummer, Greyson</a></h2>
+
+        <figure>
+            <img class="review-screenshot" src="images/Brummer_Greyson_Website.png"
+                alt="Screenshot of [First]'s website" width="600" />
+            <figcaption>
+                🔗 <a href="https://webpages.charlotte.edu/gbrummer/itis3135/" target="_blank">Visit <strong>Greyson
+                        Brummer's</strong> site here.</a>
+            </figcaption>
+        </figure>
+
+        <section>
+            <h3 class="h3Section">Evaluation</h3>
+            <ol>
+                <li class="pass"><strong>Your submission leads right to the page to be reviewed (or if instructed the
+                        primary page
+                        with
+                        links to the page, or both)</strong></li>
+                <li class="pass"><strong>There are no spaces or upper-cases in the file/folder names, including scripts,
+                        images,
+                        etc..
+                    </strong></li>
+                <li><strong>Design</strong>:
+                    <ul>
+                        <li class="pass">Page has sufficient contrast/font sizing so as to be easy to read</li>
+                        <li class="pass">Page has site colors and fonts using the standard .css file, unless this
+                            assignment requires
+                            a unique/standalone/embedded one</li>
+                        <li>
+                            • &nbsp;CRAP principles applied:
+                            <ul>
+                                <li class="pass">Contrast</li>
+                                <li class="pass">Repetition</li>
+                                <li class="pass">Alignment</li>
+                                <li class="pass">Proximity</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li><strong>Page has within it:</strong>
+                    <ul>
+                        <li class="pass">Header</li>
+                        <li class="pass">Main</li>
+                        <li class="pass">Footer</li>
+                        <li class="pass">(optional) nav for main menu between header and footer</li>
+                    </ul>
+                </li>
+                <li><strong>Header has site/brand header with text in an h1:</strong>
+                    <ul>
+                        <li class="pass">If this is a homework page it's likely something like Student Name * Course ID
+                            Course Name</li>
+                        <li class="pass">If this is a “branded page” it should be the brand/company</li>
+                        <li class="pass">DO NOT INCLUDE THE PAGE NAME IN THE HEADER</li>
+                        <li class="pass">Understand the difference between head, header, and heading</li>
+                    </ul>
+                </li>
+                <li class="pass"><strong>Main starts with name of page as an &lt;h2&gt; and does not include name of
+                        site/brand</strong></li>
+                <li class="pass"><strong>Page has brand tagline somewhere (make up a slogan and include it on every page
+                        in a
+                        consistent
+                        location)</strong></li>
+                <li><strong>Page has footer with:</strong>
+                    <ul>
+                        <li class="pass">Menu for user's pages in a nav element</li>
+                        <li class="pass">“Designed by…” text</li>
+                    </ul>
+                </li>
+                <li class="pass"><strong>Page has specific requirements for this assignment (make a checklist from that
+                        assignment
+                        and
+                        make sure you've covered everything there). If there is a conflict between what you see here and
+                        in
+                        the instructions, ask on the class forums about it.</strong></li>
+                <li>🔧 <strong>Additional Suggestions (Stop, Start, Continue):</strong>
+                    <ul>
+                        <li>• &nbsp;<strong>Stop:</strong> &nbsp;Using generic placeholder text like "This is all the
+                            content for my ITIS 3135 class." Consider <br>&nbsp;&nbsp;&nbsp;&nbsp;providing more detailed information about the course or your objectives.
+                        </li>
+                        <li>• &nbsp;<strong>Start:</strong> &nbsp;Implementing sorted navigation menus to allow easy
+                            access to different sections or pages within the site.</li>
+                        <li>• &nbsp;<strong>Continue:</strong> &nbsp;Using a clean and uncluttered design that makes the
+                            site easy to navigate.</li>
+                    </ul>
+                </li>
+            </ol>
+        </section>
+
+        <section class="grade-section">
+            <h3 class="h3Section">Overall Grade</h3>
+            <div class="grade-box">
+                <p><strong>✅ 9 of 9 requirements met</strong></p>
+                <p>This site meets all checklist expectations and demonstrates full compliance with assignment
+                    standards.</p>
+            </div>
+        </section>
+
+        <section>
+            <h3 class="h3Section">Submission</h3>
+            <p>I have emailed this review to Greyson Brummer at <a
+                    href="mailto:gbrummer@charlotte.edu">gbrummer@charlotte.edu</a>.</p>
+            <p>Reviewer: Benjamin Taylor</p>
+            <p>Date: April 24, 2025</p>
+        </section>
+    </main>
+
+    <div data-include="components/footer.html"></div>
+
+    <script>
+        document.getElementById("validation_link_html").setAttribute("href", "https://validator.w3.org/check?uri=" + location.href);
+        document.getElementById("validation_link_css").setAttribute("href", "https://jigsaw.w3.org/css-validator/validator?uri=" + location.href);
+    </script>
+    <script src="scripts/functionality.js"></script>
+</body>
+
+</html>

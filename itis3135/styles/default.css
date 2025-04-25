@@ -649,6 +649,18 @@ nav ul li.dropdown:hover .dropdown-content {
     animation-delay: 0.32s;
 }
 
+.dropdown-content li:nth-child(13) {
+    animation-delay: 0.34s;
+}
+
+.dropdown-content li:nth-child(14) {
+    animation-delay: 0.36s;
+}
+
+.dropdown-content li:nth-child(15) {
+    animation-delay: 0.38s;
+}
+
 @keyframes dropdownItemFade {
     to {
         opacity: 1;

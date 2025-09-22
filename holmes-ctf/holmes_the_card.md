@@ -88,7 +88,34 @@
 ## 🚩 Flag 6: "How many tools and malware in total are linked to the previously identified campaigns? (number)"
 
 **Walkthrough:** 
-- The answer to this flag lies within the same graph that we used for the previous question. 
+- The answer to this flag lies within the same graph that we used for the previous question.<br>
+
+![Campaign Graph Entities](card_images/task-6-evidence.png)
+- As you can see in the image, there is an "Entity Types" legend that specifies the type of entities that are found in the graph.
+- The question is asking for "tools" and "malware" specifically.
+- If we zoom in on the campaigns surrounding the honeypot (5 campaigns in particular), we can count `4 tools` and `5 malware` used.
+- Adding these together, 4 + 5, gives us our flag: `9`.
+
+---
+
+## 🚩 Flag 7: "It appears that the threat actor has always used the same malware in their campaigns. What is its SHA-256 hash? (sha-256 hash)"
+
+**Walkthrough:** 
+- Using the same `IP:port` combo as the previous two questions, this question requires us to look a little deeper into the malware used in the attacks.
+- Searching the graph for `4A4D`, the malware that the attacker has used throughout the campaigns, shows us that there are 11 entities and 3 different types associated.<br>
+
+![4A4D Search](card_images/task-7-4a4d-search.png)
+- This means that all of these entities, including one organization, 5 campaigns, and 5 malware, are all associated with `4A4D`.<br>
+
+![4A4D Graph](card_images/task-7-4a4d-graph.png)
+- If we inspect any of the malware used, they all link to a weird `Indicator` named `indicator--vehicle-chaos-hash-2025-0005`. In this case, I chose the `Vehicle Chaos Engine` malware and went to the "Links" section.
+
+![Indicator Hash](card_images/task-7-vehicle-chaos-malware.png)
+- Further inspection of this `Indicator` takes us to the `indicator--vehicle-chaos-hash-2025-0005` page.
+- If we go to the "Details" pane, there is a "Pattern" listed in the properties.
+- The pattern listed is `[file:hashes.SHA256 = '7477c4f5e6d7c8b9a0f1e2d3c4b5a6f7e8d9c0b1a2f3e4d5c6b7a8f9e0d17477']`.
+- If we look deeper into this, there is a SHA256 hash embedded. This is the correct flag for the question.
+- Flag / SHA-256 Hash: `7477c4f5e6d7c8b9a0f1e2d3c4b5a6f7e8d9c0b1a2f3e4d5c6b7a8f9e0d17477`.
 
 ---
 

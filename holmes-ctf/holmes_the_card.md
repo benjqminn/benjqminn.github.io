@@ -72,6 +72,25 @@
 
 ---
 
+## 🚩 Flag 5: "OmniYard-3 (formerly Scotland Yard) has granted you access to its CTI platform. Browse to the first IP:port address and count how many campaigns appear to be linked to the honeypot attack."
+
+**Walkthrough:** 
+- To find the 5th Flag, we navigated to the designated `IP:port` that was given. 
+- Upon opening the `IP:port` in the browser, we were met with a "CogWork-Intel Graph".
+- This graph contained 63 entities and 7 different types.<br>
+
+![Campaign Graph](card_images/task-5-chart.png)
+- From this graph, we can see that there is one central node with 5 different sub-nodes stemming from it. We can assume this is the specified honeypot attack.
+- Based on this, the answer to this flag is `5`.
+
+---
+
+## 🚩 Flag 6: "How many tools and malware in total are linked to the previously identified campaigns? (number)"
+
+**Walkthrough:** 
+- The answer to this flag lies within the same graph that we used for the previous question. 
+
+---
 
 ## TL;DR (Answers)
 

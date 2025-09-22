@@ -170,7 +170,7 @@
 - If we inspect any of the malware used, they all link to a weird Indicator named `indicator--vehicle-chaos-hash-2025-0005`. In this case, I chose the `Vehicle Chaos Engine` malware and went to the "Links" section.
 
 ![Indicator Hash](card_images/task-7-vehicle-chaos-malware.png)
-- Further inspection of this `Indicator` takes us to the `indicator--vehicle-chaos-hash-2025-0005` page.
+- Further inspection of this Indicator takes us to the `indicator--vehicle-chaos-hash-2025-0005` page.
 - If we go to the "Details" pane, there is a "Pattern" listed in the properties.
 - The pattern listed is `[file:hashes.SHA256 = '7477c4f5e6d7c8b9a0f1e2d3c4b5a6f7e8d9c0b1a2f3e4d5c6b7a8f9e0d17477']`.
 - If we look deeper into this, there is a SHA256 hash embedded. This is the correct flag for the question.

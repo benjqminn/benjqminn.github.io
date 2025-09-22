@@ -1,6 +1,13 @@
 # Holmes CTF: "The Card" 🃏
 
-**Author:** @benjqminn  
+**Author:** Benjamin Taylor (@benjqminn)
+**Group:** Sherlock's Homies
+- Benjamin Taylor (https://www.linkedin.com/in/btayl106/)
+- Greyson Brummer (https://www.linkedin.com/in/greyson-brummer-b82119301/
+- Jonathan Lutabingwa (https://www.linkedin.com/in/jonathan-lutabingwa/)
+- Lansina Diakite (https://www.linkedin.com/in/lansina-diakite-7a673b202/)
+- Shaunak Peri (https://www.linkedin.com/in/shaunak-peri-315744245/)
+
 **Prompt:** Holmes receives a breadcrumb from Dr. Nicole Vale - fragments from a string of cyber incidents across Cogwork-1. Each lead ends the same way: a digital calling card signed JM.
 
 **Summary:** Multi-stage web attack against Nicole Vale’s honeypot attributed to actor “JM”: initial reconnaissance (distinct User-Agent), WAF bypass with web shell deployment, database exfiltration, malware persistence, and infrastructure mapping via Cogwork platforms.

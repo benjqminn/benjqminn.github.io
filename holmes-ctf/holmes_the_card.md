@@ -7,6 +7,23 @@
 
 ---
 
+## TL;DR (Answers)
+
+- **User-Agent (first used):** `Lilnunc/4A4D - SpecterEye`
+- **Web shell filename:** `temp_4A4D.php`
+- **Exfiltrated DB:** `database_dump_4A4D.sql`
+- **Recurring string:** `4A4D`
+- **OmniYard campaigns linked:** `5`
+- **Tools + malware count:** `9`
+- **Malware SHA-256:** `7477c4f5e6d7c8b9a0f1e2d3c4b5a6f7e8d9c0b1a2f3e4d5c6b7a8f9e0d17477`
+- **C2 IP (from CogWork):** `74.77.74.77`
+- **Persistence file path:** `/opt/lilnunc/implant/4a4d_persistence.sh`
+- **Open ports (CogNet scan):** `11`
+- **Owning organization:** `SenseShield MSP`
+- **Banner string:** `He's a ghost I carry, not to haunt me, but to hold me together - NULLINC REVENGE`
+
+---
+
 ## 🚩 Flag 1: "Analyze the provided logs and identify what is the first User-Agent used by the attacker against Nicole Vale's honeypot. (string)"
 
 **Walkthrough:** 
@@ -15,6 +32,7 @@
 - Looking at line 1, we can see that the attacker used User-Agent `Lilnunc/4A4D - SpecterEye`.
 - Therefore, the value for flag 1 is: `Lilnunc/4A4D - SpecterEye`
 
+![First User Agent](card_images/task-1-evidence.png)
 **Solution Line of `access.log`:** 
 - `2025-05-01 08:23:12 121.36.37.224 - - [01/May/2025:08:23:12 +0000] "GET /robots.txt HTTP/1.1" 200 847 "-" "Lilnunc/4A4D - SpecterEye"`
 ---
@@ -28,6 +46,7 @@
 - On `2025-05-15 11:25:01` the logs show a "CRITICAL" alert, with a "BYPASS" action (exactly what we are looking for). This line specifies a "Web shell creation detected", so I knew I was on the right track.
 - The following line, at `2025-05-15 11:25:12`, another "BYPASS" action takes place. This log specifies a PHP web shell created, with the name `temp_4A4D.php`. This is the flag for our question.
 
+![WAF](card_images/task-2-evidence.png)
 **Solution Line of `waf.log`:** 
 - `2025-05-15 11:25:12 [CRITICAL] waf.exec - IP 121.36.37.224 - Rule: WEBSHELL_DEPLOYMENT - Action: BYPASS - PHP web shell temp_4A4D.php created`
 ---
@@ -51,6 +70,7 @@
 - In this last line, we can see that there was a 52 MB `.sql` file downloaded.
 - This correlates with the exfiltration, giving us the flag and name of the database file: `database_dump_4A4D.sql`.
 
+![Exfiltration Database](card_images/task-3-evidence.png)
 **Solution Line of `access.log`:** 
 - `2025-05-18 14:58:23 121.36.37.224 - - [18/May/2025:15:58:23 +0000] "GET /uploads/database_dump_4A4D.sql HTTP/1.1" 200 52428800 "-" "4A4D RetrieveR/1.0.0"`
 ---
@@ -68,6 +88,8 @@
 3. *DB dump: `database_dump_4A4D.sql`*
 4. *Backup: `backup_2025_4A4D.tar.gz`*
 5. *Downloader UA: `4A4D RetrieveR/1.0.0`*
+
+![Meaningless String](card_images/task-4-evidence.png)
 -  Funnily enough, the flag for this question happens to be `4A4D`.
 
 ---
@@ -117,27 +139,82 @@
 - If we look deeper into this, there is a SHA256 hash embedded. This is the correct flag for the question.
 - Flag / SHA-256 Hash: `7477c4f5e6d7c8b9a0f1e2d3c4b5a6f7e8d9c0b1a2f3e4d5c6b7a8f9e0d17477`.
 
----
-
-## TL;DR (Answers)
-
-- **User-Agent (first used):** `Lilnunc/4A4D - SpecterEye`
-- **Web shell filename:** `temp_4A4D.php`
-- **Exfiltrated DB:** `database_dump_4A4D.sql`
-- **Recurring string:** `4A4D`
-- **OmniYard campaigns linked:** `TODO`
-- **Tools + malware count:** `TODO`
-- **Malware SHA-256:** `TODO`
-- **C2 IP (from CogWork):** `TODO`
-- **Persistence file path:** `TODO`
-- **Open ports (CogNet scan):** `TODO`
-- **Owning organization:** `TODO`
-- **Banner string:** `TODO`
+![SHA-256 Hash](card_images/task-7-sha-256.png)
 
 ---
 
-## Timeline of Events
+## 🚩 Flag 8: "Browse to the second IP:port address and use the CogWork Security Platform to look for the hash and locate the IP address to which the malware connects. (Credentials: nvale/CogworkBurning!)"
+
+**Walkthrough:** 
+- Now that we have the SHA-256 value from the previous flag, we are tasked with locating the IP address to which the malware connects.
+- On the "CogWork Security" website that the new `IP:port` took us to, we `CTRL + C` the SHA-256 and then `CTRL + V` into the search query box.
+
+![Search Query SHA-256](card_images/task-8-hash-lookup.png)
+- We can see here that this is not only a `Malicious` threat, but the filename also matches the `4A4D` pattern that we have been seeing throughout this activity. This means it is most definitely the correct file.
+- Clicking "View Details" takes us to a more specific breakdown of the file:
+
+![View Details SHA-256](card_images/task-8-ip-haship_hash.png)
+- We can see here that an HTTPS IP address is given, and after submission we find out this is the correct value.
+- Therefore, the flag (and IP address to which the malware connects) is `74.77.74.77`.
+---
+
+## 🚩 Flag 9: "What is the full path of the file that the malware created to ensure its persistence on systems? (/path/filename.ext)"
+
+**Walkthrough:** 
+- Continuing off of the previous question, the flag for this question is found right below the last answer.
+- The question is asking for the file path to ensure persistence on systems, and if we scroll down we see a field titled "File Operations".
+
+![File Operations](card_images/task-9-file-path.png)
+- In this section, there are two `CREATE` operations. The first of which has "persistence" in the name.
+- It is safe to assume that this is the correct file path for system persistence.
+- Therefore, the flag (and file path to ensure system persistence) is `/opt/lilnunc/implant/4a4d_persistence.sh`.
 
 ---
 
-## Evidence & Commands
+## 🚩 Flag 10: "Finally, browse to the third IP:port address and use the CogNet Scanner Platform to discover additional details about the TA's infrastructure. How many open ports does the server have?"
+
+**Walkthrough:** 
+- For this task, we are given a third and final `IP:port` address and told to use the CogNet Scanner Platform to find more details about the infrastructure of the TA.
+
+![CogNet Scanner](card_images/task-10-search.png)
+- Searching the CogNet Scanner Platform with the IP address we found in a previous flag, `74.77.74.77`, returns one single result.
+- This search page contains some open ports and even some vulnerabilities with CVSS scores of 8.8 and 9.7 out of 10. It seems we are dealing with a pretty dangerous target.
+- Clicking on the "Details" button, we are taken to a more in-depth breakdown of the information regarding this target.
+- We can see from this page the number of open ports, which is what this question is asking for.
+
+![Detailed Breakdown](card_images/task-10-open-ports.png)
+- Therefore, the flag (and number of open ports) is `11`.
+
+
+---
+
+## 🚩 Flag 11: "Which organization does the previously identified IP belong to? (string)"
+
+**Walkthrough:** 
+- The answer to this flag is right above the number of open ports from the previous question.<br>
+
+![Campaign Graph Entities](card_images/task-10-open-ports.png)
+- As you can see in the image, under the "Network Information" section, there is a list of information pertaining this target.
+- This information contains Location, ISP, Organization, and Coordinates.
+- We want to find the organization for this question, which is listed in this section as `SenseShield MSP`.
+- Therefore, the flag (and organization) is `SenseShield MSP`.
+
+---
+
+## 🚩 Flag 12: "One of the exposed services displays a banner containing a cryptic message. What is it? (string)"
+
+**Walkthrough:** 
+- Using the same CogNet scan, we can find more information about this target.
+- I navigated to the "Services" tab on the top navigation pane, and was met with more details on some ports and services.
+
+![Services Tab](card_images/task-12-services.png)
+- This question is asking for a banner containing a cryptic message, so my thought process was to scroll through until I found something weird or out of the ordinary.
+- Scrolling through the services provided, I found one that stood out: `7477/tcp`.
+- This was an unknown service with an unknown version, running on Port 7477 and using TCP protocol.
+
+![Suspicious Banner](card_images/task-12-cryptic-message.png)
+- This seemed to be it. The Service Banner displayed was: `He's a ghost I carry, not to haunt me, but to hold me together - NULLINC REVENGE`.
+- Therefore, the flag (and cryptic banner message) is `He's a ghost I carry, not to haunt me, but to hold me together - NULLINC REVENGE`.
+
+---
+

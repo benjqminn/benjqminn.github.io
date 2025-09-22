@@ -167,7 +167,7 @@
 - This means that all of these entities, including one organization, 5 campaigns, and 5 malware, are all associated with `4A4D`.<br>
 
 ![4A4D Graph](card_images/task-7-4a4d-graph.png)
-- If we inspect any of the malware used, they all link to a weird `Indicator` named `indicator--vehicle-chaos-hash-2025-0005`. In this case, I chose the `Vehicle Chaos Engine` malware and went to the "Links" section.
+- If we inspect any of the malware used, they all link to a weird Indicator named `indicator--vehicle-chaos-hash-2025-0005`. In this case, I chose the `Vehicle Chaos Engine` malware and went to the "Links" section.
 
 ![Indicator Hash](card_images/task-7-vehicle-chaos-malware.png)
 - Further inspection of this `Indicator` takes us to the `indicator--vehicle-chaos-hash-2025-0005` page.

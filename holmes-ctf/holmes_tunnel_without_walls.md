@@ -102,7 +102,14 @@
 
 **Walkthrough:**  
 - Since we know that the rootkit was installed, we can use the `linux.malware.check_modules` plugin to see if the rootkit is easily visible.
-- 
+
+![linux.malware](tunnel_images/task4-evidence.png)
+- We can see here that there are two queries returned from this command.
+- The first returned, `Nullincrevenge`, is one we can note as being suspicious.
+- In the storyline for this CTF, `NULLINC` was named as a key event.
+
+![htb storyline](tunnel_images/task4-evidence2.png)
+- Knowing this is the name of the module, we can use the `linux.pagecache.Files` plugin to identify the malicious file.
 
 **Answer:** `<<<ANSWER>>>`  
 
@@ -187,4 +194,5 @@
 - Supply-chain compromises often leverage **domain redirection**; defenders should monitor `/etc/hosts`, DNS anomalies, and unsigned updates.
 
 ---
+
 

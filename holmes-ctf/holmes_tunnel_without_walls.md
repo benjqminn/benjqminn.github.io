@@ -55,9 +55,15 @@
 
 **Walkthrough:**  
 - For Flag 2, we are checking the PID of the shell that the attacker used when they connected over SSH to execute their initial reconnaissance commands.
-- To check processes, we can use the `linux.pstree` plugin.
+- First, after identifying which profile is necessary to complete this challenge, I downloaded the required file, placed it in Volatility3's `Symbols` directory, and extracted the `.json` file.
+- Here is a link to the repository I found containing the symbol file: https://github.com/Abyss-W4tcher/volatility3-symbols/tree/master/Debian/amd64/5.10.0/35
+- Using `linux.pstree`, I was able to check the processes and extract the necessary information.
 
-**Answer:** `<<<ANSWER>>>`  
+![Linux pstree](tunnel_images/task2-evidence.png)
+- As we can see in the list of processes, the bash process 13608 is a child of an sshd process chain (sshd(13585) -> sshd(13607) -> bash(13608)).
+- This is almost definitely the PID that we are looking for, and after confirming the flag, it is correct.
+
+**Answer:** `13608`  
 
 ---
 
@@ -66,10 +72,27 @@
 **Question:** After the initial information gathering, the attacker authenticated as a different user to escalate privileges. Identify and submit that user's credentials.  
 
 **Walkthrough:**  
-- Searched memory for `user:password` patterns.  
-- Found creds near `su`/`sudo` invocation in process memory.  
+- To find Flag 3, we must first use the `linux.bash` plugin to list the executed commands.
+- Dumping the bash entries and using `grep` for credential-like uses provides us with one command that stands out.
 
-**Answer:** `<<<ANSWER>>>`  
+![su jm](tunnel_images/task3-evidence.png)
+- The attacker used the `su jm` command to switch to the `jm` user.
+- Even knowing this, though, we still don't have the password.
+- For this, we can use `strings` to see if it is in the memory.
+
+![strings jm](tunnel_images/task3-evidence2.png)
+- The line that we found is `jm:$1$jm$poAH2RyJp8ZllyUvIkxxd0:0:0:root:/root:/bin/bash`.
+- This gives us the hash for the password.
+- Since the password begins with $1$, we can tell that it is hashed with MD5-crypt (formally known as MD5-based crypt(3)).
+- Now that we have the hashed password, we can use `hashcat` to crack it.
+
+![hashcat start](tunnel_images/task3-evidence3.png)
+![cracked pass](tunnel_images/task3-evidence4.png)
+- Our password hash was successfully cracked!
+- `$1$jm$poAH2RyJp8ZllyUvIkxxd0` translates to `WATSON0`.
+- Now, we have our username:password combination that the flag requires (therefore completing this question).
+
+**Answer:** `jm:WATSON0`  
 
 ---
 
@@ -78,8 +101,8 @@
 **Question:** The attacker downloaded and executed code from Pastebin to install a rootkit. What is the full path of the malicious file?  
 
 **Walkthrough:**  
-- Located `wget`/`curl` commands referencing Pastebin.  
-- Checked `linux.lsof` to confirm file written to disk.  
+- Since we know that the rootkit was installed, we can use the `linux.malware.check_modules` plugin to see if the rootkit is easily visible.
+- 
 
 **Answer:** `<<<ANSWER>>>`  
 
@@ -164,3 +187,4 @@
 - Supply-chain compromises often leverage **domain redirection**; defenders should monitor `/etc/hosts`, DNS anomalies, and unsigned updates.
 
 ---
+

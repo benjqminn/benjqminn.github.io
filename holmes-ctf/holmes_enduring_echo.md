@@ -320,7 +320,7 @@
 
 ![Configuring event logs](enduring_images/task14-evidence2.png)
 - We can't find the actual command from this, however, so we need to check another place.
-- There is a `ConsoleHost_history.txt` file in the Administrator user profile (`The_Enduring_Echo\C\Users\Administrator\AppData\Roaming\Microsoft\Windows\PowerShell\PSReadline`, so this definitely could contain the information we need to find this command.
+- There is a `ConsoleHost_history.txt` file in the Administrator user profile (`The_Enduring_Echo\C\Users\Administrator\AppData\Roaming\Microsoft\Windows\PowerShell\PSReadline`), so this definitely could contain the information we need to find this command.
 
 ![Configuring event logs](enduring_images/task14-evidence3.png)
 - If we open this file, we can see a ton of commands executed on the Administrator user profile.
@@ -334,6 +334,7 @@
 ---
 
 **Next challenge writeup:** [Holmes — The Tunnel Without Walls 🌌](./holmes_tunnel_without_walls.md)
+
 
 
 

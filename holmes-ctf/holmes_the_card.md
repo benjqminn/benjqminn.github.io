@@ -15,6 +15,8 @@
 
 **📌 Summary:** Multi-stage web attack against Nicole Vale’s honeypot attributed to actor “JM”: initial reconnaissance (distinct User-Agent), WAF bypass with web shell deployment, database exfiltration, malware persistence, and infrastructure mapping via Cogwork platforms.
 
+**🟩 Challenge Difficulty:** *EASY*
+
 ---
 
 ## 📋 TL;DR (Answers)
@@ -277,4 +279,6 @@
 **Answer:** `He's a ghost I carry, not to haunt me, but to hold me together - NULLINC REVENGE`  
 
 ---
+
+**Next challenge writeup:** [Holmes — The Watchman's Residue 👮](./holmes_watchmans_residue.md)
 

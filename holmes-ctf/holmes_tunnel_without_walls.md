@@ -127,8 +127,8 @@
 **Walkthrough:**  
 - Since we know the location of the malicious file now, we can try and extract it from memory.
 - This can be done by using `linux.pagecache.inodePages`.
+  
 ![inodePages](tunnel_images/task5-evidence.png)
-
 -  Then, we can inspect futher using old strings.
 
 ![strings inode](tunnel_images/task5-evidence2.png)
@@ -146,12 +146,12 @@
 **Question:** The next step in the attack involved issuing commands to modify the network settings and installing a new package. What is the name and PID of the package?  
 
 **Walkthrough:**  
-- Using the `linux.bash` plugin output and searching for package-install commands, we know that the attacker installed a certain package: 
+- Using the `linux.bash` plugin output and searching for package-install commands, we know that the attacker installed a certain package:
+
 ![dnsmasq installation](tunnel_images/task6-evidence.png)
-
 - Now, knowing the name of the package, we can search the `/tmppstree.txt` file we previously generated for any lines containing "apt", "dpkg", or "dnsmasq".
-![dnsmasq installation](tunnel_images/task6-evidence2.png)
 
+![dnsmasq installation](tunnel_images/task6-evidence2.png)
 - We can see a process tree entry for `dnsmasq` in the return value from the command, giving us the PID of the dnsmasq process.
 
 **Answer:** `dnsmasq,38687`  
@@ -241,6 +241,7 @@
 ---
 
 **Next challenge writeup:** [Holmes — The Payload 📦](./holmes_the_payload.md)
+
 
 
 

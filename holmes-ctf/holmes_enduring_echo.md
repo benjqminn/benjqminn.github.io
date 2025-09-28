@@ -147,102 +147,89 @@
 
 ---
 
-## 🚩 Flag 6: Tools + Malware
+## 🚩 Flag 6: 
 
-**Question:** How many tools and malware in total are linked to the previously identified campaigns?  
+**Question:** Identify the script executed by the persistence mechanism. (C:\FOLDER\PATH\FILE.ext)
 
 **Walkthrough:** 
-- The answer to this flag lies within the same graph that we used for the previous question.<br>
+- Finding Flag 6 is simple, as the answer lies in the log from the previous question.
+- Looking at the command from the `SysHelper Update` schedule task creation command, the script and path are also specified.
 
-![Campaign Graph Entities](card_images/task-6-evidence.png)
-- As you can see in the image, there is an "Entity Types" legend that specifies the type of entities that are found in the graph.
-- The question is asking for "tools" and "malware" specifically.
-- If we zoom in on the campaigns surrounding the honeypot (5 campaigns in particular), we can count `4 tools` and `5 malware` used.
-- Adding these together, 4 + 5, gives us our flag: `9`.
+![Path and File of Script](enduring_images/task6-evidence.png)
 
-**Answer:** `9`  
+**Answer:** `C:\Users\Werni\Appdata\Local\JM.ps1`  
 
 ---
 
-## 🚩 Flag 7: SHA-256 Hash
+## 🚩 Flag 7:
 
-**Question:** The threat actor has always used the same malware in their campaigns. What is its SHA-256 hash?  
+**Question:** What local account did the attacker create? (string) 
 
 **Walkthrough:** 
-- Using the same `IP:port` combo as the previous two questions, this question requires us to look a little deeper into the malware used in the attacks.
-- Searching the graph for `4A4D`, the malware that the attacker has used throughout the campaigns, shows us that there are 11 entities and 3 different types associated.<br>
+- To find a new local account created in the `Security.evtx` logs, we can filter by Event ID `4720`.
+- Specifically, Event ID `4720` returns "A user account was created" events.
 
-![4A4D Search](card_images/task-7-4a4d-search.png)
-- This means that all of these entities, including one organization, 5 campaigns, and 5 malware, are all associated with `4A4D`.<br>
+![Event ID 4720](enduring_images/task7-evidence.png)
+- After filtering the logs, there is only one log returned with Event ID `4720`.
 
-![4A4D Graph](card_images/task-7-4a4d-graph.png)
-- If we inspect any of the malware used, they all link to a weird Indicator named `indicator--vehicle-chaos-hash-2025-0005`. In this case, I chose the `Vehicle Chaos Engine` malware and went to the "Links" section.
+![SAM Account Name](enduring_images/task7-evidence2.png)
+- Looking under the "Attributes" characteristics, we can see the "SAM Account Name" is `svc_netupd`.
 
-![Indicator Hash](card_images/task-7-vehicle-chaos-malware.png)
-- Further inspection of this Indicator takes us to the `indicator--vehicle-chaos-hash-2025-0005` page.
-- If we go to the "Details" pane, there is a "Pattern" listed in the properties.
-- The pattern listed is `[file:hashes.SHA256 = '7477c4f5e6d7c8b9a0f1e2d3c4b5a6f7e8d9c0b1a2f3e4d5c6b7a8f9e0d17477']`.
-- If we look deeper into this, there is a SHA256 hash embedded. This is the correct flag for the question.
-- Flag / SHA-256 Hash: `7477c4f5e6d7c8b9a0f1e2d3c4b5a6f7e8d9c0b1a2f3e4d5c6b7a8f9e0d17477`.
-
-![SHA-256 Hash](card_images/task-7-sha-256.png)
-
-**Answer:** `7477c4f5e6d7c8b9a0f1e2d3c4b5a6f7e8d9c0b1a2f3e4d5c6b7a8f9e0d17477`  
+**Answer:** `svc_netupd`  
 
 ---
 
-## 🚩 Flag 8: C2 IP Address
+## 🚩 Flag 8:
 
-**Question:** Use the CogWork Security Platform to look for the hash and locate the IP address to which the malware connects.  
-
+**Question:** What domain name did the attacker use for credential exfiltration? (domain)
+ 
 **Walkthrough:** 
-- Now that we have the SHA-256 value from the previous flag, we are tasked with locating the IP address to which the malware connects.
-- On the "CogWork Security" website that the new `IP:port` took us to, we `CTRL + C` the SHA-256 and then `CTRL + V` into the search query box.
+- To find the domain name that the attacker used for credential exfiltration, checking through the files for related files was the first step I took.
 
-![Search Query SHA-256](card_images/task-8-hash-lookup.png)
-- We can see here that this is not only a `Malicious` threat, but the filename also matches the `4A4D` pattern that we have been seeing throughout this activity. This means it is most definitely the correct file.
-- Clicking "View Details" takes us to a more specific breakdown of the file:
+![Powershell script file](enduring_images/task8-evidence.png)
+- None of the files seemed of interest for Flag 8, except for one: located in `The_Enduring_Echo\C\Users\Werni\AppData\Local` directory, there was a Windows PowerShell script named `JM.ps1`.
 
-![View Details SHA-256](card_images/task-8-ip-haship_hash.png)
-- We can see here that an HTTPS IP address is given, and after submission we find out this is the correct value.
-- Therefore, the flag (and IP address to which the malware connects) is `74.77.74.77`.
+![Domain Name Exfiltration](enduring_images/task8-evidence2.png)
+- Upon opening this `JM.ps1` file in Notepad, there is a domain name located in the parameters of an `Invoke-WebRequest` command.
 
-**Answer:** `74.77.74.77`  
+**Answer:** `NapoleonsBlackPearl.htb`  
 
 ---
 
-## 🚩 Flag 9: Persistence File Path
+## 🚩 Flag 9: 
 
-**Question:** What is the full path of the file that the malware created to ensure its persistence on systems?  
+**Question:** What password did the attacker's script generate for the newly created user? (string)  
 
 **Walkthrough:** 
-- Continuing off of the previous question, the flag for this question is found right below the last answer.
-- The question is asking for the file path to ensure persistence on systems, and if we scroll down we see a field titled "File Operations".
+- The Windows PowerShell script named `JM.ps1` contains a function in which a username and password are generated for the new user.
 
-![File Operations](card_images/task-9-file-path.png)
-- In this section, there are two `CREATE` operations. The first of which has "persistence" in the name.
-- It is safe to assume that this is the correct file path for system persistence.
-- Therefore, the flag (and file path to ensure system persistence) is `/opt/lilnunc/implant/4a4d_persistence.sh`.
+![Username and Password Function](enduring_images/task9-evidence.png)
+- Looking at this script, we can see that the generated password is a concatenation of `Watson_` and the timestamp of the date the script was run (in the format `"yyyyMMddHHmmss"`).
+- To find out the password, we will have to search the logs for when this script was executed to get an exact timestamp and find the credentials of this new user.
 
-**Answer:** `/opt/lilnunc/implant/4a4d_persistence.sh`  
+![User Creation Time](enduring_images/task9-evidence2.png)
+- In the `Security.evtx` logs, we can see an exact timestamp of when the new user from Flag 7 was created.
+- The time given for the `svc_netupd` user creation is `8/24/2025 7:05:09 PM`.
+- To find the timezone of these logs, we will need to look in the `SYSTEM` registry hive (using Zimmerman's Registry Explorer v2.1.0).
+
+![Timezone of SYSTEM](enduring_images/task9-evidence3.png)
+- Knowing the timezone is in Pacific Standard Time, my system is in Eastern Standard Time.
+- We need to convert the `8/24/2025 7:05:09 PM` in EST to PST to follow the system guidelines.
+- This would mean the correct system time in the `SYSTEM` timezone is `8/24/2025 4:05:09 PM`.
+- Converting this to 24-hour format, we get `8/24/2025 16:05:09 PM`.
+- In `"yyyyMMddHHmmss"` form, this is equivalent to `20250824160509`.
+- Concatenating the `Watson_` to the front of this timestamp, the password for the new user is `Watson_20250824160509`.
+
+**Answer:** `Watson_20250824160509`  
 
 ---
 
-## 🚩 Flag 10: Open Ports
+## 🚩 Flag 10: 
 
 **Question:** CogNet Scanner — how many open ports does the server have?  
 
 **Walkthrough:** 
-- For this task, we are given a third and final `IP:port` address and told to use the CogNet Scanner Platform to find more details about the infrastructure of the TA.
-
-![CogNet Scanner](card_images/task-10-search.png)
-- Searching the CogNet Scanner Platform with the IP address we found in a previous flag, `74.77.74.77`, returns one single result.
-- This search page contains some open ports and even some vulnerabilities with CVSS scores of 8.8 and 9.7 out of 10. It seems we are dealing with a pretty dangerous target.
-- Clicking on the "Details" button, we are taken to a more in-depth breakdown of the information regarding this target.
-- We can see from this page the number of open ports, which is what this question is asking for.
-
-![Detailed Breakdown](card_images/task-10-open-ports.png)
-- Therefore, the flag (and number of open ports) is `11`.
+- 
 
 **Answer:** `11`  
 
@@ -253,13 +240,7 @@
 **Question:** Which organization does the previously identified IP belong to?  
 
 **Walkthrough:** 
-- The answer to this flag is right above the number of open ports from the previous question.<br>
-
-![Campaign Graph Entities](card_images/task-10-open-ports.png)
-- As you can see in the image, under the "Network Information" section, there is a list of information pertaining this target.
-- This information contains Location, ISP, Organization, and Coordinates.
-- We want to find the organization for this question, which is listed in this section as `SenseShield MSP`.
-- Therefore, the flag (and organization) is `SenseShield MSP`.
+- 
 
 **Answer:** `SenseShield MSP`  
 
@@ -270,19 +251,11 @@
 **Question:** One of the exposed services displays a banner containing a cryptic message. What is it?  
 
 **Walkthrough:** 
-- Using the same CogNet scan, we can find more information about this target.
-- I navigated to the "Services" tab on the top navigation pane, and was met with more details on some ports and services.
-
-![Services Tab](card_images/task-12-services.png)
-- This question is asking for a banner containing a cryptic message, so my thought process was to scroll through until I found something weird or out of the ordinary.
-- Scrolling through the services provided, I found one that stood out: `7477/tcp`.
-- This was an unknown service with an unknown version, running on Port 7477 and using TCP protocol.
-
-![Suspicious Banner](card_images/task-12-cryptic-message.png)
-- This seemed to be it. The Service Banner displayed was: `He's a ghost I carry, not to haunt me, but to hold me together - NULLINC REVENGE`.
+- 
 
 **Answer:** `He's a ghost I carry, not to haunt me, but to hold me together - NULLINC REVENGE`  
 
 ---
 
 **Next challenge writeup:** [Holmes — The Watchman's Residue 👮](./holmes_watchmans_residue.md)
+

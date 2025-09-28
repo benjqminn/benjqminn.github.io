@@ -226,23 +226,44 @@
 
 ## 🚩 Flag 10: 
 
-**Question:** CogNet Scanner — how many open ports does the server have?  
+**Question:** What was the IP address of the internal system the attacker pivoted to? (IPv4 address) 
 
 **Walkthrough:** 
-- 
+- The IP address of the interal system that the attacker pivoted to likely had to be an IP address that had been used regularly prior to the attack.
+- If we look through the Administrator user's files, we can see a folder named `.ssh`.
+- SSH is a network protocol enabling secure, remote access between computers, and it is commonly used for logging in, running commands, or transferring files.
+- In this folder, at the filepath `The_Enduring_Echo\C\Users\Administrator\.ssh`, we can see there is one file called `known_hosts`.
 
-**Answer:** `11`  
+![.ssh folder contents](enduring_images/task10-evidence.png)
+- I opened this file in Notepad to inspect it futher.
+
+![Known Hosts file](enduring_images/task10-evidence2.png)
+- The contents are a hostname, key type, and base64-encoded public key.
+- This IPv4 address found correlated with a "known_host" on the Administrator user, giving it a strong likelihood of being the IP address of the internal system that the attacker pivoted to.
+
+![Known Hosts file](enduring_images/task10-evidence3.png)
+- I took this IP address and utilized the `Find` action to see if there was any trace of it being used in the `Security.evtx` logs during the attack.
+- At `8/24/2025 7:10:05 PM`, there is a log containing a command in which the compromised host was forwarding incoming connections to `192.168.1.101:22`, the internal pivot target.
+
+![Known Hosts file](enduring_images/task10-evidence4.png)
+- This lines up with the timeframe of the attack.
+
+**Answer:** `192.168.1.101`  
 
 ---
 
 ## 🚩 Flag 11: Organization
 
-**Question:** Which organization does the previously identified IP belong to?  
+**Question:** Which TCP port on the victim was forwarded to enable the pivot? (port 0-65565)  
 
 **Walkthrough:** 
-- 
+- Since we now know the command the attacker used to forward incoming connections to the IP address he pivoted to, we can inspect this command further to find the TCP port that was forwarded as well to enable the pivot.
 
-**Answer:** `SenseShield MSP`  
+![TCP Port Forwarding](enduring_images/task11-evidence.png)
+- The full command the attacker used is as follows: `netsh  interface portproxy add v4tov4 listenaddress=0.0.0.0 listenport=9999 connectaddress=192.168.1.101 connectport=22`.
+- We can see the `listenport` is specified in this command, giving us the answer to this question.
+
+**Answer:** `9999`  
 
 ---
 
@@ -258,4 +279,5 @@
 ---
 
 **Next challenge writeup:** [Holmes — The Watchman's Residue 👮](./holmes_watchmans_residue.md)
+
 

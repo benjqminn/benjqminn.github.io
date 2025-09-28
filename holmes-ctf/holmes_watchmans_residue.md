@@ -274,3 +274,4 @@ frame.time >= "Aug 19, 2025 08:02:06"`.
 
 ---
 
+**Next challenge writeup:** [Holmes — The Enduring Echo 🔊](./holmes_enduring_echo.md)

@@ -301,6 +301,7 @@
 ![Search Results](enduring_images/task13-evidence2.png)
 
 - On the site itself (as well as in the link to the site itself), we are given the ID associated with the `Internal Proxy` technique the attacker used.
+
 ![ATT&CK ID](enduring_images/task13-evidence3.png)
 
 **Answer:** `T1090.001`  
@@ -321,8 +322,11 @@
 - We can't find the actual command from this, however, so we need to check another place.
 - There is a `ConsoleHost_history.txt` file in the Administrator user profile (`The_Enduring_Echo\C\Users\Administrator\AppData\Roaming\Microsoft\Windows\PowerShell\PSReadline`, so this definitely could contain the information we need to find this command.
 
+![Configuring event logs](enduring_images/task14-evidence3.png)
 - If we open this file, we can see a ton of commands executed on the Administrator user profile.
 - Line 37 has a command related to configuring system policies: `reg add "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System" /v LocalAccountTokenFilterPolicy /t REG_DWORD /d 1 /f`
+
+![Configuring event logs](enduring_images/task14-evidence4.png)
 - In the `Security.evtx` logs, there is only one instance of system policies being changed, so this is the correct command.
 
 **Answer:** `reg add "HKLM\Software\Microsoft\Windows\CurrentVersion\Policies\System\Audit" /v ProcessCreationIncludeCmdLine_Enabled /t REG_DWORD /d 1 /f`  
@@ -330,6 +334,7 @@
 ---
 
 **Next challenge writeup:** [Holmes — The Tunnel Without Walls 🌌](./holmes_tunnel_without_walls.md)
+
 
 
 

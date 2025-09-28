@@ -15,20 +15,22 @@
 
 **📌 Summary:** Memory analysis revealed an attacker establishing an SSH foothold, running reconnaissance, escalating via stolen credentials, installing a rootkit from Pastebin, reconfiguring network services, and redirecting software updates to deliver a supply-chain attack.
 
+**🟥 Challenge Difficulty:** *HARD*
+
 ---
 
 ## 📋 TL;DR (Answers)
 
 - **Linux kernel version:** `5.10.0-35-amd64`
-- **Attacker shell PID:** `<<<ANSWER>>>`
-- **Escalated credentials (user:password):** `<<<ANSWER>>>`
-- **Malicious file full path:** `<<<ANSWER>>>`
-- **Author email:** `<<<ANSWER>>>`
-- **Package name and PID:** `<<<ANSWER>>>`
-- **Compromised workstation hostname:** `<<<ANSWER>>>`
-- **Portal username:** `<<<ANSWER>>>`
-- **Update endpoint:** `<<<ANSWER>>>`
-- **Original domain, final redirect:** `<<<ANSWER>>>`
+- **Attacker shell PID:** `13608`
+- **Escalated credentials (user:password):** `jm:WATSON0`
+- **Malicious file full path:** `/usr/lib/modules/5.10.0-35-amd64/kernel/lib/Nullincrevenge.ko`
+- **Author email:** `i-am-the@network.now`
+- **Package name and PID:** `dnsmasq,38687`
+- **Compromised workstation hostname:** `Parallax-5-WS-3`
+- **Portal username:** `mike.sullivan`
+- **Update endpoint:** `/win10/update/CogSoftware/AetherDesk-v74-77.exe`
+- **Original domain, final redirect:** `updates.cogwork-1.net,13.62.49.86:7477`
 
 ---
 
@@ -111,7 +113,10 @@
 ![htb storyline](tunnel_images/task4-evidence2.png)
 - Knowing this is the name of the module, we can use the `linux.pagecache.Files` plugin to identify the malicious file.
 
-**Answer:** `<<<ANSWER>>>`  
+![pagecache](tunnel_images/task4-evidence3.png)
+- The malicious file is listed, giving us the answer for our flag.
+  
+**Answer:** `/usr/lib/modules/5.10.0-35-amd64/kernel/lib/Nullincrevenge.ko`  
 
 ---
 
@@ -120,10 +125,19 @@
 **Question:** What is the email account of the alleged author of the malicious file?  
 
 **Walkthrough:**  
-- Extracted strings from the malicious script in memory.  
-- Identified email pattern in metadata/comments.  
+- Since we know the location of the malicious file now, we can try and extract it from memory.
+- This can be done by using `linux.pagecache.inodePages`.
+![inodePages](tunnel_images/task5-evidence.png)
 
-**Answer:** `<<<ANSWER>>>`  
+-  Then, we can inspect futher using old strings.
+
+![strings inode](tunnel_images/task5-evidence2.png)
+-  Now, we have the "author".
+
+![author value](tunnel_images/task5-evidence3.png)
+-  This leaves us the email account of the alleged author of this malicious file
+
+**Answer:** `i-am-the@network.now`  
 
 ---
 
@@ -132,22 +146,34 @@
 **Question:** The next step in the attack involved issuing commands to modify the network settings and installing a new package. What is the name and PID of the package?  
 
 **Walkthrough:**  
-- Enumerated processes with `linux.pslist` and `linux.psaux`.  
-- Spotted package manager process (`apt-get`/`dpkg`) installing malicious package.  
+- Using the `linux.bash` plugin output and searching for package-install commands, we know that the attacker installed a certain package: 
+![dnsmasq installation](tunnel_images/task6-evidence.png)
 
-**Answer:** `<<<ANSWER>>>`  
+- Now, knowing the name of the package, we can search the `/tmppstree.txt` file we previously generated for any lines containing "apt", "dpkg", or "dnsmasq".
+![dnsmasq installation](tunnel_images/task6-evidence2.png)
+
+- We can see a process tree entry for `dnsmasq` in the return value from the command, giving us the PID of the dnsmasq process.
+
+- 
+**Answer:** `dnsmasq,38687`  
 
 ---
 
-## 🚩 Flag 7: Compromised Workstation Hostname
+## 🚩 Flag 7: 
 
-**Question:** What is the workstation's hostname?  
+**Question:** Clearly, the attacker's goal is to impersonate the entire network. One workstation was already tricked and got its new malicious network configuration. What is the workstation's hostname?  
 
 **Walkthrough:**  
-- Extracted `/etc/hostname` contents from memory.  
-- Verified with volatility `linux.envars`.  
+- Using the `linux.bash` plugin output, with the `iptables` configuration, we can assume that the LAN IP range is 192.168.211.0/24.
 
-**Answer:** `<<<ANSWER>>>`  
+![linux.bash output](tunnel_images/task7-evidence.png)
+- Now, with this in mind, we can try to use this IP range against the memdump file.
+- This can be done using `strings` and `grep`.
+
+![strings and grep on memdump](tunnel_images/task7-evidence2.png)
+- We can now see the hostname of the network that was tricked and provided a new, malicious network configuration.
+
+**Answer:** `Parallax-5-WS-3`  
 
 ---
 
@@ -156,22 +182,31 @@
 **Question:** After receiving the new malicious network configuration, the user accessed the City of CogWork-1 internal portal from this workstation. What is their username?  
 
 **Walkthrough:**  
-- Parsed HTTP POST request in memory for `username=` field.  
-- Correlated with portal login session.  
+- To find the username for this flag, we can again use `strings`.
+- This time, however, we will also be using `egrep` and a few different variations of "user=", or "username=", since we know the user has accessed the internal portal at this point.
+- We are trying to look for URL parameters, as it is assumed the user has logged in.
 
-**Answer:** `<<<ANSWER>>>`  
+![strings egrep for username](tunnel_images/task8-evidence.png)
+- After looking through the many, many lines of results, there is a username & password field given to us:
+
+![username and password of user](tunnel_images/task8-evidence2.png)
+- This is the answer for our flag, and is the correct username of the user who accessed the City of CogWork-1 internal portal.
+
+**Answer:** `mike.sullivan`  
 
 ---
 
-## 🚩 Flag 9: Update Endpoint
+## 🚩 Flag 9:
 
-**Question:** From which Web endpoint was the update downloaded?  
+**Question:** Finally, the user updated a software to the latest version, as suggested on the internal portal, and fell victim to a supply chain attack. From which Web endpoint was the update downloaded? 
 
 **Walkthrough:**  
-- Searched memory for `GET http` and `wget/curl` commands.  
-- Identified endpoint used to fetch update.  
+- The answer to this flag lies in a search we previously executed to find Flag 7, involving the LAN IP range.
+- Looking into the output of our previously executed command/search, we can find this Web endpoint from which the update was downloaded.
 
-**Answer:** `<<<ANSWER>>>`  
+![AetherDesk.exe](tunnel_images/task9-evidence.png)
+
+**Answer:** `/win10/update/CogSoftware/AetherDesk-v74-77.exe`  
 
 ---
 
@@ -180,19 +215,31 @@
 **Question:** To perform this attack, the attacker redirected the original update domain to a malicious one. Identify the original domain and the final redirect IP address and port.  
 
 **Walkthrough:**  
-- Found `Location:` header and `/etc/hosts` modification.  
-- Extracted original domain + redirected IP:port mapping.  
+- To find the original domain name, we can once again use the same query as we did to find the previous flag.
 
-**Answer:** `<<<ANSWER>>>`  
+![Original domain name](tunnel_images/task10-evidence.png)
+- The original domain name is `updates.cogwork-1.net`.
+
+![dnsmasq.conf file contents](tunnel_images/task10-evidence2.png)
+- Just to make sure, we can extract the `/etc/dnsmasq.conf` file.
+
+![dnsmasq.conf file contents](tunnel_images/task10-evidence3.png)
+- Looking at the contents of this file, we find the same original domain name of `updates.cogwork-1.net`.
+- This confirms this part of the flag.
+- Now, using the `linux.bash` plugin, we know that the attacker not only opened, but also edited and then removed the `/tmp/default.conf` file.
+
+![linux.bash output](tunnel_images/task10-evidence4.png)
+- We can try to extract this file from memory to hopefully give us the final redirect IP address/port.
+
+![pagecache result](tunnel_images/task10-evidence5.png)
+- Now, using `nano`, we can check the output of this file to grab the IP:port value.
+
+![IP and Port Value](tunnel_images/task10-evidence6.png)
+- Combining the original domain with the IP:port value, we have our final flag for this challenge.
+
+**Answer:** `updates.cogwork-1.net,13.62.49.86:7477`  
 
 ---
 
-## 📌 Lessons Learned
-
-- Memory forensics can reveal **cleartext credentials**, **malware paths**, and **network artifacts** missed by disk forensics.  
-- SSH session analysis + process trees are crucial for spotting **attacker footholds**.  
-- Supply-chain compromises often leverage **domain redirection**; defenders should monitor `/etc/hosts`, DNS anomalies, and unsigned updates.
-
----
 
 

@@ -240,6 +240,8 @@
 
 ---
 
+**Next challenge writeup:** [Holmes — The Payload 📦](./holmes_the_payload.md)
+
 
 
 

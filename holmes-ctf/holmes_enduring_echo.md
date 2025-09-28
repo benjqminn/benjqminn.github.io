@@ -24,21 +24,22 @@
 - **First command (non-cd):** `systeminfo`
 - **Parent process (full path):** `C:\Windows\system32\wbem\wmiprvse.exe`
 - **Remote-exec tool:** `wmiexec.py`
-- **Attacker IP:** `x.x.x.x`
-- **First persistence element:** `<string>`
-- **Script executed by persistence:** `C:\FOLDER\PATH\FILE.ext`
-- **Local account created:** `<username>`
-- **Exfil domain:** `<domain>`
-- **Password generated:** `<password>`
-- **Internal pivot IP:** `x.x.x.x`
-- **Forwarded TCP port:** `<port>`
-- **Registry path for mappings:** `HKLM\...\...`
-- **MITRE ATT&CK ID for pivot technique:** `Txxxx.xxx`
-- **Command to enable command-line logging (pre-attack):** `<command>`
+- **Attacker IP:** `10.129.242.110`
+- **First persistence element:** `SysHelper Update`
+- **Script executed by persistence:** `C:\Users\Werni\AppData\Local\JM.ps1`
+- **Local account created:** `svc_netupd`
+- **Exfil domain:** `NapoleonsBlackPearl.htb`
+- **Password generated:** `Watson_20250824160509`
+- **Internal pivot IP:** `192.168.1.101`
+- **Forwarded TCP port:** `9999`
+- **Registry path for mappings:** `HKLM\SYSTEM\CurrentControlSet\Services\PortProxy\v4tov4\tcp`
+- **MITRE ATT&CK ID for pivot technique:** `T1090.001`
+- **Command to enable command-line logging (pre-attack):**  
+  `reg add "HKLM\Software\Microsoft\Windows\CurrentVersion\Policies\System\Audit" /v ProcessCreationIncludeCmdLine_Enabled /t REG_DWORD /d 1 /f`
 
 ---
 
-## 🚩 Flag 1: First Command
+## 🚩 Flag 1: Initial Command
 
 **Question:** What was the first (non cd) command executed by the attacker on the host? (string) 
 
@@ -64,7 +65,7 @@
 
 ---
 
-## 🚩 Flag 2: 
+## 🚩 Flag 2: Parent Process
 
 **Question:** Which parent process (full path) spawned the attacker’s commands? (C:\FOLDER\PATH\FILE.ext) 
 
@@ -83,7 +84,7 @@
 
 ---
 
-## 🚩 Flag 3: 
+## 🚩 Flag 3: Remote Exec
 
 **Question:** Which remote-execution tool was most likely used for the attack? (filename.ext)  
 
@@ -96,7 +97,7 @@
 
 ---
 
-## 🚩 Flag 4: 
+## 🚩 Flag 4: Attacker IP
 
 **Question:** What was the attacker’s IP address? (IPv4 address)
 
@@ -117,7 +118,7 @@
 
 ---
 
-## 🚩 Flag 5: 
+## 🚩 Flag 5: First Persistence
 
 **Question:** What is the first element in the attacker's sequence of persistence mechanisms? (string)  
 
@@ -147,7 +148,7 @@
 
 ---
 
-## 🚩 Flag 6: 
+## 🚩 Flag 6: Persistence Script
 
 **Question:** Identify the script executed by the persistence mechanism. (C:\FOLDER\PATH\FILE.ext)
 
@@ -161,7 +162,7 @@
 
 ---
 
-## 🚩 Flag 7:
+## 🚩 Flag 7: Created Account
 
 **Question:** What local account did the attacker create? (string) 
 
@@ -179,7 +180,7 @@
 
 ---
 
-## 🚩 Flag 8:
+## 🚩 Flag 8: Exfil Domain
 
 **Question:** What domain name did the attacker use for credential exfiltration? (domain)
  
@@ -196,7 +197,7 @@
 
 ---
 
-## 🚩 Flag 9: 
+## 🚩 Flag 9: Generated Password
 
 **Question:** What password did the attacker's script generate for the newly created user? (string)  
 
@@ -224,7 +225,7 @@
 
 ---
 
-## 🚩 Flag 10: 
+## 🚩 Flag 10: Pivot Host
 
 **Question:** What was the IP address of the internal system the attacker pivoted to? (IPv4 address) 
 
@@ -252,7 +253,7 @@
 
 ---
 
-## 🚩 Flag 11: Organization
+## 🚩 Flag 11: Forwarded Port
 
 **Question:** Which TCP port on the victim was forwarded to enable the pivot? (port 0-65565)  
 
@@ -267,17 +268,68 @@
 
 ---
 
-## 🚩 Flag 12: Cryptic Banner
+## 🚩 Flag 12: PortProxy Key
 
-**Question:** One of the exposed services displays a banner containing a cryptic message. What is it?  
+**Question:** What is the full registry path that stores persistent IPv4→IPv4 TCP listener-to-target mappings? (HKLM\...\...)
 
 **Walkthrough:** 
-- 
+- On our host, in the SYSTEM registry hive, we can see that the registry location is `HKLM\SYSTEM\ControlSet001\Services\PortProxy\v4tov4\tcp`.
 
-**Answer:** `He's a ghost I carry, not to haunt me, but to hold me together - NULLINC REVENGE`  
+![SYSTEM Registry Hives](enduring_images/task12-evidence.png)
+- However, this is NOT the answer for the flag.
+- The SYSTEM registry hive stores multiple control sets, and these are just the snapshots of the system configuration taken at different times.
+- Our answer needs to be related to LIVE hosts, which use `CurrentControlSet` rather than `ControlSet00X`.
+
+![Current's Data](enduring_images/task12-evidence2.png)
+- This is stored in the `HKLM\SYSTEM\Select` key within the SYSTEM registry hive, under the "Current" Value Name's Data field.
+- With this in mind, the live, full registry path is `HKLM\SYSTEM\CurrentControlSet\Services\PortProxy\v4tov4\tcp`.
+
+**Answer:** `HKLM\SYSTEM\CurrentControlSet\Services\PortProxy\v4tov4\tcp`  
 
 ---
 
-**Next challenge writeup:** [Holmes — The Watchman's Residue 👮](./holmes_watchmans_residue.md)
+## 🚩 Flag 13: ATT&CK ID
+
+**Question:** What is the MITRE ATT&CK ID associated with the previous technique used by the attacker to pivot to the internal system? (Txxxx.xxx)
+
+**Walkthrough:** 
+- Since we have the attack technique used by the attacker to pivot to the internal system, `PortProxy\v4tov4\tcp`, we can use Google to find the MITRE ATT&CK ID.
+
+![Google Query](enduring_images/task13-evidence.png)
+- In the search results, the MITRE ATT&CK website was among the sites listed:
+
+![Search Results](enduring_images/task13-evidence2.png)
+
+- On the site itself (as well as in the link to the site itself), we are given the ID associated with the `Internal Proxy` technique the attacker used.
+![ATT&CK ID](enduring_images/task13-evidence3.png)
+
+**Answer:** `T1090.001`  
+
+---
+
+## 🚩 Flag 14: Enable Cmdline
+**Question:** Before the attack, the administrator configured Windows to capture command line details in the event logs. What command did they run to achieve this? (command)
+
+**Walkthrough:** 
+- For the final question, we need to check the `Security.evtx` logs for a policy change where the administrator configured the event logs to capture command-line details.
+- To find this, we can use Event ID `4719` ("System audit policy was changed").
+
+![Event ID 4719](enduring_images/task14-evidence.png)
+- There is only one log returned, and it happened before the attack took place, so it is safe to say this is where the administrator configured the event logs.
+
+![Configuring event logs](enduring_images/task14-evidence2.png)
+- We can't find the actual command from this, however, so we need to check another place.
+- There is a `ConsoleHost_history.txt` file in the Administrator user profile (`The_Enduring_Echo\C\Users\Administrator\AppData\Roaming\Microsoft\Windows\PowerShell\PSReadline`, so this definitely could contain the information we need to find this command.
+
+- If we open this file, we can see a ton of commands executed on the Administrator user profile.
+- Line 37 has a command related to configuring system policies: `reg add "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System" /v LocalAccountTokenFilterPolicy /t REG_DWORD /d 1 /f`
+- In the `Security.evtx` logs, there is only one instance of system policies being changed, so this is the correct command.
+
+**Answer:** `reg add "HKLM\Software\Microsoft\Windows\CurrentVersion\Policies\System\Audit" /v ProcessCreationIncludeCmdLine_Enabled /t REG_DWORD /d 1 /f`  
+
+---
+
+**Next challenge writeup:** [Holmes — The Tunnel Without Walls 🌌](./holmes_tunnel_without_walls.md)
+
 
 

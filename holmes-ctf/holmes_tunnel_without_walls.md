@@ -154,12 +154,11 @@
 
 - We can see a process tree entry for `dnsmasq` in the return value from the command, giving us the PID of the dnsmasq process.
 
-- 
 **Answer:** `dnsmasq,38687`  
 
 ---
 
-## 🚩 Flag 7: 
+## 🚩 Flag 7: Tricked Workstation Hostname
 
 **Question:** Clearly, the attacker's goal is to impersonate the entire network. One workstation was already tricked and got its new malicious network configuration. What is the workstation's hostname?  
 
@@ -196,7 +195,7 @@
 
 ---
 
-## 🚩 Flag 9:
+## 🚩 Flag 9: Update Endpoint
 
 **Question:** Finally, the user updated a software to the latest version, as suggested on the internal portal, and fell victim to a supply chain attack. From which Web endpoint was the update downloaded? 
 
@@ -240,6 +239,7 @@
 **Answer:** `updates.cogwork-1.net,13.62.49.86:7477`  
 
 ---
+
 
 
 

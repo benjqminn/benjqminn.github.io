@@ -21,18 +21,25 @@
 
 ## 📋 TL;DR (Answers)
 
-- **User-Agent (first used):** `Lilnunc/4A4D - SpecterEye`
-- **Web shell filename:** `temp_4A4D.php`
-- **Exfiltrated DB:** `database_dump_4A4D.sql`
-- **Recurring string:** `4A4D`
-- **OmniYard campaigns linked:** `5`
-- **Tools + malware count:** `9`
-- **Malware SHA-256:** `7477c4f5e6d7c8b9a0f1e2d3c4b5a6f7e8d9c0b1a2f3e4d5c6b7a8f9e0d17477`
-- **C2 IP (from CogWork):** `74.77.74.77`
-- **Persistence file path:** `/opt/lilnunc/implant/4a4d_persistence.sh`
-- **Open ports (CogNet scan):** `11`
-- **Owning organization:** `SenseShield MSP`
-- **Banner string:** `He's a ghost I carry, not to haunt me, but to hold me together - NULLINC REVENGE`
+- **Decom machine IP:** `10.0.69.45`
+- **Hostname:** `WATSON-ALPHA-2`
+- **First message to AI:** `Hello Old Friend`
+- **AI leak time:** `2025-08-19 12:02:06`
+- **RMM ID:Password:** `565963039:CogWork_Central_97&65`
+- **Last attacker message:** `JM WILL BE BACK`
+- **Remote access time:** `2025-08-20 09:58:25`
+- **RMM account name:** `James Moriarty`
+- **Attacker internal IP:** `192.168.69.213`
+- **Staged tools path:** `C:\Windows\Temp\safe\`
+- **Browser-harvest run time ms:** `8000`
+- **Credential-dump executed:** `2025-08-20 10:07:08`
+- **Exfiltration start:** `2025-08-20 10:12:07`
+- **Heisen-9 DB moved:** `2025-08-20 10:11:09`
+- **dump.txt accessed:** `2025-08-20 10:08:06`
+- **Persistence setup:** `2025-08-20 10:13:57`
+- **Persistence MITRE sub-technique:** `T1547.004`
+- **RMM session ended:** `2025-08-20 10:14:27`
+- **Heisen-9-WS-6 creds:** `Werni:Quantum1!`
 
 ---
 
@@ -440,6 +447,7 @@ frame.time >= "Aug 19, 2025 08:02:06"`.
 ---
 
 **Next challenge writeup:** [Holmes — The Enduring Echo 🔊](./holmes_enduring_echo.md)
+
 
 
 

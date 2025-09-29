@@ -36,7 +36,7 @@
 
 ---
 
-## 🚩 Flag 1: First User-Agent
+## 🚩 Flag 1: 
 
 **Question:** What was the IP address of the decommissioned machine used by the attacker to start a chat session with MSP-HELPDESK-AI? (IPv4 address)  
 
@@ -57,7 +57,7 @@
 
 ---
 
-## 🚩 Flag 2: Web Shell Deployment
+## 🚩 Flag 2: 
 
 **Question:** What was the hostname of the decommissioned machine? (string)
 
@@ -78,7 +78,7 @@
 
 ---
 
-## 🚩 Flag 3: Database Exfiltration
+## 🚩 Flag 3:
 
 **Question:** What was the first message the attacker sent to the AI chatbot? (string) 
 
@@ -99,7 +99,7 @@
 
 ---
 
-## 🚩 Flag 4: Recurring String
+## 🚩 Flag 4:
 
 **Question:** When did the attacker's prompt injection attack make MSP-HELPDESK-AI leak remote management tool info? (YYYY-MM-DD HH:MM:SS) 
 
@@ -133,7 +133,7 @@
 
 ---
 
-## 🚩 Flag 5: Campaigns Linked
+## 🚩 Flag 5:
 
 **Question:** What is the Remote management tool Device ID and password? (IDwithoutspace:Password)
 
@@ -149,7 +149,7 @@
 
 ---
 
-## 🚩 Flag 6: Tools + Malware
+## 🚩 Flag 6: 
 
 **Question:** What was the last message the attacker sent to MSP-HELPDESK-AI? (string) 
 
@@ -167,7 +167,7 @@
 
 ---
 
-## 🚩 Flag 7: SHA-256 Hash
+## 🚩 Flag 7: 
 
 **Question:** When did the attacker remotely access Cogwork Central Workstation? (YYYY-MM-DD HH:MM:SS)  
 
@@ -202,7 +202,7 @@ frame.time >= "Aug 19, 2025 08:02:06"`.
 
 ---
 
-## 🚩 Flag 8: C2 IP Address
+## 🚩 Flag 8: 
 
 **Question:** What was the RMM Account name used by the attacker? (string)
 
@@ -217,24 +217,28 @@ frame.time >= "Aug 19, 2025 08:02:06"`.
 
 ---
 
-## 🚩 Flag 9: Persistence File Path
+## 🚩 Flag 9: 
 
 **Question:** What was the machine's internal IP address from which the attacker connected? (IPv4 address)  
 
 **Walkthrough:** 
 - This next question asks for the internal IP address from which the attacker connected.
 - The first step I took was navigating to the second file in the folder named "TeamViewer", called `TeamViewer15_Logfile.log`.
-- In this file, the earliest timestamp from the day the attacker connected was: `2025/08/20 10:43:14.291`, when the logger was started.
-- This means that the internal IP for that connection is likely not captured in this copy of the log.
-- I navigated to `TRIAGE_IMAGE_COGWORK-CENTRAL\C\Windows\System32\winevt\logs\Security.evtx`, a common place where Windows Event Logs in the triage image may be located.
-- Again, I was left with nothing, as the most recent log was `8/20/2025 6:28:50 AM`.
-- 
+- I used `CTRL+F` to search for any IPv4 addresses beginning with `192.168.` to look for context clues surrounding these IP addresses.
 
-**Answer:** ``  
+![Search for IP](watchman_images/task9-evidence.png) 
+- There were a few IP addresses found, including `192.168.69.130`, `192.168.69.213`, and `192.168.69.56`.
+- `192.168.69.130` was found a few times but logged as local interface activity.
+- `192.168.69.213` appears in a UDP punch-in connection around the time the attacker connected.
+
+![IP found](watchman_images/task9-evidence2.png) 
+- Therefore, using deduction, `192.168.69.213` is the machine's internal IP from which the attacker connected.
+
+**Answer:** `192.168.69.213`  
 
 ---
 
-## 🚩 Flag 10: Open Ports
+## 🚩 Flag 10:
 
 **Question:** The attacker brought some tools to the compromised workstation to achieve its objectives. Under which path were these tools staged? (C:\FOLDER\PATH\) 
 
@@ -256,7 +260,7 @@ frame.time >= "Aug 19, 2025 08:02:06"`.
 
 ---
 
-## 🚩 Flag 11: Organization
+## 🚩 Flag 11: 
 
 **Question:** Among the tools that the attacker staged was a browser credential harvesting tool. Find out how long it ran before it was closed? (Answer in milliseconds) (number)  
 
@@ -280,50 +284,162 @@ frame.time >= "Aug 19, 2025 08:02:06"`.
 
 ---
 
-## 🚩 Flag 12: Cryptic Banner
+## 🚩 Flag 12: 
+
+**Question:** The attacker executed a OS Credential dumping tool on the system. When was the tool executed? (YYYY-MM-DD HH:MM:SS)  
+
+**Walkthrough:** 
+- With there not being many more files to work with, I decided to learn how to utilize the `$J` file in the $Extend folder at filepath `TRIAGE_IMAGE_COGWORK-CENTRAL\C\$Extend`.
+- Having never before looked into a USN Journal file, I had to research how to parse it.
+- I concluded to use Eric Zimmerman's `mftcmd` tool to parse this `$J` file into a CSV.
+- I opened this file in VSCode (using it as a text editor) to inspect further.
+
+![$J file parsed](watchman_images/task12-evidence.png) 
+- `MIMIKATZ` was one of the files that the attacker moved onto the system, and `MIMIKATZ` is a well-known OS Credential dumping tool.
+
+![MIMIKATZ install](watchman_images/task12-evidence2.png)
+- I checked the CSV file for any instance of `MIMIKATZ`, using `CTRL+F`, and found entries showing creation and execution times.
+
+![MIMIKATZ instance](watchman_images/task12-evidence3.png)
+- From this, we can grab the timestamp of execution.
+
+**Answer:** `2025-08-20 10:07:08`  
+
+---
+
+## 🚩 Flag 13: 
 
 **Question:** The attacker exfiltrated multiple sensitive files. When did the exfiltration start? (YYYY-MM-DD HH:MM:SS)  
 
 **Walkthrough:** 
-- 
+- Going back into the `TeamViewer15_Logfile.log`, I scrolled through the actions that the attacker took on the system.
+- Since we know the attacker was utilizing the `C:\Windows\Temp\` folder to move files around, I used `CTRL+F` with that registry as the search query.
+
+![Windows\Temp folder](watchman_images/task13-evidence.png)
+- We can see the first result for this registry took place with a "Send file" log, meaning this was the start of the file exfiltration.
+
+![Start of exfiltration](watchman_images/task13-evidence2.png)
+- Taking the timestamp `2025/08/20 11:12:07`, we need to subtract one hour to mirror the system time of the attack.
+
+**Answer:** `2025-08-20 10:12:07`  
+
+---
+
+## 🚩 Flag 14:
+
+**Question:** Before exfiltration, several files were moved to the staged folder. When was the Heisen-9 facility backup database moved to the staged folder for exfiltration? (YYYY-MM-DD HH:MM:SS)  
+
+**Walkthrough:** 
+- To find the answer for Flag 14, I decided to check back in the parsed `$J` file for timestamps in which the backup database was transferred. 
+- Using `CTRL+F` to find instances of "Heisen-9", there are a few entries happening around `2025-08-20 10:11:09`.
+
+![Heisen-9 database moved](watchman_images/task14-evidence.png)
+
+**Answer:** `2025-08-20 10:11:09`  
+
+---
+
+## 🚩 Flag 15:
+
+**Question:** When did the attacker access and read a txt file, which was probably the output of one of the tools they brought, due to the naming convention of the file? (YYYY-MM-DD HH:MM:SS)  
+
+**Walkthrough:** 
+- To find the answer to this flag, we need to once again check the parsed `$J` file for timestamps.
+- From the `TeamViewer15_Logfile.log` file earlier, when the "Send file" events were taking place, there was one `.txt` file among the rest of the `.pdf` and `.kdbx` files.
+
+![Text File Moved](watchman_images/task15-evidence.png)
+- This file was named `dump.txt`.
+- Searching the parsed `$J` file for `dump.txt`, we can see that at `2025-08-20 10:08:06` the attacker accessed and read this `dump.txt` file.
+
+![dump.txt accessed](watchman_images/task15-evidence2.png)
 
 **Answer:** `He's a ghost I carry, not to haunt me, but to hold me together - NULLINC REVENGE`  
 
 ---
 
-## 🚩 Flag 13: Cryptic Banner
+## 🚩 Flag 16:
 
-**Question:** The attacker exfiltrated multiple sensitive files. When did the exfiltration start? (YYYY-MM-DD HH:MM:SS)  
+**Question:** The attacker created a persistence mechanism on the workstation. When was the persistence setup? (YYYY-MM-DD HH:MM:SS)  
 
 **Walkthrough:** 
-- 
+- To find the persistence mechanism, I checked the SOFTWARE hive for modifications that may have been created.
+- This Hive was at file path `TRIAGE_IMAGE_COGWORK-CENTRAL\C\Windows\System32\config\SOFTWARE`
+- Inspecting for suspicious additions or modifications, I found that `Winlogon` had a suspicious field added.
 
-**Answer:** `He's a ghost I carry, not to haunt me, but to hold me together - NULLINC REVENGE`  
+![winlogon](watchman_images/task16-evidence.png)
+- The modification time lined up with the day of the attack as well.
+- Looking at the `Userinit` value, we see that instead of only pointing to `Userinit.exe`, there is another path to `JM.exe` as well.
+
+![JM.exe path](watchman_images/task16-evidence2.png)
+- This means that the attacker registered JM.exe also automatically to execute upon login.
+
+**Answer:** `2025-08-20 10:13:57`  
 
 ---
 
-## 🚩 Flag 14: Cryptic Banner
+## 🚩 Flag 17: Cryptic Banner
 
-**Question:** The attacker exfiltrated multiple sensitive files. When did the exfiltration start? (YYYY-MM-DD HH:MM:SS)  
+**Question:** What is the MITRE ID of the persistence subtechnique? (Txxxx.xxx) 
 
 **Walkthrough:** 
-- 
+- To find this persistence technique's MITRE ATT&CK ID, I just looked it up on Google.
 
-**Answer:** `He's a ghost I carry, not to haunt me, but to hold me together - NULLINC REVENGE`  
+![Google query](watchman_images/task17-evidence.png)
+![MITRE result](watchman_images/task17-evidence2.png)
+![Persistence Subtechnique ID](watchman_images/task17-evidence3.png)
+
+**Answer:** `T1547.004`  
 
 ---
 
-## 🚩 Flag 15: Cryptic Banner
+## 🚩 Flag 18: Cryptic Banner
 
-**Question:** The attacker exfiltrated multiple sensitive files. When did the exfiltration start? (YYYY-MM-DD HH:MM:SS)  
+**Question:** When did the malicious RMM session end? (YYYY-MM-DD HH:MM:SS)
 
 **Walkthrough:** 
-- 
+- To find the answer for Flag 18, we can look back to the `Connections_incoming.txt` file, where we saw the RMM Account name the attacker used.
+- This file is found at `TRIAGE_IMAGE_COGWORK-CENTRAL\C\Program Files\TeamViewer`.
 
-**Answer:** `He's a ghost I carry, not to haunt me, but to hold me together - NULLINC REVENGE`  
+![Heisen-9 database moved](watchman_images/task18-evidence.png)
+
+**Answer:** `2025-08–20 10:14:27`  
+
+---
+
+## 🚩 Flag 19: Cryptic Banner
+
+**Question:** The attacker found a password from exfiltrated files, allowing him to move laterally further into CogWork-1 infrastructure. What are the credentials for Heisen-9-WS-6? (user:password)  
+
+**Walkthrough:** 
+- The answer for this question lies within a file named `acquired file (critical).kdbx`, right at the root of the files we were given for this challenge.
+- Upon trying to open this file, we are given the option to input a Master password to open it.
+
+![Master password required](watchman_images/task19-evidence.png)
+- Since this file is a KeePass file, we need to find this password to extract the credentials.
+- Using JohnTheRipper and Hashcat, this shouldn't be too hard to find the password for.
+- I used an online `keepass2john` converter to receive a format of our `.kdbx` file suitable for Hashcat.
+
+![Hashcat format](watchman_images/task19-evidence2.png)
+- I wrote the hash value into a file, to be sure formatting consistency would not be a problem.
+
+![Hashcat start](watchman_images/task19-evidence3.png)
+- When Hashcat was finished running, I read the outputs of the cracked hash file.
+- The correct password for the KeePass file seems to be `cutiepie14`.
+
+![Cracked hash](watchman_images/task19-evidence4.png)
+- I typed in the password, and access to the KeePass file was granted.
+
+![Password Typed](watchman_images/task19-evidence5.png)
+![Access granted](watchman_images/task19-evidence6.png)
+- Checking out the `Werni` user, we can grab the password: `Quantum1!`.
+
+![Username and password](watchman_images/task19-evidence7.png)
+
+**Answer:** `Werni:Quantum1!`  
 
 ---
 
 **Next challenge writeup:** [Holmes — The Enduring Echo 🔊](./holmes_enduring_echo.md)
+
 
 

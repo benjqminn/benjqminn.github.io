@@ -13,7 +13,7 @@
 
 **📝 Prompt:** With the malware extracted, Holmes inspects its logic. The strain spreads silently across the entire network. Its goal? Not destruction-but something more persistent…friends. NOTE: The downloaded file is active malware. Take the necessary precautions when attempting this challenge.
 
-**📌 Summary:** 
+**📌 Summary:** A malware sample has been extracted for analysis — it spreads quietly across a network with the unusual goal of persistence rather than outright destruction. Your task is to reverse-engineer its behavior (DLL imports, GUIDs, COM interop, opcodes, and decryption/key-generation logic), recover and decrypt the killswitch domain, and then block that domain in a controlled Docker environment to claim the final artifact.
 
 **⚠️ DISCLAIMER:** This walkthrough was all completed inside of a Virtual Machine, as we are dealing with malware. Proceed with caution.
 
@@ -236,6 +236,7 @@ print(''.join(key_array))`
 ---
 
 **Back to Main Page:** [Holmes CTF 2025](./index.md)
+
 
 
 

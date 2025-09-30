@@ -25,14 +25,14 @@
 
 - **xx:** `ole32.dll`
 - **xx:** `dabcd999-1234-4567-89ab-1234567890ff`
-- **xx:** `xx`
-- **xx:** `xx`
-- **xx:** `xx`
-- **xx:** `xx`
-- **xx:** `xx`
-- **xx:** `xx`
-- **xx:** `xx`
-- **xx:** `xx`
+- **xx:** `Interop`
+- **xx:** `ff 50 68`
+- **xx:** `7, 42h`
+- **xx:** `ff 50 58`
+- **xx:** `getaddrinfo`
+- **xx:** `NetShareEnum`
+- **xx:** `ff 50 60`
+- **xx:** `HTB{Eternal_Companions_Reunited_Again}`
 
 ---
 
@@ -189,7 +189,7 @@
 ![Opcode found](payload_images/task9-evidence.png)
 - The associated opcode is listed upon hovering over it, giving us the answer to our question.
 
-**Answer:** `xxx`  
+**Answer:** `ff 50 60`  
 
 ---
 
@@ -236,4 +236,5 @@ print(''.join(key_array))`
 ---
 
 **Back to Main Page:** [Holmes CTF 2025](./index.md)
+
 

@@ -23,20 +23,20 @@
 
 ## 📋 TL;DR (Answers)
 
-- **xx:** `ole32.dll`
-- **xx:** `dabcd999-1234-4567-89ab-1234567890ff`
-- **xx:** `Interop`
-- **xx:** `ff 50 68`
-- **xx:** `7, 42h`
-- **xx:** `ff 50 58`
-- **xx:** `getaddrinfo`
-- **xx:** `NetShareEnum`
-- **xx:** `ff 50 60`
-- **xx:** `HTB{Eternal_Companions_Reunited_Again}`
+- **COM Init:** `ole32.dll`
+- **GUID:** `dabcd999-1234-4567-89ab-1234567890ff`
+- **Interop:** `Interop`
+- **First Call:** `ff 50 68`
+- **Keygen Consts:** `7, 42h`
+- **Decrypt Call:** `ff 50 58`
+- **DNS Resolve:** `getaddrinfo`
+- **Share Enum:** `NetShareEnum`
+- **Payload Run:** `ff 50 60`
+- **Final Flag:** `HTB{Eternal_Companions_Reunited_Again}`
 
 ---
 
-## 🚩 Flag 1: 
+## 🚩 Flag 1: DLL for COM
 
 **Question:** During execution, the malware initializes the COM library on its main thread. Based on the imported functions, which DLL is responsible for providing this functionality? (filename.ext) 
 
@@ -59,7 +59,7 @@
 
 ---
 
-## 🚩 Flag 2: 
+## 🚩 Flag 2: GUID used
 
 **Question:** Which GUID is used by the binary to instantiate the object containing the data and code for execution? (********-****-****-****-************) 
 
@@ -76,7 +76,7 @@
 
 ---
 
-## 🚩 Flag 3: 
+## 🚩 Flag 3: .NET bridge
 
 **Question:** Which .NET framework feature is the attacker using to bridge calls between a managed .NET class and an unmanaged native binary? (string) 
 
@@ -95,7 +95,7 @@
 
 ---
 
-## 🚩 Flag 4: 
+## 🚩 Flag 4: First call opcode
 
 **Question:** Which Opcode in the disassembly is responsible for calling the first function from the managed code? (** ** **) 
 
@@ -110,7 +110,7 @@
 
 ---
 
-## 🚩 Flag 5: 
+## 🚩 Flag 5: Keygen constants
 
 **Question:** Identify the multiplication and addition constants used by the binary's key generation algorithm for decryption. (*, **h) 
 
@@ -130,7 +130,7 @@
 
 ---
 
-## 🚩 Flag 6: 
+## 🚩 Flag 6: Decrypt call opcode
 
 **Question:** Which Opcode in the disassembly is responsible for calling the decryption logic from the managed code? (** ** **) 
 
@@ -143,7 +143,7 @@
 
 ---
 
-## 🚩 Flag 7: 
+## 🚩 Flag 7: DNS API
 
 **Question:** Which Win32 API is being utilized by the binary to resolve the killswitch domain name? (string) 
 
@@ -159,7 +159,7 @@
 
 ---
 
-## 🚩 Flag 8: 
+## 🚩 Flag 8: Share API
 
 **Question:** Which network-related API does the binary use to gather details about each shared resource on a server? (string) 
 
@@ -178,7 +178,7 @@
 
 ---
 
-## 🚩 Flag 9: 
+## 🚩 Flag 9: Run payload opcode
 
 **Question:** Which Opcode is responsible for running the encrypted payload? (** ** **) 
 
@@ -193,7 +193,7 @@
 
 ---
 
-## 🚩 Flag 10: 
+## 🚩 Flag 10: DNS Management
 
 **Question:** Find → Block → Flag: Identify the killswitch domain, spawn the Docker to block it, and claim the flag. (HTB{*******_**********_********_*****}) 
 
@@ -236,5 +236,6 @@ print(''.join(key_array))`
 ---
 
 **Back to Main Page:** [Holmes CTF 2025](./index.md)
+
 
 

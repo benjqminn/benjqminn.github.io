@@ -20,107 +20,508 @@
     <script src="https://kit.fontawesome.com/a81368914c.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="styles.css">
     <style>
-        .project-card {
-            background: #ffffff;
-            border-radius: 15px;
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
-            padding: 1.5rem;
+        :root {
+            --bg: #f5f5f5;
+            --card: #ffffff;
+            --ink: #222;
+            --muted: #444;
+            --brand: #0078D4;
+            --brand-2: #005fa3;
+            --ring: rgba(0, 120, 212, .25);
+        }
+
+        .dark {
+            --bg: #0b1220;
+            --card: #0f172a;
+            --ink: #e5e7eb;
+            --muted: #a3adc2;
+            --brand: #60a5fa;
+            --brand-2: #3b82f6;
+            --ring: rgba(96, 165, 250, .25);
+        }
+
+        * {
+            box-sizing: border-box
+        }
+
+        body {
+            font-family: 'Montserrat', system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+            background: var(--bg);
+            color: var(--ink);
+            overflow-x: hidden
+        }
+
+        header {
             text-align: center;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            max-width: 300px;
+            padding: 4rem 2rem 2rem;
+            animation: fadeDown 1s ease-out
+        }
+
+        header h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: .5rem;
+            color: var(--ink)
+        }
+
+        header h2 {
+            font-weight: 400;
+            color: var(--muted);
+            font-size: 1.2rem
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            background: var(--card);
+            padding: 1rem;
+            border-radius: 14px;
+            max-width: 1100px;
+            margin: 0 auto 1.25rem;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, .08)
+        }
+
+        nav a {
+            color: var(--ink);
+            margin: 0 1rem;
+            text-transform: uppercase;
+            font-weight: 700;
+            letter-spacing: .02em;
+            transition: transform .25s, color .25s;
+            text-decoration: none
+        }
+
+        nav a:hover {
+            color: var(--brand);
+            transform: translateY(-1px) scale(1.05)
+        }
+
+        .site-title {
+            text-decoration: none;
+            color: inherit
+        }
+
+        .site-title:hover {
+            color: var(--brand)
+        }
+
+        main {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 2rem;
+            background: var(--card);
+            border-radius: 20px;
+            box-shadow: 0 12px 34px rgba(0, 0, 0, .10);
+            animation: fadeUp 1.2s ease-out
+        }
+
+        .section-title {
+            font-size: 2rem;
+            margin: 0 0 1rem;
+            text-align: center;
+            color: var(--brand)
+        }
+
+        .projects-toolbar {
+            display: flex;
+            flex-wrap: wrap;
+            gap: .75rem;
+            justify-content: center;
+            margin: 0 auto 1.25rem
+        }
+
+        .toolbar-input,
+        .toolbar-select {
+            background: var(--bg);
+            color: var(--ink);
+            border: 1px solid rgba(0, 0, 0, .08);
+            padding: .65rem .8rem;
+            border-radius: 10px;
+            outline: 0;
+            min-width: 220px;
+        }
+
+        .theme-toggle {
+            padding: .6rem .9rem;
+            border-radius: 10px;
+            border: 1px solid rgba(0, 0, 0, .08);
+            cursor: pointer;
+            background: var(--bg);
+            color: var(--ink)
+        }
+
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.5rem;
+            justify-content: center;
+            padding: 1rem 0
+        }
+
+        .project-card {
+            background: linear-gradient(180deg, var(--card), var(--card));
+            border: 1px solid rgba(0, 0, 0, .06);
+            border-radius: 16px;
+            padding: 1.1rem 1.1rem 1.25rem;
+            text-align: left;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, .06);
+            transition: transform .25s, box-shadow .25s, border-color .25s;
+            position: relative;
+            isolation: isolate;
+        }
+
+        .project-card::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            border-radius: 16px;
+            pointer-events: none;
+            box-shadow: 0 0 0 0 var(--ring);
+            transition: box-shadow .25s;
         }
 
         .project-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
+            transform: translateY(-6px);
+            box-shadow: 0 16px 32px rgba(0, 0, 0, .14);
+            border-color: rgba(0, 0, 0, .10)
+        }
+
+        .project-card:focus-within::after {
+            box-shadow: 0 0 0 6px var(--ring)
         }
 
         .project-card img {
             width: 100%;
-            height: auto;
-            border-radius: 8px;
-            margin-bottom: 1rem;
+            height: 160px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: .85rem;
+            display: block
         }
 
         .project-card h3 {
-            font-size: 1.4rem;
-            margin-bottom: 0.5rem;
-            color: #0078D4;
+            font-size: 1.2rem;
+            margin: .1rem 0 .25rem;
+            color: var(--brand)
         }
 
         .project-card p {
-            font-size: 0.95rem;
-            color: #444;
-            margin-bottom: 1rem;
+            font-size: .95rem;
+            color: var(--muted);
+            margin: .25rem 0 .65rem
         }
 
-        .project-card a {
+        .project-meta {
+            display: block;
+            font-size: .82rem;
+            color: var(--muted);
+            margin-bottom: .5rem
+        }
+
+        .badge-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: .35rem;
+            margin: .35rem 0 .7rem
+        }
+
+        .badge {
+            font-size: .75rem;
+            padding: .28rem .5rem;
+            border-radius: .6rem;
+            background: rgba(0, 120, 212, .12);
+            color: var(--brand);
+            border: 1px solid rgba(0, 120, 212, .25)
+        }
+
+        .project-actions {
+            display: flex;
+            gap: .5rem;
+            flex-wrap: wrap
+        }
+
+        .btn {
             display: inline-block;
-            margin-top: 0.5rem;
             text-decoration: none;
+            font-weight: 700;
+            border-radius: 8px;
+            padding: .5rem .8rem;
+            transition: background .25s, color .25s, transform .25s;
+        }
+
+        .btn-primary {
+            background: var(--brand);
             color: #fff;
-            background: #0078D4;
-            padding: 0.5rem 1rem;
-            border-radius: 6px;
-            transition: background 0.3s ease;
+            text-decoration: none;
+
         }
 
-        .project-card a:hover {
-            background: #005fa3;
+        .btn-primary:hover {
+            background: var(--brand-2);
+            transform: translateY(-1px);
             text-decoration: none;
         }
 
+        .btn-ghost {
+            background: transparent;
+            color: var(--brand);
+            border: 1px solid var(--brand)
+        }
+
+        .btn-ghost:hover {
+            background: rgba(0, 120, 212, .08)
+        }
+
+        .show-more-wrap {
+            display: flex;
+            justify-content: center;
+            margin-top: 1rem
+        }
+
+        .show-more {
+            background: transparent;
+            border: 1px solid var(--brand);
+            color: var(--brand);
+            padding: .65rem 1rem;
+            border-radius: 10px;
+            cursor: pointer
+        }
+
+        .show-more:hover {
+            background: rgba(0, 120, 212, .08)
+        }
+
+        /* footer */
+        footer {
+            text-align: center;
+            padding: 2rem;
+            background: var(--card);
+            color: var(--muted);
+            font-size: .95rem;
+            box-shadow: 0 -2px 10px rgba(0, 0, 0, .05)
+        }
+
+        footer a {
+            color: var(--brand);
+            text-decoration: none;
+            font-weight: 700
+        }
+
+        footer a:hover {
+            text-decoration: underline
+        }
+
+        /* animations & responsive */
         @keyframes fadeUp {
             from {
                 opacity: 0;
-                transform: translateY(30px);
+                transform: translateY(40px)
             }
 
             to {
                 opacity: 1;
-                transform: translateY(0);
+                transform: translateY(0)
             }
         }
 
         @keyframes fadeDown {
             from {
                 opacity: 0;
-                transform: translateY(-30px);
+                transform: translateY(-30px)
             }
 
             to {
                 opacity: 1;
-                transform: translateY(0);
+                transform: translateY(0)
             }
         }
 
-        @media (max-width: 768px) {
-            .project-grid {
-                flex-direction: column;
-                align-items: center;
+        @media (max-width:768px) {
+            header {
+                padding: 2.5rem 1rem 1rem
             }
 
-            .project-card {
-                width: 100%;
+            header h1 {
+                font-size: 2.2rem
+            }
+
+            header h2 {
+                font-size: 1rem
+            }
+
+            nav {
+                border-radius: 10px
             }
         }
 
-        .project-grid {
+        .project-actions .btn,
+        .project-actions .btn:link,
+        .project-actions .btn:visited {
+            color: #fff !important;
+            text-decoration: none !important;
+        }
+
+        .project-actions .btn:hover,
+        .project-actions .btn:focus {
+            color: #9aa0a6 !important;
+            text-decoration: none !important;
+        }
+
+        .project-actions .btn-primary {
+            background: var(--brand);
+        }
+
+        .project-actions .btn-primary:hover {
+            background: var(--brand-2);
+        }
+
+        .project-actions .btn-ghost {
+            background: var(--brand);
+            border: 1px solid var(--brand);
+            color: #fff !important;
+        }
+
+        .project-actions .btn-ghost:hover {
+            background: var(--brand-2);
+        }
+
+        .project-actions {
             display: flex;
-            flex-wrap: wrap;
-            gap: 2rem;
             justify-content: center;
-            padding: 2rem 0;
+            align-items: center;
+            gap: .5rem;
+            width: 100%;
+            text-align: center;
+        }
+
+        .project-actions .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 160px;
+        }
+
+        .project-card,
+        .project-card h3,
+        .project-card p,
+        .project-card .project-meta,
+        .project-card .badge-row,
+        .project-card .badge {
+            text-align: left !important;
         }
     </style>
+
 </head>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        function initCarousel(carouselId, dotId, autoSlide = false, interval = 5000) {
+            const container = document.getElementById(carouselId);
+            const dotsContainer = document.getElementById(dotId);
+            if (!container || !dotsContainer) return; //
+
+            const slides = container.querySelectorAll(".carousel-slide");
+            if (!slides.length) return;
+
+            let currentIndex = 0;
+
+            const showSlide = (index) => {
+                slides.forEach((slide, i) => {
+                    slide.classList.toggle("active", i === index);
+                    if (dotsContainer.children[i]) dotsContainer.children[i].classList.toggle("active", i === index);
+                });
+                currentIndex = index;
+            };
+
+            slides.forEach((_, i) => {
+                const dot = document.createElement("div");
+                dot.classList.add("dot");
+                if (i === 0) dot.classList.add("active");
+                dot.addEventListener("click", () => showSlide(i));
+                dotsContainer.appendChild(dot);
+            });
+
+            if (autoSlide) {
+                setInterval(() => {
+                    currentIndex = (currentIndex + 1) % slides.length;
+                    showSlide(currentIndex);
+                }, interval);
+            }
+
+            showSlide(0);
+        }
+
+        const root = document.documentElement;
+        const themeBtn = document.getElementById('themeToggle');
+        if (themeBtn) {
+            const saved = localStorage.getItem('theme');
+            if (saved === 'dark') {
+                root.classList.add('dark');
+                themeBtn.setAttribute('aria-pressed', 'true');
+                themeBtn.textContent = '☀️ Light mode';
+            } else {
+                themeBtn.textContent = '🌙 Dark mode';
+            }
+            themeBtn.addEventListener('click', () => {
+                const isDark = root.classList.toggle('dark');
+                localStorage.setItem('theme', isDark ? 'dark' : 'light');
+                themeBtn.setAttribute('aria-pressed', String(isDark));
+                themeBtn.textContent = isDark ? '☀️ Light mode' : '🌙 Dark mode';
+            });
+        }
+
+        const search = document.getElementById('search');
+        const stack = document.getElementById('stack');
+        const cards = Array.from(document.querySelectorAll('.project-card'));
+
+        function applyFilters() {
+            const q = (search?.value || '').trim().toLowerCase();
+            const s = (stack?.value || '').trim().toLowerCase();
+
+            cards.forEach(card => {
+                if (!card) return;
+                const text = (card.innerText || '').toLowerCase();
+                const tags = (card.getAttribute('data-tags') || '').toLowerCase();
+
+                const hitsQ = !q || text.includes(q) || tags.includes(q);
+                const hitsS = !s || tags.includes(s);
+
+                card.style.display = (hitsQ && hitsS) ? '' : 'none';
+            });
+        }
+
+        if (search) search.addEventListener('input', applyFilters);
+        if (stack) stack.addEventListener('change', applyFilters);
+
+        const moreBtn = document.getElementById('showMore');
+        const extras = Array.from(document.querySelectorAll('.project-card.extra'));
+
+        function setExtrasHidden(hidden) {
+            extras.forEach(el => { el.style.display = hidden ? 'none' : ''; });
+            if (moreBtn) moreBtn.textContent = hidden ? 'Show more ↓' : 'Show less ↑';
+            applyFilters();
+        }
+
+        if (extras.length && moreBtn) {
+            setExtrasHidden(true);
+            moreBtn.addEventListener('click', () => {
+                const currentlyHidden = extras[0].style.display === 'none';
+                setExtrasHidden(!currentlyHidden);
+            });
+        } else if (moreBtn) {
+            moreBtn.style.display = 'none';
+        }
+
+        applyFilters();
+    });
+</script>
 
 <body>
     <header>
         <h1>
             <a href="index.html" class="site-title">Benjamin Taylor</a>
         </h1>
-        <h2>Cybersecurity Student | SOC Analyst in Training</h2>
+        <h2>M.S. Cybersecurity • Network & AppSec • Research & Engineering</h2>
     </header>
 
     <nav>
@@ -136,61 +537,312 @@
         <a href="itis3135/index.html">
             <i class="fas fa-book"></i> ITIS-3135
         </a>
-        <a href="documents/Resume_Benjamin_Taylor.pdf" class="resume-download-header" download>
+        <a href="documents/Resume_BenjaminTaylor.pdf" class="resume-download-header" download>
             <i class="fas fa-file-download"></i> Download Resume
         </a>
     </nav>
 
     <main>
         <h2 class="section-title">🛠️ My Projects</h2>
-        <div class="project-grid">
-            <div class="project-card">
-                <img src="images/obscura_landing.png" alt="Obscura Landing">
-                <h3>obscura</h3>
-                <p>A Real-Time Threat Analysis & Detection Platform.</p>
-                <a href="https://github.com/benjqminn/obscura-project"
-                    target="_blank">View on GitHub</a>
-            </div>
 
-            <div class="project-card">
-                <img src="images/ragebox.png" alt="RAGEBOX">
+        <div class="projects-toolbar" role="region" aria-label="Project filters">
+            <input id="search" class="toolbar-input" type="search"
+                placeholder="Search projects… (e.g., Python, IR, React)" aria-label="Search projects">
+            <select id="stack" class="toolbar-select" aria-label="Filter by stack">
+                <option value="">All stacks</option>
+                <option>Anycast</option>
+                <option>Automotive</option>
+                <option>BannerGrabber</option>
+                <option>Blue-Team</option>
+                <option>Client</option>
+                <option>Cloud Computing</option>
+                <option>Cloudflare</option>
+                <option>Computer-Vision</option>
+                <option>Desktop</option>
+                <option>DDoS</option>
+                <option>Edge</option>
+                <option>ELK</option>
+                <option>Echo</option>
+                <option>Forensics</option>
+                <option>Healthcare</option>
+                <option>Homelab</option>
+                <option>InfoSec</option>
+                <option>IR</option>
+                <option>IoT</option>
+                <option>Latency</option>
+                <option>Linux</option>
+                <option>MediaPipe</option>
+                <option>Multithread</option>
+                <option>Nmap</option>
+                <option>Networking</option>
+                <option>OpenCV</option>
+                <option>PortScanner</option>
+                <option>Presentation</option>
+                <option>PyQt5</option>
+                <option>Python</option>
+                <option>React</option>
+                <option>Research</option>
+                <option>Reporting</option>
+                <option>Scanner</option>
+                <option>Security</option>
+                <option>Server</option>
+                <option>Socket</option>
+                <option>SQLite</option>
+                <option>SOC</option>
+                <option>Tesla</option>
+                <option>TCP</option>
+                <option>TCP/IP</option>
+                <option>Threat-Detection</option>
+                <option>UDP</option>
+                <option>VirtualBox</option>
+                <option>WAF</option>
+                <option>Windows</option>
+                <option>Windows-IR</option>
+                <option>Wazuh</option>
+                <option>YARA</option>
+                <option>Zero-Trust</option>
+            </select>
+            <button id="themeToggle" class="theme-toggle" type="button" aria-pressed="false">🌙 Dark mode</button>
+        </div>
+
+        <div id="grid" class="project-grid">
+            <article class="project-card" tabindex="0" data-tags="Python Flask React YARA SOC Threat-Detection">
+                <img src="images/obscura_landing.png" loading="lazy" alt="Obscura Threat Dashboard screenshot">
+                <h3>Obscura</h3>
+                <span class="project-meta">Mar 2025 – Present • Flask, PyShark, React, Tailwind</span>
+                <p>Real-time SOC simulation: PCAP parsing, YARA matches, SYN/Brute detection, live dashboard.</p>
+                <div class="badge-row">
+                    <span class="badge">Python</span><span class="badge">Flask</span><span
+                        class="badge">React</span><span class="badge">YARA</span>
+                </div>
+                <div class="project-actions">
+                    <a class="btn btn-primary" href="https://github.com/benjqminn/obscura-project" target="_blank"
+                        rel="noopener">View on GitHub</a>
+                </div>
+            </article>
+
+            <article class="project-card" tabindex="0" data-tags="Forensics Windows-IR Blue-Team">
+                <img src="holmes-ctf/Certificate-benjqmin-1.png" loading="lazy" alt="Holmes CTF certificate thumbnail">
+                <h3>Holmes CTF</h3>
+                <span class="project-meta">Sep 2025 • Volatility3, Windows IR</span>
+                <p>Blue-CTF IR investigation (Top 8%): memory forensics, Windows artifacts, MITRE mapping, final flag
+                    chain.</p>
+                <div class="badge-row">
+                    <span class="badge">Forensics</span><span class="badge">Windows IR</span><span
+                        class="badge">MITRE</span>
+                </div>
+                <div class="project-actions">
+                    <a class="btn btn-primary"
+                        href="https://github.com/benjqminn/benjqminn.github.io/blob/main/holmes-ctf/index.md"
+                        target="_self">Read Write-Up</a>
+                </div>
+            </article>
+
+            <article class="project-card" tabindex="0" data-tags="Homelab ELK Wazuh VirtualBox Windows Linux">
+                <img src="images/code_images/homelab.jpeg" loading="lazy" alt="SOC Homelab diagram thumbnail">
+                <h3>SOC Homelab</h3>
+                <span class="project-meta">Sep 2025 – Present • VirtualBox, Wazuh/ELK, Sysmon</span>
+                <p>Virtualized ELK/Wazuh SOC with Win11 victim, Kali attacker, Ubuntu jump/SIEM, dual-net topology.</p>
+                <div class="badge-row">
+                    <span class="badge">Wazuh</span><span class="badge">ELK</span><span class="badge">VirtualBox</span>
+                </div>
+                <div class="project-actions">
+                    <a class="btn btn-primary"
+                        href="https://medium.com/@btayl106/turning-an-old-pc-into-a-security-operations-center-6ffe7dc4795d"
+                        target="_blank" rel="noopener">Read on Medium</a>
+                </div>
+            </article>
+
+            <article class="project-card" tabindex="0" data-tags="Research IoT Security Zero-Trust">
+                <img src="images/code_images/smart_toaster_cyber.png" loading="lazy"
+                    alt="IoT security research article thumbnail">
+                <h3>IOT Device Security Research Article</h3>
+                <span class="project-meta">Jan 2025 – May 2025 • Research</span>
+                <p>IoT risk analysis & defenses (Mirai, WannaCry); proposes Zero Trust & segmentation for resilient IoT.
+                </p>
+                <div class="badge-row">
+                    <span class="badge">IoT</span><span class="badge">Zero Trust</span><span class="badge">Risk</span>
+                </div>
+                <div class="project-actions">
+                    <a class="btn btn-primary"
+                        href="https://medium.com/@btayl106/your-smart-toaster-could-be-a-cyberweapon-the-urgent-need-for-iot-device-security-f08513a5947a"
+                        target="_blank" rel="noopener">Read on Medium</a>
+                </div>
+            </article>
+
+            <article class="project-card" tabindex="0" data-tags="Python PyQt5 SQLite Desktop">
+                <img src="images/ragebox.png" loading="lazy" alt="RAGEBOX app UI">
                 <h3>RAGEBOX</h3>
-                <p>Multimedia gym audio manager built with PyQt5</p>
-                <a href="https://github.com/benjqminn/ragebox-project"
-                    target="_blank">View on GitHub</a>
-            </div>
+                <span class="project-meta">Apr 2025 – Aug 2025 • Python, PyQt5, SQLite</span>
+                <p>Gym audio & clips desktop app: playlists, tags, thumbnails, and real-time playback controls.</p>
+                <div class="badge-row">
+                    <span class="badge">PyQt5</span><span class="badge">SQLite</span><span class="badge">Desktop</span>
+                </div>
+                <div class="project-actions">
+                    <a class="btn btn-primary" href="https://github.com/benjqminn/ragebox-project" target="_blank"
+                        rel="noopener">View on GitHub</a>
+                </div>
+            </article>
 
-            <div class="project-card">
-                <img src="images/code_images/banner_grabber_code.png" alt="Banner Grabber">
-                <h3>Banner Grabber</h3>
-                <p>Python script for grabbing service banners to identify systems.</p>
-                <a href="https://github.com/benjqminn/cybersecurity/tree/main/Infosecurity/bannergrabber"
-                    target="_blank">View on GitHub</a>
-            </div>
+            <article class="project-card" tabindex="0" data-tags="Python OpenCV MediaPipe Computer-Vision">
+                <img src="images/code_images/headsup_logo.png" loading="lazy" alt="HeadsUp posture tool thumbnail">
+                <h3>HeadsUp</h3>
+                <span class="project-meta">Jun 2025 – Jul 2025 • Python, OpenCV, MediaPipe</span>
+                <p>Real-time posture monitor: webcam face-mesh head-tilt alerts with overlay and mini widget.</p>
+                <div class="badge-row">
+                    <span class="badge">OpenCV</span><span class="badge">MediaPipe</span><span class="badge">UX</span>
+                </div>
+                <div class="project-actions">
+                    <a class="btn btn-primary" href="https://github.com/benjqminn/HeadsUp" target="_blank"
+                        rel="noopener">View on GitHub</a>
+                </div>
+            </article>
 
-            <div class="project-card">
-                <img src="images/code_images/server_client_code.png" alt="Client/Server TCP">
+            <article class="project-card extra" tabindex="0" data-tags="Healthcare Presentation IR Zero-Trust">
+                <img src="images/presentations/hardening_cybersecurity_benjamin_taylor.png" loading="lazy"
+                    alt="Healthcare security talk slides">
+                <h3>Cybersecurity in Healthcare Talk</h3>
+                <span class="project-meta">Jan 2025 – Mar 2025 • Presentation</span>
+                <p>Ransomware & IoT in hospitals; Zero Trust, segmentation, and IR playbooks.</p>
+                <div class="badge-row">
+                    <span class="badge">Zero Trust</span><span class="badge">IR</span>
+                </div>
+                <div class="project-actions">
+                    <a class="btn btn-primary" href="documents/project_slides/Hardening_Cybersecurity_in_Healthcare.pdf"
+                        target="_blank" rel="noopener">Slides (PDF)</a>
+                </div>
+            </article>
+
+            <article class="project-card extra" tabindex="0" data-tags="Cloudflare DDoS Research Anycast WAF">
+                <img src="images/presentations/ddos_mitigation_cloudflare_group9.png" loading="lazy"
+                    alt="Cloudflare DDoS mitigation slides">
+                <h3>DDoS with Cloudflare</h3>
+                <span class="project-meta">Oct 2024 – Nov 2024 • Research</span>
+                <p>Spamhaus case, Anycast routing, WAF tuning, and AI-assisted detection overview.</p>
+                <div class="badge-row">
+                    <span class="badge">DDoS</span><span class="badge">Cloudflare</span>
+                </div>
+                <div class="project-actions">
+                    <a class="btn btn-primary" href="documents/project_slides/DDoS_mitigation_from_Cloudflare.pdf"
+                        target="_blank" rel="noopener">Slides (PDF)</a>
+                </div>
+            </article>
+
+            <article class="project-card extra" tabindex="0" data-tags="Automotive Security Research Tesla">
+                <img src="images/presentations/tesla_model_s_hack_benjamin_taylor.png" loading="lazy"
+                    alt="Tesla Model S hack thumbnail">
+                <h3>Tesla Model S Hack</h3>
+                <span class="project-meta">Nov 2024 – Dec 2024 • Research Talk</span>
+                <p>2015 case study: attack path, mitigations, and automotive security lessons.</p>
+                <div class="badge-row">
+                    <span class="badge">Automotive</span><span class="badge">Security</span>
+                </div>
+                <div class="project-actions">
+                    <a class="btn btn-primary" href="documents/project_slides/2015_Tesla_Model_S_Hack.pdf"
+                        target="_blank" rel="noopener">Slides (PDF)</a>
+                </div>
+            </article>
+
+            <article class="project-card extra" tabindex="0" data-tags="Cloud Computing Edge Latency">
+                <img src="images/presentations/cloud_network_application_analysis.png" loading="lazy"
+                    alt="Cloud computing analysis slides">
+                <h3>Cloud Computing Analysis</h3>
+                <span class="project-meta">Oct 2024 • Presentation</span>
+                <p>IaaS/PaaS/SaaS, edge strategies, latency & jitter impacts on apps/gaming.</p>
+                <div class="badge-row">
+                    <span class="badge">Edge</span><span class="badge">Networking</span>
+                </div>
+                <div class="project-actions">
+                    <a class="btn btn-primary"
+                        href="documents/project_slides/Cloud_Computing_A_Network_Application_Analysis.pdf"
+                        target="_blank" rel="noopener">Slides (PDF)</a>
+                </div>
+            </article>
+
+            <article class="project-card extra" tabindex="0" data-tags="Python TCP Networking">
+                <img src="images/presentations/socket_programming_python_echo_client_server.png" loading="lazy"
+                    alt="Socket programming code sample">
                 <h3>Socket Programming</h3>
-                <p>Simple TCP echo client/server using socket library in Python.</p>
-                <a href="https://github.com/benjqminn/cybersecurity/tree/main/Infosecurity/clientserver"
-                    target="_blank">View on GitHub</a>
-            </div>
+                <span class="project-meta">Nov 2024 – Dec 2024 • Python, TCP/IP</span>
+                <p>TCP echo client/server with clean connection handling and demo runbook.</p>
+                <div class="badge-row">
+                    <span class="badge">TCP</span><span class="badge">Python</span>
+                </div>
+                <div class="project-actions">
+                    <a class="btn btn-primary"
+                        href="documents/project_slides/Socket_Programming_in_Python_Echo_Client_and_Server.pdf"
+                        target="_blank" rel="noopener">Read PDF</a>
+                </div>
+            </article>
 
-            <div class="project-card">
-                <img src="images/code_images/nmap_scanner_code.png" alt="Nmap Scanner">
+            <article class="project-card" tabindex="0" data-tags="Python Networking BannerGrabber InfoSec">
+                <img src="images/code_images/banner_grabber_code.png" loading="lazy"
+                    alt="Banner Grabber code screenshot">
+                <h3>Banner Grabber</h3>
+                <span class="project-meta">Tool • Python</span>
+                <p>Simple script to retrieve service banners for reconnaissance and service identification (supports
+                    HTTP, SMTP, FTP, etc.).</p>
+                <div class="badge-row">
+                    <span class="badge">Python</span><span class="badge">Networking</span><span
+                        class="badge">Recon</span>
+                </div>
+                <div class="project-actions">
+                    <a class="btn btn-primary"
+                        href="https://github.com/benjqminn/cybersecurity/tree/main/Infosecurity/bannergrabber"
+                        target="_blank" rel="noopener">View on GitHub</a>
+                </div>
+            </article>
+
+            <article class="project-card" tabindex="0" data-tags="Python Nmap Automation Scanner Reporting">
+                <img src="images/code_images/nmap_scanner_code.png" loading="lazy" alt="Nmap Scanner script screenshot">
                 <h3>Nmap Scanner</h3>
-                <p>Automates Nmap scanning with clean output parsing and report generation.</p>
-                <a href="https://github.com/benjqminn/cybersecurity/tree/main/Infosecurity/nmap_scanner"
-                    target="_blank">View on GitHub</a>
-            </div>
+                <span class="project-meta">Tool • Python</span>
+                <p>Wrapper/automation around Nmap with clean output parsing and report generation — great for repeated
+                    scanning workflows.</p>
+                <div class="badge-row">
+                    <span class="badge">Python</span><span class="badge">Nmap</span><span class="badge">Reporting</span>
+                </div>
+                <div class="project-actions">
+                    <a class="btn btn-primary"
+                        href="https://github.com/benjqminn/cybersecurity/tree/main/Infosecurity/nmap_scanner"
+                        target="_blank" rel="noopener">View on GitHub</a>
+                </div>
+            </article>
 
-            <div class="project-card">
-                <img src="images/code_images/port_scanner_code.png" alt="Port Scanner">
+            <article class="project-card" tabindex="0" data-tags="Python PortScanner TCP UDP Multithread">
+                <img src="images/code_images/port_scanner_code.png" loading="lazy" alt="Port Scanner code screenshot">
                 <h3>Port Scanner</h3>
-                <p>Threaded Python-based port scanner for checking open ports on targets.</p>
-                <a href="https://github.com/benjqminn/cybersecurity/tree/main/Infosecurity/portscanner"
-                    target="_blank">View on GitHub</a>
-            </div>
+                <span class="project-meta">Tool • Python</span>
+                <p>Threaded TCP/UDP port scanner for fast topology discovery and service detection — built for learning
+                    and demos.</p>
+                <div class="badge-row">
+                    <span class="badge">Python</span><span class="badge">TCP/UDP</span><span
+                        class="badge">Multithread</span>
+                </div>
+                <div class="project-actions">
+                    <a class="btn btn-primary"
+                        href="https://github.com/benjqminn/cybersecurity/tree/main/Infosecurity/portscanner"
+                        target="_blank" rel="noopener">View on GitHub</a>
+                </div>
+            </article>
+
+            <article class="project-card" tabindex="0" data-tags="Python Socket Client Server TCP Echo">
+                <img src="images/code_images/server_client_code.png" loading="lazy"
+                    alt="Socket programming client/server screenshot">
+                <h3>Socket Programming</h3>
+                <span class="project-meta">Tool • Python</span>
+                <p>Echo client & server demos showcasing TCP connection handling, graceful shutdowns, and example usage
+                    notes — ideal for network fundamentals.</p>
+                <div class="badge-row">
+                    <span class="badge">Python</span><span class="badge">TCP/IP</span><span
+                        class="badge">Networking</span>
+                </div>
+                <div class="project-actions">
+                    <a class="btn btn-primary"
+                        href="https://github.com/benjqminn/cybersecurity/tree/main/Infosecurity/clientserver"
+                        target="_blank" rel="noopener">View on GitHub</a>
+                </div>
+            </article>
         </div>
     </main>
 

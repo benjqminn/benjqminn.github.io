@@ -519,19 +519,24 @@ nav a i {
 }
 
 .education-grid {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 2rem;
-  justify-content: center; 
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: center;
 }
 
 .edu-card.half-width {
-  flex: 1 1 48%;
-  max-width: 48%;
+    flex: 1 1 48%;
+    max-width: 48%;
 }
 
-.ms-card { order: 1; }
-.bs-card { order: 2; }
+.ms-card {
+    order: 1;
+}
+
+.bs-card {
+    order: 2;
+}
 
 .edu-card {
     background: #f9f9f9;
@@ -1343,12 +1348,12 @@ nav a i {
     font-family: inherit;
     font-size: inherit;
     font-weight: inherit;
-    color: #222; 
+    color: #222;
     text-decoration: none;
     transition: color 0.2s ease, text-decoration 0.2s ease;
 }
 
 .obscura-heading-link:hover {
     text-decoration: underline;
-    color: #000; 
+    color: #000;
 }

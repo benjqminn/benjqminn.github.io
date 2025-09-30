@@ -164,9 +164,17 @@
 **Question:** Which network-related API does the binary use to gather details about each shared resource on a server? (string) 
 
 **Walkthrough:**  
-- xxx
+- Near the end of the main function, there is a function being called named `ScanAndSpread()`.
 
-**Answer:** `xxx`  
+![ScanAndSpread()](payload_images/task8-evidence.png)
+- If we double-click this function to view the decompiled version, we find a Windows API named `NetShareEnum` that grabs information about each shared resource on the server.
+
+![NetShareEnum presence](payload_images/task8-evidence2.png)
+- Looking into it further, we can see it falls under the `Netapi32.dll` library.
+
+![Netapi32.dll library](payload_images/task8-evidence3.png)
+
+**Answer:** `NetShareEnum`  
 
 ---
 
@@ -175,7 +183,11 @@
 **Question:** Which Opcode is responsible for running the encrypted payload? (** ** **) 
 
 **Walkthrough:**  
-- xxx
+- In the same `ScanAndSpread()` function from the prior question, we can see that there is an encrypted blob present.
+- When looking for where this was implemented in the code, a few lines beneath it, there is a call made.
+
+![Opcode found](payload_images/task9-evidence.png)
+- The associated opcode is listed upon hovering over it, giving us the answer to our question.
 
 **Answer:** `xxx`  
 
@@ -186,10 +198,42 @@
 **Question:** Find → Block → Flag: Identify the killswitch domain, spawn the Docker to block it, and claim the flag. (HTB{*******_**********_********_*****}) 
 
 **Walkthrough:**  
-- xxx
+- We already have the encrypted string for the kill switch from Flag 7.
+- The string in question is: `KXgmYHMADxsV8uHiuPPB3w==`
+- The next steps for this encrypted string are obviously to decrypt it.
+- To successfully decrypt this Base64-encoded string, we need to find the XOR key.
+- In the decompiler line, from previous questions, we already saw the derived keystream building the XOR.
+- Line in specific: `local_1f8._Buf[(longlong)pIVar12] = (char)pIVar12 * '\a' + 'B';`
+- For this, we can make a program to build a 32-byte keystream using our formula (`(i*7 + ord('B')) & 0xff`) to print as a single hex string.
 
-**Answer:** `xxx`  
+![Decode to hex string](payload_images/task10-evidence.png)
+- The Python code I used to decode the string is:
+  
+- `key_array = []
+for i in range(32):
+    key_array.append(format((i * 7 + ord('B')) & 0xff, '02x'))
+print(''.join(key_array))`
+
+- The key we are given is `424950575e656c737a81888f969da4abb2b9c0c7ced5dce3eaf1f8ff060d141b`.
+- Navigating to CyberChef, we can make a recipe "From Base64 -> XOR", using our output hex key.
+
+![Cyberchef](payload_images/task10-evidence2.png)
+- The Output we receive is `k1v7-echosim.net`.
+- This isn't the answer, however.
+- If we spawn the Docker for "The Payload", we can navigate to the IP address and port given.
+
+![DNS Management Dashboard](payload_images/task10-evidence3.png)
+- It takes us to a DNS Management Dashboard.
+
+![Holmes Story](payload_images/task10-evidence4.png)
+- If we put in the domain we received from CyberChef, we receive a confirmation message.
+- A story plays out about Holmes and the SYSTEM, and we are taken to the screen where we receive our final flag.
+
+![Final Flag](payload_images/task10-evidence5.png)
+
+**Answer:** `HTB{Eternal_Companions_Reunited_Again}`  
 
 ---
 
 **Back to Main Page:** [Holmes CTF 2025](./index.md)
+

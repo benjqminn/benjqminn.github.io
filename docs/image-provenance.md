@@ -1,0 +1,17 @@
+# Landscape asset
+
+Created with the built-in image-generation tool for this portfolio on October 28, 2026. Decorative illustration of an Appalachian landscape; not a claim that Benjamin photographed or visited a particular location. The generated original is kept outside the published build. Optimized WebP derivatives are self-hosted in `public/assets/`.
+
+The Obscura alert-feed image is an actual screenshot from the existing portfolio repository, `images/threat_dashboard.png`, optimized to `public/assets/obscura-dashboard.webp`. It is not AI-generated. The caption identifies it as a project screenshot, and its link opens the image for closer inspection.
+
+The two additional Obscura images are also actual screenshots from the original portfolio: `images/obscura_landing.png` and `images/alert_chart.png`, optimized to `public/assets/obscura-landing.webp` and `public/assets/obscura-alerts.webp`. They document a development interface, not measured detection effectiveness. All three retain their original interface colors and content.
+
+The 23 Credly images in `public/assets/badges/` are official issued-badge artwork observed on the owner's public profile on October 28, 2026. They were downloaded from `images.credly.com` and optimized to WebP without changing their artwork. The additional Azure Fundamentals SVG is the official badge shown on the owner's active Microsoft Learn credential record. Exact source URLs and direct issued-record links are archived in `credential-sources.json`. These are provider-issued images, not generated illustrations or custom recreations. Google's offerings are described as course/career certificates, and the expired ISC2 Candidate artwork appears with an explicit historical status.
+
+The nine images in `public/assets/training/` are optimized copies of actual completion certificates: six from the existing portfolio images, two rendered from the owner's public certificate PDFs (RISC-V and Pre Security), and one public LinkedIn Learning certificate image (Data Analytics). The source paths or image URLs and verification links are in the registry. Their certificate text and artwork are preserved; card headings and labels carry the readable title and credential type.
+
+Claude Academy's verification record does not expose an image asset. Its card uses a native SVG book illustration and the issuer's name, with a direct link to the actual verified completion record. This is an explanatory course tile, not an invented certification badge.
+
+The header landscape symbol, focus-area icons, research workflow, and Trace stack overview are native SVG/HTML/CSS. The diagrams summarize documented work and do not imply additional measured findings.
+
+Prompt: "Use case: photorealistic-natural. Asset type: wide cinematic landscape photograph for a personal cybersecurity portfolio website hero, decorative background only. A quiet Appalachian mountain ridge at blue hour, layered dark forested ridgelines receding into delicate pale sage mist, dense evergreen and deciduous woodland in foreground, muted olive greens and charcoal shadows, faint warm ivory daylight along the horizon. Restrained editorial landscape photography, realistic fine grain, understated and contemplative, rich natural detail, no dramatic neon or oversaturated sunset. Wide 3:2 landscape composition with the ridges lower in frame, airy mist in upper half. No text, no people, no buildings, no technology, no logos, no watermark."

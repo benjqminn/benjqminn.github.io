@@ -1,0 +1,14 @@
+{
+  "name": "benjamin-taylor-portfolio",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Benjamin Taylor's static cybersecurity portfolio",
+  "engines": { "node": ">=22" },
+  "scripts": {
+    "dev": "node tools/serve.mjs",
+    "build": "node tools/build.mjs",
+    "check": "node tools/check.mjs",
+    "credentials": "node tools/render-credentials.mjs"
+  }
+}

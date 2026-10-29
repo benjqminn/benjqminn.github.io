@@ -24,7 +24,14 @@ for (const filename of htmlFiles) {
       assert(ids.includes(target.slice(1)), `Missing anchor ${target} in ${filename}`);
       continue;
     }
-    const path = resolve(publicRoot, target.replace(/^\//, ''));
+    const parsed = new URL(target, 'https://portfolio.local/' + filename);
+    const path = resolve(publicRoot, decodeURIComponent(parsed.pathname.replace(/^\//, '')));
+    if (parsed.hash) {
+      const linkedFile = (await stat(path)).isDirectory() ? resolve(path, 'index.html') : path;
+      const linkedSource = await readFile(linkedFile, 'utf8');
+      const fragment = decodeURIComponent(parsed.hash.slice(1));
+      assert(linkedSource.includes('id="' + fragment + '"'), 'Missing linked anchor ' + target + ' in ' + filename);
+    }
     const targetMetadata = await stat(path);
     if (targetMetadata.isDirectory()) {
       assert((await stat(resolve(path, 'index.html'))).isFile(), `Missing index for ${target}`);

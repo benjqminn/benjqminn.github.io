@@ -15,9 +15,9 @@
   <meta name="twitter:card" content="summary_large_image">
   <link rel="canonical" href="https://benjqminn.github.io/">
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="site.css">
+  <link rel="stylesheet" href="site.css?v=20261029-timeline">
   <link rel="preload" as="image" href="assets/mountain-ridges.webp" imagesrcset="assets/mountain-ridges-small.webp 800w, assets/mountain-ridges.webp 1536w" imagesizes="100vw">
-  <script src="site.js" defer></script>
+  <script src="site.js?v=20261029-timeline" defer></script>
   <title>Benjamin Taylor | Cybersecurity</title>
 </head>
 <body>
@@ -31,6 +31,7 @@
       <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav" hidden><span class="menu-label">Menu</span><span class="menu-icon" aria-hidden="true"></span></button>
       <nav id="site-nav" aria-label="Main navigation">
         <a href="#work">Work<span class="nav-arrow" aria-hidden="true">↘</span></a>
+        <a href="archive.html">Timeline<span class="nav-arrow" aria-hidden="true">↗</span></a>
         <a href="#about">About<span class="nav-arrow" aria-hidden="true">↘</span></a>
         <a href="#experience">Experience<span class="nav-arrow" aria-hidden="true">↘</span></a>
         <a href="#contact">Contact<span class="nav-arrow" aria-hidden="true">↘</span></a>
@@ -67,14 +68,14 @@
     </ul>
 
     <section class="work-section wrap" id="work" aria-labelledby="work-heading">
-      <div class="section-heading"><h2 id="work-heading" tabindex="-1">Projects & research</h2><a href="https://github.com/benjqminn">All repositories <span aria-hidden="true">↗</span></a></div>
+      <div class="section-heading"><div><p class="section-kicker">Evidence first · Selected highlights</p><h2 id="work-heading" tabindex="-1">Projects &amp; research</h2></div><a href="archive.html">Explore full timeline <span aria-hidden="true">↘</span></a></div>
 
       <article class="project research-project">
         <div class="project-type"><span>Research</span><span>Graduate project</span></div>
         <div class="project-body">
           <h3>Forensic Visibility in AWS</h3>
           <p>I built a controlled AWS environment to test how well its logs could reconstruct simulated attacker activity. The work involved collecting evidence, checking hashes, and piecing together timelines across multiple logging sources.</p>
-          <p>I wanted to understand what you can recover from those logs, where the gaps are, and how much changes when you correlate the sources.</p>
+          <p>I wanted to understand what could be reconstructed from the logs, where the gaps remained, and what cross-source evidence added.</p><div class="research-metrics" role="group" aria-label="AWS research findings"><div><strong>87</strong><span>simulated actions</span></div><div><strong>87.4%</strong><span>overall observability</span></div><div><strong>63.2%</strong><span>strict full reconstruction</span></div></div>
           <ol class="research-flow" aria-label="Research workflow">
             <li><span class="flow-number" aria-hidden="true">01</span><strong>Simulate activity</strong><span>Controlled AWS environment</span></li>
             <li><span class="flow-number" aria-hidden="true">02</span><strong>Collect evidence</strong><span>Correlate native log sources</span></li>
@@ -88,7 +89,7 @@
       <article class="project obscura-project">
         <div class="project-type"><span>Security tool</span><span>Solo project</span></div>
         <div class="project-body">
-          <h3>Obscura</h3>
+          <h3>Obscura</h3><p class="project-proof"><strong>10K+</strong> network packets per session <span>·</span> <strong>3</strong> original detection workflows</p>
           <p>A SOC simulation I built to work with packet captures. It parses uploaded PCAP files, checks for SYN scans, brute-force activity, and YARA matches, and displays alerts in a React dashboard.</p>
           <p>I worked on both the Python analysis backend and the interface for reviewing its output.</p>
           <div class="project-gallery carousel" data-carousel role="region" aria-roledescription="carousel" aria-label="Obscura project screenshots">
@@ -108,13 +109,15 @@
       <article class="project">
         <div class="project-type"><span>Application</span><span>Team capstone</span></div>
         <div class="project-body">
-          <h3>Trace</h3>
+          <h3>Trace</h3><p class="project-proof">Team capstone <span>·</span> Backend, authentication, AWS deployment &amp; security</p>
           <p>A financial intelligence platform built for our Computer Science capstone. My part focused on backend systems, authentication, AWS deployment, monitoring, and security hardening.</p>
           <div class="stack-overview" role="img" aria-label="Trace stack overview: React interface, FastAPI backend, and MySQL and Redis persistence, using AWS."><span><small>Interface</small><strong>React</strong></span><span class="stack-connector" aria-hidden="true">↔</span><span><small>Backend</small><strong>FastAPI</strong></span><span class="stack-connector" aria-hidden="true">↔</span><span><small>Persistence</small><strong>MySQL / Redis</strong></span></div>
           <p class="project-tools">React · FastAPI · MySQL · Redis · AWS</p>
           <a class="project-link" href="https://github.com/jaydenrrr22/CapstoneProject">View capstone repository <span aria-hidden="true">↗</span></a>
         </div>
       </article>
+
+
     </section>
 
     <section class="about-section section-block wrap" id="about" aria-labelledby="about-heading">

@@ -207,3 +207,38 @@ if (copyButton && copyStatus && navigator.clipboard && window.isSecureContext) {
     }
   });
 }
+
+
+/* Chronological archive: accessible category and text filtering, with year markers. */
+const timeline = document.querySelector('#career-timeline');
+if (timeline) {
+  const cards = [...timeline.querySelectorAll('.timeline-entry')];
+  const filters = [...document.querySelectorAll('[data-timeline-filter]')];
+  const search = document.querySelector('#timeline-search');
+  const empty = document.querySelector('#timeline-empty');
+  let selected = 'all';
+  const update = () => {
+    const term = (search?.value || '').trim().toLocaleLowerCase();
+    let count = 0;
+    for (const card of cards) {
+      const categories = (card.dataset.category || '').split(' ');
+      const matchesCategory = selected === 'all' || categories.includes(selected);
+      const matchesText = !term || (card.dataset.search + ' ' + card.textContent).toLocaleLowerCase().includes(term);
+      card.hidden = !(matchesCategory && matchesText);
+      if (!card.hidden) count++;
+    }
+    for (const year of timeline.querySelectorAll('.timeline-year')) {
+      year.hidden = !cards.some(card => !card.hidden && card.dataset.year === year.querySelector('span')?.textContent);
+    }
+    if (empty) empty.hidden = count !== 0;
+  };
+  for (const filter of filters) {
+    filter.addEventListener('click', () => {
+      selected = filter.dataset.timelineFilter;
+      for (const button of filters) button.setAttribute('aria-pressed', String(button === filter));
+      update();
+    });
+  }
+  search?.addEventListener('input', update);
+  update();
+}

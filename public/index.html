@@ -15,9 +15,9 @@
   <meta name="twitter:card" content="summary_large_image">
   <link rel="canonical" href="https://benjqminn.github.io/">
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="site.css?v=20261029-atlas">
+  <link rel="stylesheet" href="site.css?v=20261029-timeline">
   <link rel="preload" as="image" href="assets/mountain-ridges.webp" imagesrcset="assets/mountain-ridges-small.webp 800w, assets/mountain-ridges.webp 1536w" imagesizes="100vw">
-  <script src="site.js?v=20261029-atlas" defer></script>
+  <script src="site.js?v=20261029-timeline" defer></script>
   <title>Benjamin Taylor | Cybersecurity</title>
 </head>
 <body>
@@ -31,6 +31,7 @@
       <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav" hidden><span class="menu-label">Menu</span><span class="menu-icon" aria-hidden="true"></span></button>
       <nav id="site-nav" aria-label="Main navigation">
         <a href="#work">Work<span class="nav-arrow" aria-hidden="true">↘</span></a>
+        <a href="archive.html">Timeline<span class="nav-arrow" aria-hidden="true">↗</span></a>
         <a href="#about">About<span class="nav-arrow" aria-hidden="true">↘</span></a>
         <a href="#experience">Experience<span class="nav-arrow" aria-hidden="true">↘</span></a>
         <a href="#contact">Contact<span class="nav-arrow" aria-hidden="true">↘</span></a>
@@ -67,7 +68,7 @@
     </ul>
 
     <section class="work-section wrap" id="work" aria-labelledby="work-heading">
-      <div class="section-heading"><div><p class="section-kicker">Evidence first · Selected highlights</p><h2 id="work-heading" tabindex="-1">Projects &amp; research</h2></div><a href="#atlas">Explore project archive <span aria-hidden="true">↘</span></a></div>
+      <div class="section-heading"><div><p class="section-kicker">Evidence first · Selected highlights</p><h2 id="work-heading" tabindex="-1">Projects &amp; research</h2></div><a href="archive.html">Explore full timeline <span aria-hidden="true">↘</span></a></div>
 
       <article class="project research-project">
         <div class="project-type"><span>Research</span><span>Graduate project</span></div>
@@ -116,73 +117,7 @@
         </div>
       </article>
 
-      <section class="evidence-atlas" aria-labelledby="atlas-heading" id="atlas">
-        <div class="atlas-heading">
-          <div><p class="section-kicker">Selected work beyond the highlights</p><h3 id="atlas-heading">The project archive.</h3><p>Explore completed security labs, research, engineering projects, and presentations. Each card links to supporting work; historical projects are labeled accordingly.</p></div>
-          <span class="atlas-counter" id="atlas-count" aria-live="polite">12 projects</span>
-        </div>
-        <div class="atlas-controls">
-          <div class="atlas-filters" role="group" aria-label="Filter projects">
-            <button type="button" data-project-filter="all" aria-pressed="true">All</button>
-            <button type="button" data-project-filter="security" aria-pressed="false">Security &amp; DFIR</button>
-            <button type="button" data-project-filter="research" aria-pressed="false">Research</button>
-            <button type="button" data-project-filter="engineering" aria-pressed="false">Engineering</button>
-            <button type="button" data-project-filter="speaking" aria-pressed="false">Presentations</button>
-          </div>
-          <label class="atlas-search-label">Search projects <input id="atlas-search" type="search" placeholder="Search by topic or technology…" autocomplete="off"></label>
-        </div>
-        <div class="atlas-grid" id="atlas-grid">
-          <article class="atlas-card" data-category="security" data-keywords="holmes ctf windows memory forensics incident response volatility3 hack the box">
-            <div class="atlas-art atlas-art-forensics"><span class="art-eyebrow">INCIDENT INVESTIGATION / 2025</span><div class="art-window"><span>FORENSIC TIMELINE</span><div><i></i><i></i><i></i><i></i></div><strong>WINDOWS IR</strong></div><span class="art-micro">Artifacts → Timeline → Findings</span></div>
-            <div class="atlas-card-body"><span class="atlas-type">DFIR · CTF</span><h4>Holmes Blue CTF</h4><p>Windows incident investigation using memory forensics, system artifacts, and MITRE ATT&amp;CK mapping.</p><div class="atlas-tags"><span>Volatility3</span><span>Windows</span><span>DFIR</span></div><a href="https://github.com/benjqminn/benjqminn.github.io/blob/main/holmes-ctf/index.md">Investigation evidence ↗</a></div>
-          </article>
-          <article class="atlas-card" data-category="security" data-keywords="soc homelab wazuh elk siem sysmon virtualbox">
-            <div class="atlas-art atlas-art-network"><span class="art-eyebrow">SOC INFRASTRUCTURE / 2025</span><div class="art-nodes"><b>SIEM</b><span>↙</span><b>ENDPOINT</b><span>↗</span><b>NETWORK</b></div><span class="art-micro">Virtualized detection environment</span></div>
-            <div class="atlas-card-body"><span class="atlas-type">Security engineering</span><h4>SOC Homelab</h4><p>Virtualized lab environment with defensive telemetry and attacker simulation for investigation practice.</p><div class="atlas-tags"><span>Wazuh</span><span>ELK</span><span>Sysmon</span></div><a href="https://medium.com/@btayl106/turning-an-old-pc-into-a-security-operations-center-6ffe7dc4795d">Read the build ↗</a></div>
-          </article>
-          <article class="atlas-card" data-category="research" data-keywords="iot device security zero trust mirai wanna cry article">
-            <div class="atlas-art atlas-art-iot"><span class="art-eyebrow">SECURITY RESEARCH / 2025</span><div class="art-shield"><span>IoT</span><strong>TRUST<br>BOUNDARY</strong></div><span class="art-micro">Segmentation · Hardening · Resilience</span></div>
-            <div class="atlas-card-body"><span class="atlas-type">Published writing</span><h4>IoT Security Research</h4><p>Analysis of connected-device risk and defensive approaches including network segmentation and Zero Trust.</p><div class="atlas-tags"><span>IoT</span><span>Zero Trust</span></div><a href="https://medium.com/@btayl106/your-smart-toaster-could-be-a-cyberweapon-the-urgent-need-for-iot-device-security-f08513a5947a">Read on Medium ↗</a></div>
-          </article>
-          <article class="atlas-card" data-category="engineering" data-keywords="ragebox python pyqt sqlite audio desktop app">
-            <div class="atlas-art atlas-art-wave"><span class="art-eyebrow">DESKTOP SOFTWARE / 2025</span><div class="art-waveform"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div><span class="art-micro">Playlists · Local media · Playback</span></div>
-            <div class="atlas-card-body"><span class="atlas-type">Desktop engineering</span><h4>RAGEBOX</h4><p>Desktop audio and clip-management application with playlists, tagging, and playback controls.</p><div class="atlas-tags"><span>Python</span><span>PyQt5</span><span>SQLite</span></div><a href="https://github.com/benjqminn/ragebox-project">Project repository ↗</a></div>
-          </article>
-          <article class="atlas-card" data-category="engineering" data-keywords="headsup face mesh posture computer vision opencv mediapipe">
-            <div class="atlas-art atlas-art-vision"><span class="art-eyebrow">COMPUTER VISION / 2025</span><div class="art-target"><span>HEAD ANGLE</span><strong>↗</strong><small>POSTURE MONITOR</small></div><span class="art-micro">Real-time feedback interface</span></div>
-            <div class="atlas-card-body"><span class="atlas-type">Applied computer vision</span><h4>HeadsUp</h4><p>Webcam-based head-posture monitoring with real-time visual feedback and an on-screen widget.</p><div class="atlas-tags"><span>OpenCV</span><span>MediaPipe</span><span>Python</span></div><a href="https://github.com/benjqminn/HeadsUp">Project repository ↗</a></div>
-          </article>
-          <article class="atlas-card" data-category="speaking" data-keywords="healthcare cybersecurity ransomware zero trust presentation">
-            <div class="atlas-art atlas-art-talk"><span class="art-eyebrow">SECURITY PRESENTATION / 2025</span><div class="art-presentation"><span>01 / DEFENSE</span><strong>HEALTHCARE<br>SECURITY</strong><span>RANSOMWARE &amp; IR</span></div></div>
-            <div class="atlas-card-body"><span class="atlas-type">Research presentation</span><h4>Security in Healthcare</h4><p>Ransomware, connected medical devices, segmentation, and incident response in healthcare settings.</p><div class="atlas-tags"><span>Ransomware</span><span>IoT</span><span>IR</span></div><a href="https://github.com/benjqminn/benjqminn.github.io/blob/main/documents/project_slides/Hardening_Cybersecurity_in_Healthcare.pdf">View slides ↗</a></div>
-          </article>
-          <article class="atlas-card" data-category="speaking research" data-keywords="cloudflare ddos anycast waf research presentation">
-            <div class="atlas-art atlas-art-network"><span class="art-eyebrow">NETWORK DEFENSE / 2024</span><div class="art-nodes"><b>EDGE</b><span>⇄</span><b>ANYCAST</b><span>⇄</span><b>ORIGIN</b></div><span class="art-micro">Traffic distribution · Mitigation</span></div>
-            <div class="atlas-card-body"><span class="atlas-type">Network research</span><h4>DDoS Mitigation</h4><p>Cloudflare mitigation case study covering Anycast, web application firewalls, and defensive architecture.</p><div class="atlas-tags"><span>Cloudflare</span><span>DDoS</span><span>Anycast</span></div><a href="https://github.com/benjqminn/benjqminn.github.io/blob/main/documents/project_slides/DDoS_mitigation_from_Cloudflare.pdf">View slides ↗</a></div>
-          </article>
-          <article class="atlas-card" data-category="speaking research" data-keywords="tesla model s security automotive hack presentation">
-            <div class="atlas-art atlas-art-car"><span class="art-eyebrow">AUTOMOTIVE SECURITY / 2024</span><div class="art-presentation"><span>CASE STUDY</span><strong>TESLA<br>MODEL S</strong><span>ATTACK PATH → MITIGATION</span></div></div>
-            <div class="atlas-card-body"><span class="atlas-type">Security case study</span><h4>Tesla Model S Hack</h4><p>Analysis of an automotive exploitation case and lessons for embedded and connected systems.</p><div class="atlas-tags"><span>Automotive</span><span>Security</span></div><a href="https://github.com/benjqminn/benjqminn.github.io/blob/main/documents/project_slides/2015_Tesla_Model_S_Hack.pdf">View slides ↗</a></div>
-          </article>
-          <article class="atlas-card" data-category="speaking" data-keywords="cloud computing networking edge latency jitter presentation">
-            <div class="atlas-art atlas-art-cloud"><span class="art-eyebrow">CLOUD &amp; NETWORKING / 2024</span><div class="art-presentation"><span>APPLICATION ANALYSIS</span><strong>CLOUD<br>SYSTEMS</strong><span>LATENCY · EDGE · SERVICE</span></div></div>
-            <div class="atlas-card-body"><span class="atlas-type">Technical presentation</span><h4>Cloud Computing Analysis</h4><p>Comparison of cloud service models, edge approaches, and application network performance.</p><div class="atlas-tags"><span>Cloud</span><span>Networking</span></div><a href="https://github.com/benjqminn/benjqminn.github.io/blob/main/documents/project_slides/Cloud_Computing_A_Network_Application_Analysis.pdf">View slides ↗</a></div>
-          </article>
-          <article class="atlas-card" data-category="engineering" data-keywords="socket programming python tcp echo client server">
-            <div class="atlas-art atlas-art-terminal"><span class="art-eyebrow">SOCKET PROGRAMMING / 2024</span><div class="art-console"><span>$ python server.py</span><span>LISTEN 127.0.0.1:PORT</span><span>→ connected</span></div></div>
-            <div class="atlas-card-body"><span class="atlas-type">Networking foundations</span><h4>TCP Client &amp; Server</h4><p>Python socket-programming demonstrations focused on connectivity and protocol behavior.</p><div class="atlas-tags"><span>Python</span><span>TCP/IP</span></div><a href="https://github.com/benjqminn/cybersecurity/tree/main/Infosecurity/clientserver">Explore code ↗</a></div>
-          </article>
-          <article class="atlas-card" data-category="engineering security" data-keywords="banner grabber nmap port scanner python reconnaissance tools">
-            <div class="atlas-art atlas-art-terminal"><span class="art-eyebrow">SECURITY TOOLING / FOUNDATIONS</span><div class="art-console"><span>$ nmap --version</span><span>HOST / PORT / SERVICE</span><span>→ scan results</span></div></div>
-            <div class="atlas-card-body"><span class="atlas-type">Security scripting</span><h4>Scanning Toolkit</h4><p>Early Python exercises for banner retrieval, port discovery, and Nmap automation.</p><div class="atlas-tags"><span>Python</span><span>Nmap</span><span>TCP</span></div><a href="https://github.com/benjqminn/cybersecurity/tree/main/Infosecurity">Browse scripts ↗</a></div>
-          </article>
-          <article class="atlas-card" data-category="security engineering" data-keywords="betta phish hooked startup hackathon phishing awareness flask htmx react">
-            <div class="atlas-art atlas-art-hack"><span class="art-eyebrow">HACKATHON / 2025</span><div class="art-presentation"><span>CCI STARTUP HACKATHON</span><strong>HOOKED?</strong><span>MOST CREATIVE AWARD</span></div></div>
-            <div class="atlas-card-body"><span class="atlas-type">Award-winning project</span><h4>Betta Phish: Hooked?</h4><p>Led a four-person team developing a phishing-awareness and financial-literacy prototype in under 48 hours; Most Creative Award among 40+ teams.</p><div class="atlas-tags"><span>Flask</span><span>HTMX</span><span>React</span></div><a href="https://betta-phish.github.io/bettaphish/">Explore the prototype ↗</a></div>
-          </article>
-        </div>
-        <p class="atlas-empty" id="atlas-empty" hidden>No projects match your search. Try another keyword or category.</p>
-      </section>
+
     </section>
 
     <section class="about-section section-block wrap" id="about" aria-labelledby="about-heading">
